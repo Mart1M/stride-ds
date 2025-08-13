@@ -13,6 +13,12 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
+  managerHead: (head) => `
+    ${head}
+    <title>Stride Design System</title>
+    <meta property="og:title" content="Stride Design System" />
+    <meta property="og:description" content="Interactive component documentation and design system playground" />
+  `,
 };
 
 

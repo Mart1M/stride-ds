@@ -28,6 +28,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build-storybook:gh-pages": "storybook build --output-dir storybook-static",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "changeset publish",
