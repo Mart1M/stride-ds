@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx storybook@latest init:*)",
+      "Bash(npx storybook:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": []
+  }
+}

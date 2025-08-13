@@ -1,0 +1,612 @@
+/* === MULTI-BRAND SYSTEM === */
+/* Core color tokens per brand */
+
+/* === STRIDE BRAND (Default) === */
+.brand-stride {
+  /* Primary colors - Blue */
+  --brand-primary-50: #f0f9ff;
+  --brand-primary-100: #e0f2fe;
+  --brand-primary-200: #bae6fd;
+  --brand-primary-300: #7dd3fc;
+  --brand-primary-400: #38bdf8;
+  --brand-primary-500: #0ea5e9;
+  --brand-primary-600: #0284c7;
+  --brand-primary-700: #0369a1;
+  --brand-primary-800: #075985;
+  --brand-primary-900: #0c4a6e;
+  --brand-primary-950: #082f49;
+
+  /* Neutral colors - Slate */
+  --brand-neutral-0: #ffffff;
+  --brand-neutral-50: #f8fafc;
+  --brand-neutral-100: #f1f5f9;
+  --brand-neutral-200: #e2e8f0;
+  --brand-neutral-300: #cbd5e1;
+  --brand-neutral-400: #94a3b8;
+  --brand-neutral-500: #64748b;
+  --brand-neutral-600: #475569;
+  --brand-neutral-700: #334155;
+  --brand-neutral-800: #1e293b;
+  --brand-neutral-900: #0f172a;
+  --brand-neutral-950: #020617;
+
+  /* Success colors */
+  --brand-success-50: #f0fdf4;
+  --brand-success-100: #dcfce7;
+  --brand-success-500: #22c55e;
+  --brand-success-600: #16a34a;
+  --brand-success-700: #15803d;
+
+  /* Warning colors */
+  --brand-warning-50: #fffbeb;
+  --brand-warning-100: #fef3c7;
+  --brand-warning-500: #f59e0b;
+  --brand-warning-600: #d97706;
+  --brand-warning-700: #b45309;
+
+  /* Danger colors */
+  --brand-danger-50: #fef2f2;
+  --brand-danger-100: #fee2e2;
+  --brand-danger-500: #ef4444;
+  --brand-danger-600: #dc2626;
+  --brand-danger-700: #b91c1c;
+
+  /* === TYPOGRAPHY TOKENS === */
+  --font-family-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* === SEMANTIC TOKEN MAPPING - STRIDE LIGHT === */
+  --text-primary: var(--brand-neutral-900);
+  --text-secondary: var(--brand-neutral-600);
+  --text-tertiary: var(--brand-neutral-500);
+  --text-inverse: var(--brand-neutral-0);
+  --text-disabled: var(--brand-neutral-400);
+  --text-link: var(--brand-primary-600);
+  --text-link-hover: var(--brand-primary-700);
+
+  --bg-primary: var(--brand-neutral-0);
+  --bg-secondary: var(--brand-neutral-50);
+  --bg-tertiary: var(--brand-neutral-100);
+  --bg-inverse: var(--brand-neutral-900);
+  --bg-disabled: var(--brand-neutral-100);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-brand: var(--brand-primary-500);
+
+  --border-primary: var(--brand-neutral-200);
+  --border-secondary: var(--brand-neutral-300);
+  --border-strong: var(--brand-neutral-400);
+  --border-inverse: var(--brand-neutral-700);
+  --border-focus: var(--brand-primary-500);
+
+  --interactive-primary: var(--brand-primary-600);
+  --interactive-primary-hover: var(--brand-primary-700);
+  --interactive-primary-active: var(--brand-primary-800);
+  --interactive-primary-disabled: var(--brand-neutral-200);
+  --interactive-primary-text: var(--brand-neutral-0);
+
+  --interactive-secondary: var(--brand-neutral-100);
+  --interactive-secondary-hover: var(--brand-neutral-200);
+  --interactive-secondary-active: var(--brand-neutral-300);
+  --interactive-secondary-disabled: var(--brand-neutral-100);
+
+  --interactive-ghost: transparent;
+  --interactive-ghost-hover: var(--brand-neutral-100);
+  --interactive-ghost-active: var(--brand-neutral-200);
+  --interactive-ghost-disabled: transparent;
+
+  --status-success: var(--brand-success-500);
+  --status-success-hover: var(--brand-success-600);
+  --status-success-bg: var(--brand-success-50);
+  --status-success-text: var(--brand-success-700);
+
+  --status-warning: var(--brand-warning-500);
+  --status-warning-hover: var(--brand-warning-600);
+  --status-warning-bg: var(--brand-warning-50);
+  --status-warning-text: var(--brand-warning-700);
+
+  --status-danger: var(--brand-danger-500);
+  --status-danger-hover: var(--brand-danger-600);
+  --status-danger-bg: var(--brand-danger-50);
+  --status-danger-text: var(--brand-danger-700);
+}
+
+/* === CORAL BRAND === */
+.brand-coral {
+  /* Primary colors - Orange/Red */
+  --brand-primary-50: #fff7ed;
+  --brand-primary-100: #ffedd5;
+  --brand-primary-200: #fed7aa;
+  --brand-primary-300: #fdba74;
+  --brand-primary-400: #fb923c;
+  --brand-primary-500: #f97316;
+  --brand-primary-600: #ea580c;
+  --brand-primary-700: #c2410c;
+  --brand-primary-800: #9a3412;
+  --brand-primary-900: #7c2d12;
+  --brand-primary-950: #431407;
+
+  /* Neutral colors - Warm tinted */
+  --brand-neutral-0: #ffffff;
+  --brand-neutral-50: #fefaf8;
+  --brand-neutral-100: #fdf4f0;
+  --brand-neutral-200: #f9e6de;
+  --brand-neutral-300: #f2d3c4;
+  --brand-neutral-400: #e4b5a0;
+  --brand-neutral-500: #d4957c;
+  --brand-neutral-600: #b8765a;
+  --brand-neutral-700: #96574a;
+  --brand-neutral-800: #7a453c;
+  --brand-neutral-900: #5c3530;
+  --brand-neutral-950: #3d2420;
+
+  /* Success colors */
+  --brand-success-50: #f0fdf4;
+  --brand-success-100: #dcfce7;
+  --brand-success-500: #22c55e;
+  --brand-success-600: #16a34a;
+  --brand-success-700: #15803d;
+
+  /* Warning colors */
+  --brand-warning-50: #fffbeb;
+  --brand-warning-100: #fef3c7;
+  --brand-warning-500: #f59e0b;
+  --brand-warning-600: #d97706;
+  --brand-warning-700: #b45309;
+
+  /* Danger colors */
+  --brand-danger-50: #fef2f2;
+  --brand-danger-100: #fee2e2;
+  --brand-danger-500: #ef4444;
+  --brand-danger-600: #dc2626;
+  --brand-danger-700: #b91c1c;
+
+  /* === TYPOGRAPHY TOKENS === */
+  --font-family-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-secondary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* === SEMANTIC TOKEN MAPPING - CORAL LIGHT === */
+  --text-primary: var(--brand-neutral-900);
+  --text-secondary: var(--brand-neutral-600);
+  --text-tertiary: var(--brand-neutral-500);
+  --text-inverse: var(--brand-neutral-0);
+  --text-disabled: var(--brand-neutral-400);
+  --text-link: var(--brand-primary-600);
+  --text-link-hover: var(--brand-primary-700);
+
+  --bg-primary: var(--brand-neutral-0);
+  --bg-secondary: var(--brand-neutral-50);
+  --bg-tertiary: var(--brand-neutral-100);
+  --bg-inverse: var(--brand-neutral-900);
+  --bg-disabled: var(--brand-neutral-100);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-brand: var(--brand-primary-500);
+
+  --border-primary: var(--brand-neutral-200);
+  --border-secondary: var(--brand-neutral-300);
+  --border-strong: var(--brand-neutral-400);
+  --border-inverse: var(--brand-neutral-700);
+  --border-focus: var(--brand-primary-500);
+
+  --interactive-primary: var(--brand-primary-600);
+  --interactive-primary-hover: var(--brand-primary-700);
+  --interactive-primary-active: var(--brand-primary-800);
+  --interactive-primary-disabled: var(--brand-neutral-300);
+  --interactive-primary-text: var(--brand-neutral-0);
+
+  --interactive-secondary: var(--brand-neutral-100);
+  --interactive-secondary-hover: var(--brand-neutral-200);
+  --interactive-secondary-active: var(--brand-neutral-300);
+  --interactive-secondary-disabled: var(--brand-neutral-100);
+
+  --interactive-ghost: transparent;
+  --interactive-ghost-hover: var(--brand-neutral-100);
+  --interactive-ghost-active: var(--brand-neutral-200);
+  --interactive-ghost-disabled: transparent;
+
+  --status-success: var(--brand-success-500);
+  --status-success-hover: var(--brand-success-600);
+  --status-success-bg: var(--brand-success-50);
+  --status-success-text: var(--brand-success-700);
+
+  --status-warning: var(--brand-warning-500);
+  --status-warning-hover: var(--brand-warning-600);
+  --status-warning-bg: var(--brand-warning-50);
+  --status-warning-text: var(--brand-warning-700);
+
+  --status-danger: var(--brand-danger-500);
+  --status-danger-hover: var(--brand-danger-600);
+  --status-danger-bg: var(--brand-danger-50);
+  --status-danger-text: var(--brand-danger-700);
+
+  /* Component overrides */
+  --radius-button: 0; /* No border radius for buttons */
+}
+
+/* === FOREST BRAND === */
+.brand-forest {
+  /* === TYPOGRAPHY TOKENS === */
+  --font-family-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-secondary: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Primary colors - Green */
+  --brand-primary-50: #f0fdf4;
+  --brand-primary-100: #dcfce7;
+  --brand-primary-200: #bbf7d0;
+  --brand-primary-300: #86efac;
+  --brand-primary-400: #4ade80;
+  --brand-primary-500: #22c55e;
+  --brand-primary-600: #16a34a;
+  --brand-primary-700: #15803d;
+  --brand-primary-800: #166534;
+  --brand-primary-900: #14532d;
+  --brand-primary-950: #052e16;
+
+  /* Neutral colors - Cool tinted */
+  --brand-neutral-0: #ffffff;
+  --brand-neutral-50: #f9fafb;
+  --brand-neutral-100: #f3f4f6;
+  --brand-neutral-200: #e5e7eb;
+  --brand-neutral-300: #d1d5db;
+  --brand-neutral-400: #9ca3af;
+  --brand-neutral-500: #6b7280;
+  --brand-neutral-600: #4b5563;
+  --brand-neutral-700: #374151;
+  --brand-neutral-800: #1f2937;
+  --brand-neutral-900: #111827;
+  --brand-neutral-950: #030712;
+
+  /* Success colors - Enhanced green */
+  --brand-success-50: #ecfdf5;
+  --brand-success-100: #d1fae5;
+  --brand-success-500: #10b981;
+  --brand-success-600: #059669;
+  --brand-success-700: #047857;
+
+  /* Warning colors */
+  --brand-warning-50: #fffbeb;
+  --brand-warning-100: #fef3c7;
+  --brand-warning-500: #f59e0b;
+  --brand-warning-600: #d97706;
+  --brand-warning-700: #b45309;
+
+  /* Danger colors */
+  --brand-danger-50: #fef2f2;
+  --brand-danger-100: #fee2e2;
+  --brand-danger-500: #ef4444;
+  --brand-danger-600: #dc2626;
+  --brand-danger-700: #b91c1c;
+
+  /* === SEMANTIC TOKEN MAPPING - FOREST LIGHT === */
+  --text-primary: var(--brand-neutral-900);
+  --text-secondary: var(--brand-neutral-600);
+  --text-tertiary: var(--brand-neutral-500);
+  --text-inverse: var(--brand-neutral-0);
+  --text-disabled: var(--brand-neutral-400);
+  --text-link: var(--brand-primary-600);
+  --text-link-hover: var(--brand-primary-700);
+
+  --bg-primary: var(--brand-neutral-0);
+  --bg-secondary: var(--brand-neutral-50);
+  --bg-tertiary: var(--brand-neutral-100);
+  --bg-inverse: var(--brand-neutral-900);
+  --bg-disabled: var(--brand-neutral-100);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-brand: var(--brand-primary-500);
+
+  --border-primary: var(--brand-neutral-200);
+  --border-secondary: var(--brand-neutral-300);
+  --border-strong: var(--brand-neutral-400);
+  --border-inverse: var(--brand-neutral-700);
+  --border-focus: var(--brand-primary-500);
+
+  --interactive-primary: var(--brand-primary-600);
+  --interactive-primary-hover: var(--brand-primary-700);
+  --interactive-primary-active: var(--brand-primary-800);
+  --interactive-primary-disabled: var(--brand-neutral-300);
+  --interactive-primary-text: var(--brand-neutral-0);
+
+  --interactive-secondary: var(--brand-neutral-100);
+  --interactive-secondary-hover: var(--brand-neutral-200);
+  --interactive-secondary-active: var(--brand-neutral-300);
+  --interactive-secondary-disabled: var(--brand-neutral-100);
+
+  --interactive-ghost: transparent;
+  --interactive-ghost-hover: var(--brand-neutral-100);
+  --interactive-ghost-active: var(--brand-neutral-200);
+  --interactive-ghost-disabled: transparent;
+
+  --status-success: var(--brand-success-500);
+  --status-success-hover: var(--brand-success-600);
+  --status-success-bg: var(--brand-success-50);
+  --status-success-text: var(--brand-success-700);
+
+  --status-warning: var(--brand-warning-500);
+  --status-warning-hover: var(--brand-warning-600);
+  --status-warning-bg: var(--brand-warning-50);
+  --status-warning-text: var(--brand-warning-700);
+
+  --status-danger: var(--brand-danger-500);
+  --status-danger-hover: var(--brand-danger-600);
+  --status-danger-bg: var(--brand-danger-50);
+  --status-danger-text: var(--brand-danger-700);
+
+  /* Spacing scale adjustment */
+  --spacing-scale: 1.2;
+  --spacing-xs: calc(0.25rem * var(--spacing-scale));
+  --spacing-sm: calc(0.5rem * var(--spacing-scale));
+  --spacing-md: calc(0.75rem * var(--spacing-scale));
+  --spacing-lg: calc(1rem * var(--spacing-scale));
+  --spacing-xl: calc(1.5rem * var(--spacing-scale));
+  --spacing-2xl: calc(2rem * var(--spacing-scale));
+  --spacing-3xl: calc(3rem * var(--spacing-scale));
+  --spacing-4xl: calc(4rem * var(--spacing-scale));
+  --spacing-5xl: calc(6rem * var(--spacing-scale));
+}
+
+.brand-runswap{
+  /* === TYPOGRAPHY TOKENS === */
+  --font-family-primary: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-secondary: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --brand-primary-100: #FEE6F9;
+  --brand-primary-200: #FDC4EF;
+  --brand-primary-300: #F849CF;
+  --brand-primary-400: #F72BC7;
+  --brand-primary-500: #F60CBF;
+  --brand-primary-600: #DA08A9;
+  --brand-primary-700: #BC0792;
+  --brand-primary-800: #9E067A;
+  --brand-primary-900: #7F0563;
+
+  /* Neutral colors - Cool tinted */
+  --brand-neutral-0: #ffffff;
+  --brand-neutral-50: #f9fafb;
+  --brand-neutral-100: #f3f4f6;
+  --brand-neutral-200: #e5e7eb;
+  --brand-neutral-300: #d1d5db;
+  --brand-neutral-400: #9ca3af;
+  --brand-neutral-500: #6b7280;
+  --brand-neutral-600: #4b5563;
+  --brand-neutral-700: #374151;
+  --brand-neutral-800: #1f2937;
+  --brand-neutral-900: #111827;
+  --brand-neutral-950: #030712;
+
+  /* Success colors - Enhanced green */
+  --brand-success-50: #ecfdf5;
+  --brand-success-100: #d1fae5;
+  --brand-success-500: #10b981;
+  --brand-success-600: #059669;
+  --brand-success-700: #047857;
+
+  /* Warning colors */
+  --brand-warning-50: #fffbeb;
+  --brand-warning-100: #fef3c7;
+  --brand-warning-500: #f59e0b;
+  --brand-warning-600: #d97706;
+  --brand-warning-700: #b45309;
+
+  /* Danger colors */
+  --brand-danger-50: #fef2f2;
+  --brand-danger-100: #fee2e2;
+  --brand-danger-500: #ef4444;
+  --brand-danger-600: #dc2626;
+  --brand-danger-700: #b91c1c;
+
+  /* === SEMANTIC TOKEN MAPPING - FOREST LIGHT === */
+  --text-primary: var(--brand-neutral-900);
+  --text-secondary: var(--brand-neutral-600);
+  --text-tertiary: var(--brand-neutral-500);
+  --text-inverse: var(--brand-neutral-0);
+  --text-disabled: var(--brand-neutral-400);
+  --text-link: var(--brand-primary-600);
+  --text-link-hover: var(--brand-primary-700);
+  --text-brand: var(--brand-primary-500);
+
+  --bg-primary: var(--brand-neutral-0);
+  --bg-secondary: var(--brand-neutral-50);
+  --bg-tertiary: var(--brand-neutral-100);
+  --bg-inverse: var(--brand-neutral-900);
+  --bg-disabled: var(--brand-neutral-100);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-brand: var(--brand-primary-500);
+  --bg-brand-muted: var(--brand-primary-100);
+
+  --border-primary: var(--brand-neutral-200);
+  --border-secondary: var(--brand-neutral-300);
+  --border-strong: var(--brand-neutral-400);
+  --border-inverse: var(--brand-neutral-700);
+  --border-focus: var(--brand-primary-500);
+  --border-brand: var(--brand-primary-500);
+  --border-brand-muted: var(--brand-primary-200);
+
+  --interactive-primary: var(--brand-primary-600);
+  --interactive-primary-hover: var(--brand-primary-700);
+  --interactive-primary-active: var(--brand-primary-800);
+  --interactive-primary-disabled: var(--brand-neutral-100);
+  --interactive-primary-text: var(--brand-neutral-0);
+
+  --interactive-secondary: var(--brand-neutral-100);
+  --interactive-secondary-hover: var(--brand-neutral-200);
+  --interactive-secondary-active: var(--brand-neutral-300);
+  --interactive-secondary-disabled: var(--brand-neutral-100);
+
+  --interactive-ghost: transparent;
+  --interactive-ghost-hover: var(--brand-neutral-100);
+  --interactive-ghost-active: var(--brand-neutral-200);
+  --interactive-ghost-disabled: transparent;
+
+  --status-success: var(--brand-success-500);
+  --status-success-hover: var(--brand-success-600);
+  --status-success-bg: var(--brand-success-50);
+  --status-success-text: var(--brand-success-700);
+
+  --status-warning: var(--brand-warning-500);
+  --status-warning-hover: var(--brand-warning-600);
+  --status-warning-bg: var(--brand-warning-50);
+  --status-warning-text: var(--brand-warning-700);
+
+  --status-danger: var(--brand-danger-500);
+  --status-danger-hover: var(--brand-danger-600);
+  --status-danger-bg: var(--brand-danger-50);
+  --status-danger-text: var(--brand-danger-700);
+
+  /* Spacing scale adjustment */
+  --spacing-scale: 1.2;
+  --spacing-xs: calc(0.25rem * var(--spacing-scale));
+  --spacing-sm: calc(0.5rem * var(--spacing-scale));
+  --spacing-md: calc(0.75rem * var(--spacing-scale));
+  --spacing-lg: calc(1rem * var(--spacing-scale));
+  --spacing-xl: calc(1.5rem * var(--spacing-scale));
+  --spacing-2xl: calc(2rem * var(--spacing-scale));
+  --spacing-3xl: calc(3rem * var(--spacing-scale));
+  --spacing-4xl: calc(4rem * var(--spacing-scale));
+  --spacing-5xl: calc(6rem * var(--spacing-scale));
+}
+
+/* === DARK MODE VARIANTS === */
+
+/* Stride Dark */
+html.dark.brand-stride,
+.dark.brand-stride,
+.brand-stride.dark {
+  /* Override semantic tokens for dark mode */
+  --text-primary: var(--brand-neutral-50);
+  --text-secondary: var(--brand-neutral-300);
+  --text-tertiary: var(--brand-neutral-400);
+  --text-inverse: var(--brand-neutral-900);
+  --text-disabled: var(--brand-neutral-600);
+
+  --bg-primary: var(--brand-neutral-900);
+  --bg-secondary: var(--brand-neutral-800);
+  --bg-tertiary: var(--brand-neutral-700);
+  --bg-inverse: var(--brand-neutral-50);
+  --bg-disabled: var(--brand-neutral-800);
+
+  --border-primary: var(--brand-neutral-700);
+  --border-secondary: var(--brand-neutral-600);
+  --border-strong: var(--brand-neutral-500);
+  --border-inverse: var(--brand-neutral-200);
+
+  --interactive-secondary: var(--brand-neutral-800);
+  --interactive-secondary-hover: var(--brand-neutral-700);
+  --interactive-secondary-active: var(--brand-neutral-600);
+
+  --interactive-ghost-hover: var(--brand-neutral-800);
+  --interactive-ghost-active: var(--brand-neutral-700);
+}
+
+/* Coral Dark */
+html.dark.brand-coral,
+.dark.brand-coral,
+.brand-coral.dark {
+  --text-primary: var(--brand-neutral-50);
+  --text-secondary: var(--brand-neutral-300);
+  --text-tertiary: var(--brand-neutral-400);
+  --text-inverse: var(--brand-neutral-900);
+  --text-disabled: var(--brand-neutral-600);
+
+  --bg-primary: var(--brand-neutral-900);
+  --bg-secondary: var(--brand-neutral-800);
+  --bg-tertiary: var(--brand-neutral-700);
+  --bg-inverse: var(--brand-neutral-50);
+  --bg-disabled: var(--brand-neutral-800);
+
+  --border-primary: var(--brand-neutral-700);
+  --border-secondary: var(--brand-neutral-600);
+  --border-strong: var(--brand-neutral-500);
+  --border-inverse: var(--brand-neutral-200);
+
+  --interactive-secondary: var(--brand-neutral-800);
+  --interactive-secondary-hover: var(--brand-neutral-700);
+  --interactive-secondary-active: var(--brand-neutral-600);
+
+  --interactive-ghost-hover: var(--brand-neutral-800);
+  --interactive-ghost-active: var(--brand-neutral-700);
+}
+
+/* Forest Dark */
+html.dark.brand-forest,
+.dark.brand-forest,
+.brand-forest.dark {
+  --text-primary: var(--brand-neutral-50);
+  --text-secondary: var(--brand-neutral-300);
+  --text-tertiary: var(--brand-neutral-400);
+  --text-inverse: var(--brand-neutral-900);
+  --text-disabled: var(--brand-neutral-600);
+
+  --bg-primary: var(--brand-neutral-900);
+  --bg-secondary: var(--brand-neutral-800);
+  --bg-tertiary: var(--brand-neutral-700);
+  --bg-inverse: var(--brand-neutral-50);
+  --bg-disabled: var(--brand-neutral-800);
+
+  --border-primary: var(--brand-neutral-700);
+  --border-secondary: var(--brand-neutral-600);
+  --border-strong: var(--brand-neutral-500);
+  --border-inverse: var(--brand-neutral-200);
+
+  --interactive-secondary: var(--brand-neutral-800);
+  --interactive-secondary-hover: var(--brand-neutral-700);
+  --interactive-secondary-active: var(--brand-neutral-600);
+
+  --interactive-ghost-hover: var(--brand-neutral-800);
+  --interactive-ghost-active: var(--brand-neutral-700);
+}
+
+/* Runswap Dark */
+html.dark.brand-runswap,
+.dark.brand-runswap,
+.brand-runswap.dark {
+  --text-primary: var(--brand-neutral-50);
+  --text-secondary: var(--brand-neutral-300);
+  --text-tertiary: var(--brand-neutral-400);
+  --text-inverse: var(--brand-neutral-900);
+  --text-disabled: var(--brand-neutral-600);
+
+  --bg-primary: var(--brand-neutral-900);
+  --bg-secondary: var(--brand-neutral-800);
+  --bg-tertiary: var(--brand-neutral-700);
+  --bg-inverse: var(--brand-neutral-50);
+  --bg-disabled: var(--brand-neutral-800);
+
+  --border-primary: var(--brand-neutral-700);
+  --border-secondary: var(--brand-neutral-600);
+  --border-strong: var(--brand-neutral-500);
+  --border-inverse: var(--brand-neutral-200);
+
+  --interactive-primary: var(--brand-primary-500);
+  --interactive-primary-hover: var(--brand-primary-600);
+  --interactive-primary-active: var(--brand-primary-700);
+  --interactive-primary-disabled: var(--brand-neutral-700);
+  --interactive-primary-text: var(--brand-neutral-0);
+
+  --interactive-secondary: var(--brand-neutral-800);
+  --interactive-secondary-hover: var(--brand-neutral-700);
+  --interactive-secondary-active: var(--brand-neutral-600);
+
+  --interactive-ghost-hover: var(--brand-neutral-800);
+  --interactive-ghost-active: var(--brand-neutral-700);
+}
+
+/* === BRAND TRANSITION ANIMATIONS === */
+:root {
+  --brand-transition: all 200ms ease-in-out;
+}
+
+* {
+  transition: var(--brand-transition);
+  transition-property: background-color, border-color, color, box-shadow;
+}
+
+/* Disable transitions during brand switch */
+.brand-switching * {
+  transition: none !important;
+}
+
+/* === RESPONSIVE BRAND ADJUSTMENTS === */
+@media (max-width: 768px) {
+  .brand-forest {
+    --spacing-scale: 1.1;
+  }
+}
