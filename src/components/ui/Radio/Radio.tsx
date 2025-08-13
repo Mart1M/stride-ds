@@ -10,28 +10,23 @@ import {
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const radioGroupVariants = cva(
-  [
-    "flex gap-3",
-  ],
-  {
-    variants: {
-      orientation: {
-        horizontal: "flex-row flex-wrap",
-        vertical: "flex-col",
-      },
-      size: {
-        sm: "gap-2 text-xs",
-        md: "gap-3 text-sm",
-        lg: "gap-4 text-base",
-      },
+const radioGroupVariants = cva(["flex gap-3"], {
+  variants: {
+    orientation: {
+      horizontal: "flex-row flex-wrap",
+      vertical: "flex-col",
     },
-    defaultVariants: {
-      orientation: "vertical",
-      size: "md",
+    size: {
+      sm: "gap-2 text-xs",
+      md: "gap-3 text-sm",
+      lg: "gap-4 text-base",
     },
-  }
-);
+  },
+  defaultVariants: {
+    orientation: "vertical",
+    size: "md",
+  },
+});
 
 const radioVariants = cva(
   [
@@ -130,7 +125,19 @@ export interface RadioProps
 }
 
 export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ className, orientation, size, children, label, description, errorMessage, ...props }, ref) => {
+  (
+    {
+      className,
+      orientation,
+      size,
+      children,
+      label,
+      description,
+      errorMessage,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <AriaRadioGroup
         className={cn("flex flex-col gap-3", className)}
