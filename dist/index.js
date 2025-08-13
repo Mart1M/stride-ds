@@ -48,7 +48,7 @@ var J = {};
  */
 var Nr;
 function se() {
-  return Nr || (Nr = 1, process.env.NODE_ENV !== "production" && function() {
+  return Nr || (Nr = 1, process.env.NODE_ENV !== "production" && (function() {
     function o(t) {
       if (t == null) return null;
       if (typeof t == "function")
@@ -277,7 +277,7 @@ React keys must be passed directly to JSX without using spread:
         N ? M(n(t)) : rr
       );
     };
-  }()), J;
+  })()), J;
 }
 var Rr;
 function ie() {
