@@ -386,7 +386,7 @@ export default function Home() {
                       <Button variant="ghost" size="sm">
                         <Share size={16} />
                       </Button>
-                      <Button size="md">S'inscrire</Button>
+                      <Button size="md">S&apos;inscrire</Button>
                     </div>
                   </CardFooter>
                 </Card>

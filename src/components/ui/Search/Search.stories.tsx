@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { Search } from "./Search";
+import { Search, type SearchResult } from "./Search";
 import { Filter, Calendar, User } from "lucide-react";
 import { useState } from "react";
 
@@ -121,7 +121,7 @@ export const Controlled: Story = {
           placeholder="Type to search..."
         />
         <div className="text-sm [color:var(--text-secondary)]">
-          Current value: "{value}"
+          Current value: &ldquo;{value}&rdquo;
         </div>
       </div>
     );
@@ -246,7 +246,7 @@ export const WithCustomHandlers: Story = {
             <div className="font-medium mb-1">Search History:</div>
             <ul className="list-disc list-inside space-y-1">
               {searchHistory.slice(-3).map((term, index) => (
-                <li key={index}>"{term}"</li>
+                <li key={index}>&ldquo;{term}&rdquo;</li>
               ))}
             </ul>
           </div>
@@ -327,7 +327,7 @@ export const LiveSearchCustomHighlighting: Story = {
     const [searchValue3, setSearchValue3] = useState("");
     const [searchValue, setSearchValue] = useState("");
     const handleSearch = (query: string) => {
-      return new Promise<any[]>((resolve) => {
+      return new Promise<SearchResult[]>((resolve) => {
         setTimeout(() => {
           const results = mockData.filter(
             (item) =>

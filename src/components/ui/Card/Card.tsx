@@ -251,7 +251,7 @@ CardHeader.displayName = "CardHeader";
 const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(
   ({ className, as: Component = "h3", ...props }, ref) => (
     <Component
-      ref={ref as any}
+      ref={ref as any} // eslint-disable-line @typescript-eslint/no-explicit-any
       className={cn(cardTitleVariants(), className)}
       {...props}
     />

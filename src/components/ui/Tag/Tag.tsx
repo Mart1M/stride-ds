@@ -130,7 +130,7 @@ export const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
       onRemove?.();
     };
 
-    const isClickable = interactive || onClick;
+    const isClickable = interactive || !!onClick;
 
     return (
       <span
