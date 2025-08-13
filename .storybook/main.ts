@@ -5,30 +5,6 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-docs',
-    {
-      name: '@storybook/addon-styling-webpack',
-      options: {
-        rules: [
-          {
-            test: /\.css$/,
-            use: [
-              'style-loader',
-              'css-loader',
-              {
-                loader: 'postcss-loader',
-                options: {
-                  postcssOptions: {
-                    plugins: [
-                      '@tailwindcss/postcss',
-                    ],
-                  },
-                },
-              },
-            ],
-          },
-        ],
-      },
-    },
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -38,5 +14,7 @@ const config: StorybookConfig = {
     reactDocgen: 'react-docgen-typescript',
   },
 };
+
+
 
 export default config;

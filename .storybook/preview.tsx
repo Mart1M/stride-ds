@@ -1,3 +1,4 @@
+import "../styles/index.css";
 import type { Preview } from "@storybook/nextjs";
 import { Outfit } from "next/font/google";
 import React, { useEffect } from "react";
@@ -7,7 +8,6 @@ import {
   applyBrandTheme,
   initializeBrand,
 } from "../src/lib/brands";
-import "../src/app/globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
