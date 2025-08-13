@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Tag } from "./Tag";
 import { useState } from "react";
 import { Hash, Star, User, Calendar, MapPin } from "lucide-react";
