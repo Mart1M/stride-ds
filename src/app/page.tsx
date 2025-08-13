@@ -26,7 +26,6 @@ import {
   Lock,
   Heart,
   Calendar,
-  MoreHorizontal,
   Share,
   MapPin,
   Pin,
@@ -658,7 +657,9 @@ export default function Home() {
                 <Switch>Default Switch</Switch>
                 <Switch defaultSelected>Pre-selected Switch</Switch>
                 <Switch isDisabled>Disabled Switch</Switch>
-                <Switch isDisabled defaultSelected>Disabled Selected</Switch>
+                <Switch isDisabled defaultSelected>
+                  Disabled Selected
+                </Switch>
               </div>
             </div>
 
@@ -668,19 +669,21 @@ export default function Home() {
                 Switch with Descriptions
               </h3>
               <div className="space-y-4">
-                <Switch 
+                <Switch
                   description="Enable dark mode for better night viewing"
-                  onChange={(isSelected) => console.log('Dark mode:', isSelected)}
+                  onChange={(isSelected) =>
+                    console.log("Dark mode:", isSelected)
+                  }
                 >
                   Dark Mode
                 </Switch>
-                <Switch 
+                <Switch
                   description="Receive notifications about important updates"
                   defaultSelected
                 >
                   Push Notifications
                 </Switch>
-                <Switch 
+                <Switch
                   description="Allow the application to use your location"
                   size="sm"
                 >

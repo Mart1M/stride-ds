@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "./brands.css";
+/* Tailwind v4: explicitly declare sources so Storybook is scanned */
+@source "../**/*.{js,jsx,ts,tsx,mdx}";
+@source "../../.storybook/**/*.{js,jsx,ts,tsx,mdx}";
 
 :root {
   /* === STRIDE DESIGN SYSTEM FOUNDATION TOKENS === */

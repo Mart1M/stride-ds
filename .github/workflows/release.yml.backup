@@ -14,6 +14,7 @@ jobs:
       contents: write
       pull-requests: write
       id-token: write
+      actions: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -38,6 +39,7 @@ jobs:
         uses: changesets/action@v1
         with:
           publish: npm publish --provenance --access public
+          createGithubReleases: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

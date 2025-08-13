@@ -38,9 +38,9 @@ const radioVariants = cva(
   {
     variants: {
       size: {
-        sm: "gap-2 text-xs",
-        md: "gap-3 text-sm",
-        lg: "gap-4 text-base",
+        sm: "gap-2 text-sm",
+        md: "gap-3 text-base",
+        lg: "gap-4 text-lg",
       },
     },
     defaultVariants: {
@@ -216,7 +216,7 @@ export const Radio = React.forwardRef<HTMLLabelElement, RadioProps>(
                   </span>
                 )}
                 {description && (
-                  <span className="text-xs [color:var(--text-secondary)] mt-1 leading-tight">
+                  <span className="text-sm [color:var(--text-tertiary)] mt-1 leading-tight">
                     {description}
                   </span>
                 )}

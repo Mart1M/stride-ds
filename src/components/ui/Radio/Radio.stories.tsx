@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Radio, RadioGroup } from "./Radio";
 
 const meta = {
-  title: "Components/Radio",
+  title: "Stride DS/Radio",
   component: RadioGroup,
   parameters: {
     layout: "centered",
@@ -54,7 +54,10 @@ export const WithDescription: Story = {
         <Radio value="pro" description="Great for growing businesses">
           Pro Plan
         </Radio>
-        <Radio value="enterprise" description="Advanced features for large teams">
+        <Radio
+          value="enterprise"
+          description="Advanced features for large teams"
+        >
           Enterprise Plan
         </Radio>
       </>
@@ -80,18 +83,30 @@ export const Sizes: Story = {
   render: () => (
     <div className="space-y-8">
       <RadioGroup label="Small Size" size="sm">
-        <Radio value="sm1" size="sm">Small Option 1</Radio>
-        <Radio value="sm2" size="sm">Small Option 2</Radio>
+        <Radio value="sm1" size="sm">
+          Small Option 1
+        </Radio>
+        <Radio value="sm2" size="sm">
+          Small Option 2
+        </Radio>
       </RadioGroup>
-      
+
       <RadioGroup label="Medium Size" size="md">
-        <Radio value="md1" size="md">Medium Option 1</Radio>
-        <Radio value="md2" size="md">Medium Option 2</Radio>
+        <Radio value="md1" size="md">
+          Medium Option 1
+        </Radio>
+        <Radio value="md2" size="md">
+          Medium Option 2
+        </Radio>
       </RadioGroup>
-      
+
       <RadioGroup label="Large Size" size="lg">
-        <Radio value="lg1" size="lg">Large Option 1</Radio>
-        <Radio value="lg2" size="lg">Large Option 2</Radio>
+        <Radio value="lg1" size="lg">
+          Large Option 1
+        </Radio>
+        <Radio value="lg2" size="lg">
+          Large Option 2
+        </Radio>
       </RadioGroup>
     </div>
   ),
@@ -104,12 +119,12 @@ export const States: Story = {
         <Radio value="option1">Selected Option</Radio>
         <Radio value="option2">Unselected Option</Radio>
       </RadioGroup>
-      
+
       <RadioGroup label="Disabled State" isDisabled defaultValue="disabled1">
         <Radio value="disabled1">Disabled Selected</Radio>
         <Radio value="disabled2">Disabled Unselected</Radio>
       </RadioGroup>
-      
+
       <RadioGroup label="Required Field" isRequired>
         <Radio value="req1">Required Option 1</Radio>
         <Radio value="req2">Required Option 2</Radio>
@@ -140,20 +155,17 @@ export const ComplexExample: Story = {
       description="Choose the plan that works best for you"
       defaultValue="pro"
     >
-      <Radio 
-        value="free" 
-        description="Free forever with basic features"
-      >
+      <Radio value="free" description="Free forever with basic features">
         Free Plan - $0/month
       </Radio>
-      <Radio 
-        value="pro" 
+      <Radio
+        value="pro"
         description="Everything in Free plus advanced analytics"
       >
         Pro Plan - $19/month
       </Radio>
-      <Radio 
-        value="enterprise" 
+      <Radio
+        value="enterprise"
         description="Everything in Pro plus priority support"
       >
         Enterprise - $99/month
