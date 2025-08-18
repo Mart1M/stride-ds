@@ -1,0 +1,247 @@
+---
+alwaysApply: false
+---
+# Version Release Process
+
+This document outlines the complete process for releasing new versions of the stride-ds library using **Changesets** for automated version management and npm publication.
+
+## 🏗️ Prerequisites
+
+Before releasing a new version, ensure:
+- All changes are tested and working correctly
+- Feature branch has been merged to `main`
+- CI/CD pipeline is passing
+- Documentation is up to date
+
+## 📋 Step-by-Step Release Process
+
+### 1. Development Phase
+
+```bash
+# Start from a clean main branch
+git checkout main
+git pull origin main
+
+# Create and work on your feature branch
+git checkout -b feature/your-feature-name
+
+# Develop your changes...
+# - Add/modify components in src/components/ui/
+# - Update stories and documentation
+# - Add/update tests
+```
+
+### 2. Pre-Release Testing
+
+```bash
+# Build and test everything before creating a changeset
+npm run build              # Test Next.js build
+npm run build:lib          # Test library build
+npm run build:types        # Test TypeScript compilation
+npm run build:styles       # Test style compilation
+npm run build-storybook    # Test Storybook build
+
+# Check for linting issues
+npm run lint
+
+# Run accessibility and interaction tests
+npm run test-storybook
+
+# Verify in Storybook
+npm run storybook
+```
+
+### 3. Create Changeset (CRITICAL STEP)
+
+```bash
+# Create a changeset to document your changes
+npm run changeset
+
+# Interactive prompts will ask:
+# 1. Which packages to include (select stride-ds)
+# 2. Change type:
+#    - patch: Bug fixes, small improvements (0.0.1)
+#    - minor: New features, new components (0.1.0)  
+#    - major: Breaking changes (1.0.0)
+# 3. Description of changes
+```
+
+**Changeset Description Guidelines:**
+
+```markdown
+# ✅ Good Examples:
+Add new Alert component with adaptive alignment
+Fix Slider disabled state styling and accessibility
+Update Button focus styles for better contrast
+Add keyboard navigation support to Modal component
+
+# ❌ Bad Examples:
+Update stuff
+Fix things
+Changes
+New component
+```
+
+### 4. Commit and Push
+
+```bash
+# Stage all changes including the new changeset
+git add .
+
+# Commit with conventional commit format
+git commit -m "feat: add Alert component with adaptive layout"
+# or
+git commit -m "fix: resolve Slider disabled state styling"
+
+# Push your feature branch
+git push origin feature/your-feature-name
+```
+
+### 5. Create Pull Request
+
+1. Go to GitHub repository
+2. Create Pull Request from your feature branch to `main`
+3. Use clear title and description
+4. Include screenshots for UI changes
+5. Link to any related issues
+6. Wait for review and approval
+
+### 6. Merge to Main
+
+Once your PR is approved and merged:
+- ✅ **GitHub Actions will detect the changeset automatically**
+- ✅ **A "Version Packages" PR will be created automatically**
+- ✅ **DO NOT MERGE THIS PR YET** - Wait for maintainer review
+
+### 7. Version Release (Maintainer Only)
+
+The maintainer will:
+
+```bash
+# Review the "Version Packages" PR
+# - Check CHANGELOG.md updates
+# - Verify version bumps are correct
+# - Ensure package.json version is updated correctly
+
+# If everything looks good, merge the "Version Packages" PR
+# This triggers automatic:
+# - npm publication
+# - GitHub release creation
+# - Git tag creation
+```
+
+## 🔧 Manual Release Process (Emergency/Local)
+
+If automatic release fails, maintainers can release manually:
+
+```bash
+# Ensure you're on latest main
+git checkout main
+git pull origin main
+
+# Apply pending changesets (if any)
+npm run version
+
+# Build the library
+npm run build
+
+# Publish to npm (requires NPM_TOKEN)
+npm run release
+
+# Create GitHub release manually if needed
+```
+
+## 📊 Change Types & Semantic Versioning
+
+| Change Type | Version Bump | Use Cases |
+|-------------|--------------|-----------|
+| **patch** | 0.0.X | Bug fixes, small improvements, documentation |
+| **minor** | 0.X.0 | New components, new features, non-breaking changes |
+| **major** | X.0.0 | Breaking changes, API changes, major refactors |
+
+### Examples by Type:
+
+**Patch (0.0.1):**
+- Fix button hover state color
+- Update component documentation
+- Fix accessibility issue
+- Improve TypeScript types
+
+**Minor (0.1.0):**
+- Add new Alert component
+- Add new variant to existing component
+- Add new utility function
+- Add new story/example
+
+**Major (1.0.0):**
+- Remove deprecated component
+- Change component API
+- Rename props
+- Change CSS class names
+- Update peer dependencies
+
+## 🚨 Important Notes
+
+### Changeset Requirements
+- **ALWAYS create a changeset** for changes affecting the library
+- **One changeset per logical change** (can include multiple files)
+- **Clear, descriptive messages** for the changelog
+- **Correct change type** based on impact
+
+### Forbidden Actions
+- ❌ **Never manually edit package.json version**
+- ❌ **Never manually edit CHANGELOG.md**
+- ❌ **Never merge "Version Packages" PR without review**
+- ❌ **Never publish to npm manually without coordination**
+- ❌ **Never skip creating changesets for library changes**
+
+### Emergency Fixes
+For critical bugs affecting production:
+
+```bash
+# Create hotfix branch from main
+git checkout main
+git pull origin main
+git checkout -b hotfix/critical-bug-fix
+
+# Make minimal fix
+# Create patch changeset
+npm run changeset  # Select "patch"
+
+# Expedited review process
+# Merge ASAP and release immediately
+```
+
+## 🔍 Troubleshooting
+
+### Common Issues:
+
+**"No changesets found"**
+- Create a changeset: `npm run changeset`
+- Ensure you're including the library package
+
+**"Version Packages PR not created"**
+- Check GitHub Actions logs
+- Ensure changesets exist in `.changeset/` directory
+- Verify main branch protection rules
+
+**"npm publish failed"**
+- Check NPM_TOKEN in GitHub secrets
+- Verify package name availability
+- Ensure build completed successfully
+
+**"Wrong version number"**
+- Review changeset type (patch/minor/major)
+- Delete incorrect changeset and recreate
+- Never manually edit versions
+
+## 📚 Reference Links
+
+- [Changesets Documentation](https://github.com/changesets/changesets)
+- [Semantic Versioning](https://semver.org/)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [npm Publishing Guide](https://docs.npmjs.com/packages-and-modules/publishing-and-distributing)
+
+---
+
+**💡 Remember**: Every release represents our commitment to quality and reliability. Take time to test thoroughly and document changes clearly.

@@ -41,8 +41,8 @@ const alertVariants = cva(
         lg: "p-5 text-base",
       },
       alignment: {
-        start: "items-start", // Quand il y a titre ET contenu
-        center: "items-center", // Quand il y a soit titre seul, soit contenu seul
+        start: "items-start",
+        center: "items-center",
       },
     },
     defaultVariants: {
@@ -85,8 +85,8 @@ const alertCloseButtonVariants = cva(
         lg: "p-1 w-6 h-6",
       },
       position: {
-        absolute: "absolute", // Position absolue pour titre + contenu
-        inline: "flex-shrink-0", // Position dans le flux pour élément unique
+        absolute: "absolute",
+        inline: "flex-shrink-0",
       },
       absolutePosition: {
         sm: "top-2.5 right-2.5",
@@ -138,13 +138,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
     const IconComponent = variant ? iconMap[variant] : Info;
     const showIcon = icon !== false;
 
-    // Définir les tailles d'icônes selon la taille de l'alert
     const iconSize = size === "sm" ? 16 : size === "md" ? 20 : 24;
 
     const iconToRender =
       icon === true ? <IconComponent size={iconSize} /> : icon;
 
-    // Détecter l'alignement : center si un seul élément (titre OU children), start sinon
     const hasTitle = Boolean(title);
     const hasChildren = Boolean(children);
     const singleElement =
@@ -185,7 +183,6 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
                 size,
                 position: closeButtonPosition,
               }),
-              // Ajouter la position absolue seulement si nécessaire
               !singleElement &&
                 alertCloseButtonVariants({
                   absolutePosition: size,
