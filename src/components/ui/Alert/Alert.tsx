@@ -48,7 +48,7 @@ const alertVariants = cva(
   }
 );
 
-const alertIconVariants = cva(["flex-shrink-0 mt-0.5"], {
+const alertIconVariants = cva(["flex-shrink-0"], {
   variants: {
     variant: {
       info: "text-blue-600 dark:text-blue-400",
@@ -57,9 +57,9 @@ const alertIconVariants = cva(["flex-shrink-0 mt-0.5"], {
       error: "[color:var(--status-danger)]",
     },
     size: {
-      sm: "w-3 h-3",
-      md: "w-4 h-4",
-      lg: "w-5 h-5",
+      sm: "w-4 h-4 mt-[1px]", // Alignement avec text-xs
+      md: "w-4 h-4 mt-0.5",   // Alignement avec text-sm  
+      lg: "w-5 h-5 mt-[1px]", // Alignement avec text-base
     },
   },
   defaultVariants: {
@@ -70,7 +70,7 @@ const alertIconVariants = cva(["flex-shrink-0 mt-0.5"], {
 
 const alertCloseButtonVariants = cva(
   [
-    "absolute top-3 right-3 inline-flex items-center justify-center rounded-md p-1",
+    "absolute inline-flex items-center justify-center rounded-md",
     "text-current opacity-70 hover:opacity-100 focus:opacity-100",
     "focus:outline-none focus:ring-2 focus:ring-current focus:ring-offset-2",
     "transition-opacity cursor-pointer",
@@ -79,9 +79,9 @@ const alertCloseButtonVariants = cva(
   {
     variants: {
       size: {
-        sm: "top-2 right-2 p-0.5",
-        md: "top-3 right-3 p-1",
-        lg: "top-4 right-4 p-1.5",
+        sm: "top-2.5 right-2.5 p-0.5 w-5 h-5",
+        md: "top-3 right-3 p-1 w-6 h-6",
+        lg: "top-4 right-4 p-1 w-6 h-6",
       },
     },
     defaultVariants: {
@@ -154,7 +154,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
             onClick={onDismiss}
             aria-label="Dismiss alert"
           >
-            <X className="w-4 h-4" />
+            <X className={size === "sm" ? "w-3 h-3" : "w-4 h-4"} />
           </button>
         )}
       </div>
