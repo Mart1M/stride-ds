@@ -24,29 +24,7 @@ const sliderTrackVariants = cva([
   "transition-colors",
 ]);
 
-const sliderThumbVariants = cva([
-  "absolute rounded-full w-5 h-5",
-  "bg-[var(--bg-primary)]",
-  "border-2 border-[var(--interactive-primary)]",
-  "shadow-[var(--shadow-sm)]",
-  "cursor-pointer",
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)]/50",
-  "pressed:scale-110",
-  "disabled:cursor-not-allowed disabled:border-[var(--border-secondary)] disabled:bg-[var(--bg-secondary)] disabled:shadow-none",
-  "[transition-duration:var(--transition-fast)]",
-  "transition-all",
-  "top-6.5 -translate-y-1/2 -translate-x-1/2", // Centrage parfait
-  "z-10", // Au-dessus du track
-]);
 
-const sliderFillVariants = cva([
-  "absolute top-1/2 left-0 -translate-y-1/2 rounded-full h-2",
-  "bg-[var(--interactive-primary)]",
-  "group-disabled:bg-[var(--border-secondary)]",
-  "[transition-duration:var(--transition-normal)]",
-  "transition-colors",
-  "z-0", // Sous le thumb
-]);
 
 const sliderLabelVariants = cva([
   "flex justify-between items-center",
@@ -100,20 +78,27 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
         )}
 
         <SliderTrack className={cn(sliderTrackVariants(), trackClassName)}>
-          {({ state }) => (
+          {({ state, isDisabled }) => (
             <>
               {/* Track background */}
               <div
                 className={cn(
                   "absolute top-1/2 left-0 w-full -translate-y-1/2 rounded-full h-2",
                   "bg-[var(--border-primary)] dark:bg-[var(--border-secondary)]",
-                  "group-disabled:bg-[var(--border-secondary)] group-disabled:opacity-60"
+                  isDisabled && "bg-[var(--interactive-disabled)]"
                 )}
               />
 
               {/* Fill/Progress */}
               <div
-                className={cn(sliderFillVariants())}
+                className={cn(
+                  "absolute top-1/2 left-0 -translate-y-1/2 rounded-full h-2",
+                  "bg-[var(--interactive-primary)]",
+                  isDisabled && "bg-[var(--interactive-disabled)]",
+                  "[transition-duration:var(--transition-normal)]",
+                  "transition-colors",
+                  "z-0" // Sous le thumb
+                )}
                 style={{
                   width: `${state.getThumbPercent(0) * 100}%`,
                 }}
@@ -121,7 +106,21 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
 
               {/* Thumb */}
               <SliderThumb
-                className={cn(sliderThumbVariants(), thumbClassName)}
+                className={cn(
+                  "absolute rounded-full w-5 h-5",
+                  "bg-[var(--bg-primary)]",
+                  "border-2 border-[var(--interactive-primary)]",
+                  "shadow-[var(--shadow-sm)]",
+                  "cursor-pointer",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)]/50",
+                  "pressed:scale-110",
+                  "[transition-duration:var(--transition-fast)]",
+                  "transition-all",
+                  "top-6.5 -translate-y-1/2 -translate-x-1/2", // Centrage parfait
+                  "z-10", // Au-dessus du track
+                  isDisabled && "cursor-not-allowed border-[var(--interactive-disabled)] bg-[var(--interactive-disabled)] shadow-none",
+                  thumbClassName
+                )}
                 style={{
                   left: `${state.getThumbPercent(0) * 100}%`,
                 }}
