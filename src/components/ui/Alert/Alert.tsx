@@ -7,7 +7,7 @@ import { X, AlertCircle, CheckCircle, Info, AlertTriangle } from "lucide-react";
 
 const alertVariants = cva(
   [
-    "relative flex items-start gap-3 rounded-lg text-sm font-medium",
+    "relative flex gap-3 rounded-lg text-sm font-medium",
     "border transition-all",
     "[border-radius:var(--radius-card)]",
     "[transition-duration:var(--transition-normal)]",
@@ -40,15 +40,20 @@ const alertVariants = cva(
         md: "p-4 text-sm",
         lg: "p-5 text-base",
       },
+      alignment: {
+        start: "items-start", // Quand il y a titre ET contenu
+        center: "items-center", // Quand il y a soit titre seul, soit contenu seul
+      },
     },
     defaultVariants: {
       variant: "info",
       size: "md",
+      alignment: "start",
     },
   }
 );
 
-const alertIconVariants = cva(["flex-shrink-0"], {
+const alertIconColorVariants = cva([], {
   variants: {
     variant: {
       info: "text-blue-600 dark:text-blue-400",
@@ -56,21 +61,17 @@ const alertIconVariants = cva(["flex-shrink-0"], {
       warning: "[color:var(--status-warning)]",
       error: "[color:var(--status-danger)]",
     },
-    size: {
-      sm: "w-4 h-4 mt-[1px]", // Alignement avec text-xs
-      md: "w-4 h-4 mt-0.5", // Alignement avec text-sm
-      lg: "w-5 h-5 mt-[1px]", // Alignement avec text-base
-    },
   },
   defaultVariants: {
     variant: "info",
-    size: "md",
   },
 });
 
+const alertIconBaseClass = "flex-shrink-0";
+
 const alertCloseButtonVariants = cva(
   [
-    "absolute inline-flex items-center justify-center rounded-md",
+    "inline-flex items-center justify-center rounded-md",
     "text-current opacity-70 hover:opacity-100 focus:opacity-100",
     "focus:outline-none focus:ring-2 focus:ring-current focus:ring-offset-2",
     "transition-opacity cursor-pointer",
@@ -79,13 +80,23 @@ const alertCloseButtonVariants = cva(
   {
     variants: {
       size: {
-        sm: "top-2.5 right-2.5 p-0.5 w-5 h-5",
-        md: "top-3 right-3 p-1 w-6 h-6",
-        lg: "top-4 right-4 p-1 w-6 h-6",
+        sm: "p-0.5 w-5 h-5",
+        md: "p-1 w-6 h-6",
+        lg: "p-1 w-6 h-6",
+      },
+      position: {
+        absolute: "absolute", // Position absolue pour titre + contenu
+        inline: "flex-shrink-0", // Position dans le flux pour élément unique
+      },
+      absolutePosition: {
+        sm: "top-2.5 right-2.5",
+        md: "top-1 right-1",
+        lg: "top-4 right-4",
       },
     },
     defaultVariants: {
       size: "md",
+      position: "absolute",
     },
   }
 );
@@ -126,17 +137,36 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   ) => {
     const IconComponent = variant ? iconMap[variant] : Info;
     const showIcon = icon !== false;
-    const iconToRender = icon === true ? <IconComponent /> : icon;
+
+    // Définir les tailles d'icônes selon la taille de l'alert
+    const iconSize = size === "sm" ? 16 : size === "md" ? 20 : 24;
+
+    const iconToRender =
+      icon === true ? <IconComponent size={iconSize} /> : icon;
+
+    // Détecter l'alignement : center si un seul élément (titre OU children), start sinon
+    const hasTitle = Boolean(title);
+    const hasChildren = Boolean(children);
+    const singleElement =
+      (hasTitle && !hasChildren) || (!hasTitle && hasChildren);
+    const alignment = singleElement ? "center" : "start";
+
+    const closeButtonPosition = singleElement ? "inline" : "absolute";
 
     return (
       <div
         ref={ref}
-        className={cn(alertVariants({ variant, size }), className)}
+        className={cn(alertVariants({ variant, size, alignment }), className)}
         role={role}
         {...props}
       >
         {showIcon && (
-          <div className={cn(alertIconVariants({ variant, size }))}>
+          <div
+            className={cn(
+              alertIconBaseClass,
+              alertIconColorVariants({ variant })
+            )}
+          >
             {iconToRender}
           </div>
         )}
@@ -150,7 +180,17 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 
         {dismissible && (
           <button
-            className={cn(alertCloseButtonVariants({ size }))}
+            className={cn(
+              alertCloseButtonVariants({
+                size,
+                position: closeButtonPosition,
+              }),
+              // Ajouter la position absolue seulement si nécessaire
+              !singleElement &&
+                alertCloseButtonVariants({
+                  absolutePosition: size,
+                })
+            )}
             onClick={onDismiss}
             aria-label="Dismiss alert"
           >

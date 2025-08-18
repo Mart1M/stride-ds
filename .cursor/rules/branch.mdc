@@ -1,9 +1,6 @@
 ---
-description: Git branching workflow rules for development
-globs: ["**/*"]
-alwaysApply: true
+alwaysApply: false
 ---
-
 # 🌿 Branching Rules - Stride Design System
 
 ## 📋 Branch Naming Convention
