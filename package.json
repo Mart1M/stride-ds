@@ -35,7 +35,9 @@
     "build:lib": "vite build",
     "build:types": "tsc --project tsconfig.build.json",
     "build:styles": "mkdir -p styles/app && cp src/styles.css styles/index.css && cp src/app/brands.css styles/app/brands.css",
-    "prepublishOnly": "npm run build:lib && npm run build:types && npm run build:styles"
+    "prepublishOnly": "npm run build:lib && npm run build:types && npm run build:styles",
+    "test-storybook": "test-storybook",
+    "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run build-storybook --quiet\" \"wait-on tcp:6006 && npm run test-storybook\""
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
@@ -54,16 +56,20 @@
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
     "@eslint/eslintrc": "^3",
+    "@storybook/addon-a11y": "^9.1.2",
     "@storybook/addon-docs": "^9.1.2",
     "@storybook/addon-links": "^9.1.2",
     "@storybook/addon-onboarding": "^9.1.2",
     "@storybook/nextjs": "^9.1.2",
     "@storybook/react-vite": "^9.1.2",
+    "@storybook/test-runner": "^0.23.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.0.0",
+    "axe-playwright": "^2.1.0",
+    "concurrently": "^9.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
     "eslint-plugin-storybook": "9.1.2",
@@ -72,7 +78,8 @@
     "storybook": "^9.1.2",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "wait-on": "^8.0.4"
   },
   "publishConfig": {
     "access": "public"

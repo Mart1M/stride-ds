@@ -62,6 +62,14 @@ const preview: Preview = {
     backgrounds: {
       disable: true,
     },
+    a11y: {
+      // Configuration pour l'addon d'accessibilité
+      config: {},
+      // Options pour axe-core
+      options: {},
+      // Règles d'accessibilité à désactiver globalement (si nécessaire)
+      manual: true,
+    },
   },
   globalTypes: {
     theme: {
