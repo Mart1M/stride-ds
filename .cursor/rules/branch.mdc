@@ -1,0 +1,130 @@
+---
+description: Git branching workflow rules for development
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# 🌿 Branching Rules - Stride Design System
+
+## 📋 Branch Naming Convention
+
+**MANDATORY**: Create a new branch for every modification before starting work.
+
+### Branch Format:
+```
+<type>/<short-description>
+```
+
+### Branch Types:
+- `feat/` - New features (new components, new functionality)
+- `fix/` - Bug fixes
+- `refactor/` - Code refactoring without functional changes
+- `docs/` - Documentation changes only
+- `style/` - Style/formatting changes
+- `test/` - Adding or modifying tests
+- `chore/` - Maintenance tasks (dependencies, configuration)
+
+### Branch Name Examples:
+```bash
+feat/tooltip-component
+feat/dark-mode-support
+fix/button-hover-state
+refactor/input-validation
+docs/storybook-setup
+test/accessibility-coverage
+chore/update-dependencies
+```
+
+## 🚀 Mandatory Workflow
+
+### 1. BEFORE any development:
+```bash
+# 1. Update main branch
+git checkout main
+git pull origin main
+
+# 2. Create a new branch
+git checkout -b <type>/<description>
+
+# 3. Start development
+```
+
+### 2. DURING development:
+```bash
+# Frequent commits with conventional messages
+git add .
+git commit -m "<type>: <description>"
+
+# Regular branch pushes
+git push origin <branch-name>
+```
+
+### 3. END of development:
+```bash
+# 1. Ensure everything is clean
+npm run lint
+npm run build
+npm run test-storybook  # If tests are available
+
+# 2. Final push
+git push origin <branch-name>
+
+# 3. Merge to main
+git checkout main
+git merge <branch-name>
+git push origin main
+
+# 4. Cleanup
+git branch -d <branch-name>
+```
+
+## ⚠️ STRICT RULES
+
+### ❌ FORBIDDEN:
+- **Never** commit directly to `main`
+- **Never** use `git push --force` on `main`
+- **Never** work without a dedicated branch
+
+### ✅ MANDATORY:
+- **Always** create a branch before modifying code
+- **Always** test before merging
+- **Always** use descriptive branch names
+- **Always** cleanup branches after merge
+
+## 🎯 Conventional Commit Messages
+
+```bash
+feat: add new Tooltip component with positioning variants
+fix: resolve button focus state in dark mode
+refactor: simplify Input component validation logic
+docs: update component documentation in Storybook
+style: apply consistent formatting to Button styles
+test: add accessibility tests for form components
+chore: update Storybook to version 8.0
+```
+
+## 🔄 Conflict Resolution
+
+If `main` has evolved during your development:
+```bash
+# On your feature branch
+git checkout main
+git pull origin main
+git checkout <your-branch>
+git rebase main  # or git merge main
+# Resolve conflicts if necessary
+git push origin <your-branch> --force-with-lease
+```
+
+## 🏷️ Versioning with Changesets
+
+For changes affecting the library:
+```bash
+# After development, before merge
+npm run changeset
+# Follow instructions to document the change
+```
+
+---
+
+**💡 Reminder**: These rules ensure clean Git history, facilitate collaboration, and enable easy rollbacks when needed.

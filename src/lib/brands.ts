@@ -31,12 +31,19 @@ export const runswapBrand: BrandTheme = {
   description: 'Runswap theme with purple primary colors',
 };
 
+export const acmeBrand: BrandTheme = {
+  id: 'acme',
+  name: 'Acme',
+  description: 'Acme theme with indigo primary colors and modern tech aesthetic',
+};
+
 // Registry des brands disponibles
 export const availableBrands: BrandTheme[] = [
   strideBrand,
   coralBrand,
   forestBrand,
   runswapBrand,
+  acmeBrand,
 ];
 
 export const getBrandById = (brandId: string): BrandTheme | undefined => {

@@ -464,6 +464,122 @@
   --spacing-5xl: calc(6rem * var(--spacing-scale));
 }
 
+/* === ACME BRAND === */
+.brand-acme {
+  /* === TYPOGRAPHY TOKENS === */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-secondary: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Primary colors - Indigo/Purple */
+  --brand-primary-50: #eef2ff;
+  --brand-primary-100: #e0e7ff;
+  --brand-primary-200: #c7d2fe;
+  --brand-primary-300: #a5b4fc;
+  --brand-primary-400: #818cf8;
+  --brand-primary-500: #6366f1;
+  --brand-primary-600: #4f46e5;
+  --brand-primary-700: #4338ca;
+  --brand-primary-800: #3730a3;
+  --brand-primary-900: #312e81;
+  --brand-primary-950: #1e1b4b;
+
+  /* Neutral colors - Cool blue-tinted */
+  --brand-neutral-0: #ffffff;
+  --brand-neutral-50: #f8fafc;
+  --brand-neutral-100: #f1f5f9;
+  --brand-neutral-200: #e2e8f0;
+  --brand-neutral-300: #cbd5e1;
+  --brand-neutral-400: #94a3b8;
+  --brand-neutral-500: #64748b;
+  --brand-neutral-600: #475569;
+  --brand-neutral-700: #334155;
+  --brand-neutral-800: #1e293b;
+  --brand-neutral-900: #0f172a;
+  --brand-neutral-950: #020617;
+
+  /* Success colors */
+  --brand-success-50: #f0fdf4;
+  --brand-success-100: #dcfce7;
+  --brand-success-500: #22c55e;
+  --brand-success-600: #16a34a;
+  --brand-success-700: #15803d;
+
+  /* Warning colors */
+  --brand-warning-50: #fefce8;
+  --brand-warning-100: #fef3c7;
+  --brand-warning-500: #eab308;
+  --brand-warning-600: #ca8a04;
+  --brand-warning-700: #a16207;
+
+  /* Danger colors */
+  --brand-danger-50: #fef2f2;
+  --brand-danger-100: #fee2e2;
+  --brand-danger-500: #ef4444;
+  --brand-danger-600: #dc2626;
+  --brand-danger-700: #b91c1c;
+
+  /* === SEMANTIC TOKEN MAPPING - ACME LIGHT === */
+  --text-primary: var(--brand-neutral-900);
+  --text-secondary: var(--brand-neutral-600);
+  --text-tertiary: var(--brand-neutral-500);
+  --text-inverse: var(--brand-neutral-0);
+  --text-disabled: var(--brand-neutral-400);
+  --text-link: var(--brand-primary-600);
+  --text-link-hover: var(--brand-primary-700);
+  --text-brand: var(--brand-primary-600);
+
+  --bg-primary: var(--brand-neutral-0);
+  --bg-secondary: var(--brand-neutral-50);
+  --bg-tertiary: var(--brand-neutral-100);
+  --bg-inverse: var(--brand-neutral-900);
+  --bg-disabled: var(--brand-neutral-100);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-brand: var(--brand-primary-500);
+  --bg-brand-muted: var(--brand-primary-50);
+
+  --border-primary: var(--brand-neutral-200);
+  --border-secondary: var(--brand-neutral-300);
+  --border-strong: var(--brand-neutral-400);
+  --border-inverse: var(--brand-neutral-700);
+  --border-focus: var(--brand-primary-500);
+  --border-brand: var(--brand-primary-500);
+
+  --interactive-primary: var(--brand-primary-600);
+  --interactive-primary-hover: var(--brand-primary-700);
+  --interactive-primary-active: var(--brand-primary-800);
+  --interactive-primary-disabled: var(--brand-neutral-200);
+  --interactive-primary-text: var(--brand-neutral-0);
+
+  --interactive-secondary: var(--brand-neutral-100);
+  --interactive-secondary-hover: var(--brand-neutral-200);
+  --interactive-secondary-active: var(--brand-neutral-300);
+  --interactive-secondary-disabled: var(--brand-neutral-100);
+
+  --interactive-ghost: transparent;
+  --interactive-ghost-hover: var(--brand-neutral-100);
+  --interactive-ghost-active: var(--brand-neutral-200);
+  --interactive-ghost-disabled: transparent;
+
+  --status-success: var(--brand-success-500);
+  --status-success-hover: var(--brand-success-600);
+  --status-success-bg: var(--brand-success-50);
+  --status-success-text: var(--brand-success-700);
+
+  --status-warning: var(--brand-warning-500);
+  --status-warning-hover: var(--brand-warning-600);
+  --status-warning-bg: var(--brand-warning-50);
+  --status-warning-text: var(--brand-warning-700);
+
+  --status-danger: var(--brand-danger-500);
+  --status-danger-hover: var(--brand-danger-600);
+  --status-danger-bg: var(--brand-danger-50);
+  --status-danger-text: var(--brand-danger-700);
+
+  /* Component overrides */
+  --radius-button: var(--radius-lg); /* Rounded buttons for tech aesthetic */
+  --card-radius: var(--radius-xl); /* Slightly more rounded cards */
+}
+
 /* === DARK MODE VARIANTS === */
 
 /* Stride Dark */
@@ -578,6 +694,41 @@ html.dark.brand-runswap,
   --interactive-primary: var(--brand-primary-500);
   --interactive-primary-hover: var(--brand-primary-600);
   --interactive-primary-active: var(--brand-primary-700);
+  --interactive-primary-disabled: var(--brand-neutral-700);
+  --interactive-primary-text: var(--brand-neutral-0);
+
+  --interactive-secondary: var(--brand-neutral-800);
+  --interactive-secondary-hover: var(--brand-neutral-700);
+  --interactive-secondary-active: var(--brand-neutral-600);
+
+  --interactive-ghost-hover: var(--brand-neutral-800);
+  --interactive-ghost-active: var(--brand-neutral-700);
+}
+
+/* Acme Dark */
+html.dark.brand-acme,
+.dark.brand-acme,
+.brand-acme.dark {
+  --text-primary: var(--brand-neutral-50);
+  --text-secondary: var(--brand-neutral-300);
+  --text-tertiary: var(--brand-neutral-400);
+  --text-inverse: var(--brand-neutral-900);
+  --text-disabled: var(--brand-neutral-600);
+
+  --bg-primary: var(--brand-neutral-900);
+  --bg-secondary: var(--brand-neutral-800);
+  --bg-tertiary: var(--brand-neutral-700);
+  --bg-inverse: var(--brand-neutral-50);
+  --bg-disabled: var(--brand-neutral-800);
+
+  --border-primary: var(--brand-neutral-700);
+  --border-secondary: var(--brand-neutral-600);
+  --border-strong: var(--brand-neutral-500);
+  --border-inverse: var(--brand-neutral-200);
+
+  --interactive-primary: var(--brand-primary-500);
+  --interactive-primary-hover: var(--brand-primary-400);
+  --interactive-primary-active: var(--brand-primary-600);
   --interactive-primary-disabled: var(--brand-neutral-700);
   --interactive-primary-text: var(--brand-neutral-0);
 
