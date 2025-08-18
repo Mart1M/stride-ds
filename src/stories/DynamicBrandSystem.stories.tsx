@@ -5,9 +5,7 @@ import { Alert } from "@/components/ui/Alert";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Input } from "@/components/ui/Input";
-import {
-  type DynamicBrandConfig,
-} from "@/lib/brands";
+import { type DynamicBrandConfig } from "@/lib/brands";
 import { useBrand } from "@/lib/useBrand";
 
 const meta: Meta = {
@@ -24,7 +22,7 @@ The white-label brand system allows injecting custom design tokens without havin
 ## 🎯 Features
 
 - **Optional core tokens** : Primary, neutral, status colors
-- **Direct semantic tokens** : Hardcoded values (e.g. "#000000") or references (e.g. "var(--brand-primary-500)")
+- **Direct semantic tokens** : Hardcoded values (e.g. "#000000"), CSS references (e.g. "var(--brand-primary-500)"), or color functions (e.g. "color-mix(...)")
 - **Intelligent fallback** : Uses a base brand for missing tokens
 - **Persistence** : Automatic localStorage saving
 - **Type-safe** : Complete TypeScript interface
@@ -66,7 +64,9 @@ registerDynamicBrand({
     },
     semantic: {
       textPrimary: '#1a1a1a',           // Direct value
-      textLink: 'var(--brand-primary-600)' // Reference
+      textLink: 'var(--brand-primary-600)', // Reference to core token
+      textLinkHover: 'color-mix(in srgb, var(--brand-primary-600) 80%, black)', // Color function
+      borderFocus: 'var(--text-link)'   // Reference to semantic token
     },
     typography: {
       fontFamilyPrimary: '"Montserrat", sans-serif'
@@ -211,6 +211,12 @@ const BrandManager = () => {
         core: {
           primary: { 500: "#ff6b35" },
         },
+        semantic: {
+          // Utiliser la couleur primaire pour les interactions
+          interactivePrimary: "var(--brand-primary-500)",
+          interactivePrimaryHover: "color-mix(in srgb, var(--brand-primary-500) 90%, black)",
+          borderFocus: "var(--brand-primary-500)",
+        },
       },
     },
     {
@@ -281,6 +287,11 @@ const BrandManager = () => {
           statusWarningBg: "#fffbeb",
           statusDanger: "#dc2626",
           statusDangerBg: "#fef2f2",
+          // Référence vers un token core défini
+          interactivePrimary: "var(--brand-primary-500)",
+          interactivePrimaryHover: "var(--brand-primary-600)",
+          // Ou référence vers un autre token sémantique
+          borderFocus: "var(--interactive-primary)",
         },
       },
     },
