@@ -48,7 +48,7 @@ const checkboxBoxVariants = cva(
     "group-data-[selected]:group-hover:[background-color:var(--interactive-primary-hover)]",
     "group-data-[selected]:group-hover:[border-color:var(--interactive-primary-hover)]",
     // Disabled styles
-    "group-data-[disabled]:[border-color:var(--border-brand)]",
+    "group-data-[disabled]:[border-color:var(--border-secondary)]",
     "group-data-[disabled]:group-data-[selected]:[background-color:var(--bg-brand)]",
   ],
   {

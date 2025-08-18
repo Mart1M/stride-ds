@@ -6,11 +6,13 @@ export * from './components/ui/Badge';
 export * from './components/ui/Button';
 export * from './components/ui/Card';
 export * from './components/ui/Checkbox';
+export * from './components/ui/Choicebox';
 export * from './components/ui/Input';
 export * from './components/ui/Pagination';
 export * from './components/ui/Radio';
 export * from './components/ui/Search';
 export * from './components/ui/Select';
+export * from './components/ui/Slider';
 export * from './components/ui/Switch';
 export * from './components/ui/Tag';
 

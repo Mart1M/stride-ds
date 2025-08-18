@@ -66,7 +66,7 @@ const radioIndicatorVariants = cva(
     "group-data-[selected]:group-hover:[background-color:var(--interactive-primary-hover)]",
     "group-data-[selected]:group-hover:[border-color:var(--interactive-primary-hover)]",
     // Disabled styles
-    "group-data-[disabled]:[border-color:var(--border-disabled)]",
+    "group-data-[disabled]:[border-color:var(--border-secondary)]",
     "group-data-[disabled]:[background-color:var(--bg-disabled)]",
     "group-data-[disabled]:group-data-[selected]:[background-color:var(--interactive-primary-disabled)]",
     "group-data-[disabled]:group-data-[selected]:[border-color:var(--interactive-primary-disabled)]",
