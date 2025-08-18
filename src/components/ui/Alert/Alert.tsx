@@ -48,30 +48,25 @@ const alertVariants = cva(
   }
 );
 
-const alertIconVariants = cva(
-  [
-    "flex-shrink-0 mt-0.5",
-  ],
-  {
-    variants: {
-      variant: {
-        info: "text-blue-600 dark:text-blue-400",
-        success: "[color:var(--status-success)]",
-        warning: "[color:var(--status-warning)]",
-        error: "[color:var(--status-danger)]",
-      },
-      size: {
-        sm: "w-3 h-3",
-        md: "w-4 h-4",
-        lg: "w-5 h-5",
-      },
+const alertIconVariants = cva(["flex-shrink-0 mt-0.5"], {
+  variants: {
+    variant: {
+      info: "text-blue-600 dark:text-blue-400",
+      success: "[color:var(--status-success)]",
+      warning: "[color:var(--status-warning)]",
+      error: "[color:var(--status-danger)]",
     },
-    defaultVariants: {
-      variant: "info",
-      size: "md",
+    size: {
+      sm: "w-3 h-3",
+      md: "w-4 h-4",
+      lg: "w-5 h-5",
     },
-  }
-);
+  },
+  defaultVariants: {
+    variant: "info",
+    size: "md",
+  },
+});
 
 const alertCloseButtonVariants = cva(
   [
@@ -145,16 +140,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
             {iconToRender}
           </div>
         )}
-        
+
         <div className="flex-1 min-w-0">
           {title && (
-            <h4 className="font-semibold mb-1 text-current">
-              {title}
-            </h4>
+            <h4 className="font-semibold mb-1 text-current">{title}</h4>
           )}
-          <div className="text-current opacity-90">
-            {children}
-          </div>
+          <div className="text-current opacity-90">{children}</div>
         </div>
 
         {dismissible && (

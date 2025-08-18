@@ -44,7 +44,8 @@ const meta: Meta<typeof Alert> = {
     },
     icon: {
       control: { type: "boolean" },
-      description: "Whether to show an icon (true/false) or custom icon element",
+      description:
+        "Whether to show an icon (true/false) or custom icon element",
     },
     dismissible: {
       control: { type: "boolean" },
@@ -185,15 +186,19 @@ export const LongContent: Story = {
 // Interactive example
 export const InteractiveExample: Story = {
   render: () => {
-    type AlertType = { id: number; variant: "info" | "success" | "warning" | "error"; message: string };
-    
+    type AlertType = {
+      id: number;
+      variant: "info" | "success" | "warning" | "error";
+      message: string;
+    };
+
     const [alerts, setAlerts] = React.useState<AlertType[]>([
       { id: 1, variant: "info", message: "Welcome to the dashboard!" },
       { id: 2, variant: "success", message: "Profile updated successfully" },
     ]);
 
     const removeAlert = (id: number) => {
-      setAlerts(alerts.filter(alert => alert.id !== id));
+      setAlerts(alerts.filter((alert) => alert.id !== id));
     };
 
     const addAlert = (variant: "info" | "success" | "warning" | "error") => {
@@ -201,46 +206,49 @@ export const InteractiveExample: Story = {
         info: "Here's some information for you",
         success: "Action completed successfully",
         warning: "Please review this carefully",
-        error: "Something needs your attention"
+        error: "Something needs your attention",
       };
-      
-      setAlerts([...alerts, { 
-        id: Date.now(), 
-        variant, 
-        message: messages[variant] 
-      }]);
+
+      setAlerts([
+        ...alerts,
+        {
+          id: Date.now(),
+          variant,
+          message: messages[variant],
+        },
+      ]);
     };
 
     return (
       <div className="space-y-4 w-full max-w-lg">
         <div className="flex gap-2 mb-4">
-          <button 
+          <button
             onClick={() => addAlert("info")}
             className="px-3 py-1 bg-blue-500 text-white rounded text-sm"
           >
             Add Info
           </button>
-          <button 
+          <button
             onClick={() => addAlert("success")}
             className="px-3 py-1 bg-green-500 text-white rounded text-sm"
           >
             Add Success
           </button>
-          <button 
+          <button
             onClick={() => addAlert("warning")}
             className="px-3 py-1 bg-yellow-500 text-white rounded text-sm"
           >
             Add Warning
           </button>
-          <button 
+          <button
             onClick={() => addAlert("error")}
             className="px-3 py-1 bg-red-500 text-white rounded text-sm"
           >
             Add Error
           </button>
         </div>
-        
-        {alerts.map(alert => (
+
+        {alerts.map((alert) => (
           <Alert
             key={alert.id}
             variant={alert.variant}
