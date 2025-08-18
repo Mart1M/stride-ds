@@ -24,8 +24,6 @@ const sliderTrackVariants = cva([
   "transition-colors",
 ]);
 
-
-
 const sliderLabelVariants = cva([
   "flex justify-between items-center",
   "font-medium text-[var(--text-primary)]",
@@ -118,7 +116,8 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
                   "transition-all",
                   "top-6.5 -translate-y-1/2 -translate-x-1/2", // Centrage parfait
                   "z-10", // Au-dessus du track
-                  isDisabled && "cursor-not-allowed border-[var(--interactive-disabled)] bg-[var(--interactive-disabled)] shadow-none",
+                  isDisabled &&
+                    "cursor-not-allowed border-[var(--interactive-disabled)] bg-[var(--interactive-disabled)] shadow-none",
                   thumbClassName
                 )}
                 style={{
