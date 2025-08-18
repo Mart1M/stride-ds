@@ -6,8 +6,6 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Input } from "@/components/ui/Input";
 import {
-  registerDynamicBrand,
-  applyBrandTheme,
   type DynamicBrandConfig,
 } from "@/lib/brands";
 import { useBrand } from "@/lib/useBrand";
@@ -104,8 +102,8 @@ const ComponentShowcase = () => (
         Components Preview
       </h2>
       <p className="text-[var(--text-secondary)]">
-        These components use tokens from the active brand and
-        adapt automatically.
+        These components use tokens from the active brand and adapt
+        automatically.
       </p>
     </div>
 
@@ -456,9 +454,10 @@ export const SimpleExample: Story = {
   name: "🟠 Simple Example",
   render: () => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const { registerDynamicBrand: registerBrand, setBrand } = useBrand();
 
     const loadSimpleBrand = () => {
-      registerDynamicBrand({
+      registerBrand({
         id: "demo-simple",
         name: "Demo Simple",
         description: "Just an orange primary color",
@@ -468,12 +467,12 @@ export const SimpleExample: Story = {
           },
         },
       });
-      applyBrandTheme("demo-simple");
+      setBrand("demo-simple");
       setIsLoaded(true);
     };
 
     const resetBrand = () => {
-      applyBrandTheme("stride");
+      setBrand("stride");
       setIsLoaded(false);
     };
 
@@ -541,9 +540,10 @@ export const SemanticExample: Story = {
   name: "🎨 Semantic Tokens",
   render: () => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const { registerDynamicBrand: registerBrand, setBrand } = useBrand();
 
     const loadSemanticBrand = () => {
-      registerDynamicBrand({
+      registerBrand({
         id: "demo-semantic",
         name: "Demo Semantic",
         description: "Semantic tokens with direct values",
@@ -565,12 +565,12 @@ export const SemanticExample: Story = {
           },
         },
       });
-      applyBrandTheme("demo-semantic");
+      setBrand("demo-semantic");
       setIsLoaded(true);
     };
 
     const resetBrand = () => {
-      applyBrandTheme("stride");
+      setBrand("stride");
       setIsLoaded(false);
     };
 
