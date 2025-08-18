@@ -32,7 +32,7 @@ const sliderThumbVariants = cva([
   "cursor-pointer",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)]/50",
   "pressed:scale-110",
-  "disabled:cursor-not-allowed disabled:border-[var(--interactive-primary-disabled)]",
+  "disabled:cursor-not-allowed disabled:border-[var(--border-secondary)] disabled:bg-[var(--bg-secondary)] disabled:shadow-none",
   "[transition-duration:var(--transition-fast)]",
   "transition-all",
   "top-6.5 -translate-y-1/2 -translate-x-1/2", // Centrage parfait
@@ -42,7 +42,7 @@ const sliderThumbVariants = cva([
 const sliderFillVariants = cva([
   "absolute top-1/2 left-0 -translate-y-1/2 rounded-full h-2",
   "bg-[var(--interactive-primary)]",
-  "group-disabled:bg-[var(--interactive-primary-disabled)]",
+  "group-disabled:bg-[var(--border-secondary)]",
   "[transition-duration:var(--transition-normal)]",
   "transition-colors",
   "z-0", // Sous le thumb
@@ -106,7 +106,8 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
               <div
                 className={cn(
                   "absolute top-1/2 left-0 w-full -translate-y-1/2 rounded-full h-2",
-                  "bg-[var(--border-primary)] dark:bg-[var(--border-secondary)]"
+                  "bg-[var(--border-primary)] dark:bg-[var(--border-secondary)]",
+                  "group-disabled:bg-[var(--border-secondary)] group-disabled:opacity-60"
                 )}
               />
 

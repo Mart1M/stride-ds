@@ -119,6 +119,54 @@ export const Disabled: Story = {
   },
 };
 
+// Story pour comparer les états enabled vs disabled
+export const EnabledVsDisabled: Story = {
+  name: "Enabled vs Disabled Comparison",
+  render: () => (
+    <div className="space-y-8 w-full">
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold">Enabled State</h3>
+        <Slider 
+          label="Volume (Enabled)" 
+          defaultValue={[60]} 
+          minValue={0} 
+          maxValue={100} 
+        />
+        <Slider 
+          label="Brightness (Enabled)" 
+          defaultValue={[75]} 
+          minValue={0} 
+          maxValue={100} 
+          formatValue={(v) => `${v}%`}
+        />
+      </div>
+      
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold">Disabled State</h3>
+        <Slider 
+          label="Volume (Disabled)" 
+          defaultValue={[60]} 
+          minValue={0} 
+          maxValue={100}
+          isDisabled={true}
+        />
+        <Slider 
+          label="Brightness (Disabled)" 
+          defaultValue={[75]} 
+          minValue={0} 
+          maxValue={100} 
+          formatValue={(v) => `${v}%`}
+          isDisabled={true}
+        />
+      </div>
+    </div>
+  ),
+  parameters: {
+    layout: "centered",
+    controls: { hideNoControlsWarning: true },
+  },
+};
+
 export const PrecisionSlider: Story = {
   args: {
     label: "Precision",
