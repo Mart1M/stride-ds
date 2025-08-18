@@ -83,7 +83,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
                 className={cn(
                   "absolute top-1/2 left-0 w-full -translate-y-1/2 rounded-full h-2",
                   "bg-[var(--border-primary)] dark:bg-[var(--border-secondary)]",
-                  isDisabled && "bg-[var(--interactive-disabled)]"
+                  isDisabled && "bg-[var(--interactive-primary-disabled)]"
                 )}
               />
 
@@ -92,7 +92,8 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
                 className={cn(
                   "absolute top-1/2 left-0 -translate-y-1/2 rounded-full h-2",
                   "bg-[var(--interactive-primary)]",
-                  isDisabled && "bg-[var(--interactive-disabled)]",
+                  isDisabled &&
+                    "bg-[color-mix(in_srgb,var(--interactive-primary-disabled)_50%,black_20%)] dark:bg-[color-mix(in_srgb,var(--interactive-primary-disabled)_50%,white_20%)]",
                   "[transition-duration:var(--transition-normal)]",
                   "transition-colors",
                   "z-0" // Sous le thumb
@@ -117,7 +118,7 @@ const Slider = React.forwardRef<HTMLDivElement, SliderProps>(
                   "top-6.5 -translate-y-1/2 -translate-x-1/2", // Centrage parfait
                   "z-10", // Au-dessus du track
                   isDisabled &&
-                    "cursor-not-allowed border-[var(--interactive-disabled)] bg-[var(--interactive-disabled)] shadow-none",
+                    "cursor-not-allowed border-[var(--border-secondary)] bg-[var(--interactive-primary-disabled)] shadow-none",
                   thumbClassName
                 )}
                 style={{
