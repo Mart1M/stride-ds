@@ -174,12 +174,16 @@ export const InteractiveExample: Story = {
   render: () => {
     const [value, setValue] = React.useState([50]);
 
+    const handleChange = (newValue: number | number[]) => {
+      setValue(Array.isArray(newValue) ? newValue : [newValue]);
+    };
+
     return (
       <div className="space-y-6 w-full">
         <Slider
           label="Master Volume"
           value={value}
-          onChange={setValue}
+          onChange={handleChange}
           formatValue={(v) => `${v}%`}
         />
 
