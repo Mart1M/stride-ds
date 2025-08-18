@@ -325,3 +325,66 @@ export const AccessibilityTests: Story = {
 
 // Add React import for interactive example
 import React from "react";
+
+export const DarkModeTest: Story = {
+  name: "🌙 Dark Mode Test",
+  render: () => (
+    <div className="space-y-4 p-6">
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+        Alert Components in Dark Mode
+      </h3>
+      <p className="text-gray-600 dark:text-gray-400 mb-6">
+        Toggle the theme in Storybook toolbar to test dark mode. All variants should adapt correctly.
+      </p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Alert variant="info" icon title="Information">
+          This is an info alert that adapts to dark mode with proper contrast.
+        </Alert>
+        
+        <Alert variant="success" icon title="Success">
+          Success alert with dark mode support and proper colors.
+        </Alert>
+        
+        <Alert variant="warning" icon title="Warning">
+          Warning alert that maintains readability in dark theme.
+        </Alert>
+        
+        <Alert variant="error" icon title="Error" dismissible>
+          Error alert with dismiss button that works in both themes.
+        </Alert>
+      </div>
+      
+      <div className="mt-6 space-y-3">
+        <Alert variant="info" size="sm">
+          Small info alert - dark mode compatible
+        </Alert>
+        <Alert variant="success" size="lg" title="Large success alert">
+          Large alert with title that scales properly in dark mode
+        </Alert>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: `
+This story demonstrates how Alert components adapt to dark mode. 
+
+**To test:**
+1. Use the theme toggle in Storybook's toolbar (sun/moon icon)
+2. Switch between light and dark themes
+3. Verify that all Alert variants maintain proper contrast and readability
+4. Check that icons, text, borders, and backgrounds adapt correctly
+
+**Dark mode features:**
+- Proper background colors with opacity for depth
+- High contrast text colors for accessibility  
+- Adapted border colors that work on dark backgrounds
+- Icon colors that maintain semantic meaning
+- Focus rings that work on both light and dark backgrounds
+        `,
+      },
+    },
+  },
+};

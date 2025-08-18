@@ -5,6 +5,11 @@
 @source "./**/*.{js,jsx,ts,tsx,mdx}";
 @source "../.storybook/**/*.{js,jsx,ts,tsx,mdx}";
 
+/* Tailwind v4: Configure dark mode */
+@theme {
+  --color-scheme: light dark;
+}
+
 :root {
   /* === STRIDE DESIGN SYSTEM FOUNDATION TOKENS === */
   /* Note: All semantic and brand-specific tokens are managed in brands.css */

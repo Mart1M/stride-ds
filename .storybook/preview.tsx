@@ -26,15 +26,17 @@ const ThemeBrandDecorator = (Story: any, context: any) => {
     root.classList.remove("light", "dark");
     body.classList.remove("light", "dark");
 
-    // Add theme class
+    // Add theme class to root for Tailwind CSS v4
     root.classList.add(theme);
-    body.classList.add(theme);
-
-    // Set color scheme
+    
+    // Set color scheme for system compatibility
     root.style.colorScheme = theme;
 
     // Apply brand theme
     applyBrandTheme(brand);
+    
+    // Debug: log current theme
+    console.log(`Storybook theme applied: ${theme}`);
   }, [theme, brand]);
 
   // Initialize brand on first load
@@ -44,7 +46,7 @@ const ThemeBrandDecorator = (Story: any, context: any) => {
 
   return (
     <SSRProvider>
-      <div className={`${outfit.variable} font-sans`}>
+      <div className={`${outfit.variable} font-sans ${theme}`}>
         <Story />
       </div>
     </SSRProvider>

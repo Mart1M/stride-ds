@@ -23,16 +23,19 @@ const alertVariants = cva(
           "[background-color:var(--status-success-bg)]",
           "[border-color:var(--status-success)]",
           "[color:var(--status-success-text)]",
+          "dark:bg-green-950/50 dark:border-green-800 dark:text-green-200",
         ],
         warning: [
           "[background-color:var(--status-warning-bg)]",
           "[border-color:var(--status-warning)]",
           "[color:var(--status-warning-text)]",
+          "dark:bg-orange-950/50 dark:border-orange-800 dark:text-orange-200",
         ],
         error: [
           "[background-color:var(--status-danger-bg)]",
           "[border-color:var(--status-danger)]",
           "[color:var(--status-danger-text)]",
+          "dark:bg-red-950/50 dark:border-red-800 dark:text-red-200",
         ],
       },
       size: {
@@ -57,9 +60,9 @@ const alertIconColorVariants = cva([], {
   variants: {
     variant: {
       info: "text-blue-600 dark:text-blue-400",
-      success: "[color:var(--status-success)]",
-      warning: "[color:var(--status-warning)]",
-      error: "[color:var(--status-danger)]",
+      success: "[color:var(--status-success)] dark:text-green-400",
+      warning: "[color:var(--status-warning)] dark:text-orange-400",
+      error: "[color:var(--status-danger)] dark:text-red-400",
     },
   },
   defaultVariants: {
@@ -74,6 +77,7 @@ const alertCloseButtonVariants = cva(
     "inline-flex items-center justify-center rounded-md",
     "text-current opacity-70 hover:opacity-100 focus:opacity-100",
     "focus:outline-none focus:ring-2 focus:ring-current focus:ring-offset-2",
+    "dark:focus:ring-offset-0",
     "transition-opacity cursor-pointer",
     "[transition-duration:var(--transition-fast)]",
   ],
