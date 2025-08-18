@@ -58,7 +58,7 @@ const alertIconVariants = cva(["flex-shrink-0"], {
     },
     size: {
       sm: "w-4 h-4 mt-[1px]", // Alignement avec text-xs
-      md: "w-4 h-4 mt-0.5",   // Alignement avec text-sm  
+      md: "w-4 h-4 mt-0.5", // Alignement avec text-sm
       lg: "w-5 h-5 mt-[1px]", // Alignement avec text-base
     },
   },
