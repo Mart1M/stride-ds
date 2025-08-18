@@ -214,7 +214,8 @@ const BrandManager = () => {
         semantic: {
           // Utiliser la couleur primaire pour les interactions
           interactivePrimary: "var(--brand-primary-500)",
-          interactivePrimaryHover: "color-mix(in srgb, var(--brand-primary-500) 90%, black)",
+          interactivePrimaryHover:
+            "color-mix(in srgb, var(--brand-primary-500) 90%, black)",
           borderFocus: "var(--brand-primary-500)",
         },
       },
