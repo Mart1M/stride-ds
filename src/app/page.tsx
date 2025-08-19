@@ -987,7 +987,7 @@ export default function Home() {
                       Size {size.toUpperCase()}
                     </Button>
                     <DialogOverlay>
-                      <Dialog size={size as any}>
+                      <Dialog size={size as "sm" | "md" | "lg" | "xl" | "2xl"}>
                         <DialogHeader>
                           <DialogTitle>Size: {size.toUpperCase()}</DialogTitle>
                                                    <DialogClose>

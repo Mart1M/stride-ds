@@ -6,9 +6,11 @@ import {
   DialogTrigger as AriaDialogTrigger,
   Modal as AriaModal,
   ModalOverlay as AriaModalOverlay,
+  Button as AriaButton,
   type DialogProps as AriaDialogProps,
   type DialogTriggerProps as AriaDialogTriggerProps,
   type ModalOverlayProps as AriaModalOverlayProps,
+  type ButtonProps as AriaButtonProps,
   Heading,
 } from "react-aria-components";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -90,12 +92,9 @@ export interface DialogTriggerProps extends AriaDialogTriggerProps {
 export const DialogTrigger = React.forwardRef<
   HTMLDivElement,
   DialogTriggerProps
->(({ children, ...props }, ref) => {
-  return (
-    <AriaDialogTrigger {...props}>
-      {children}
-    </AriaDialogTrigger>
-  );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+>(({ children, ...props }, _ref) => {
+  return <AriaDialogTrigger {...props}>{children}</AriaDialogTrigger>;
 });
 
 DialogTrigger.displayName = "DialogTrigger";
@@ -240,8 +239,7 @@ export const DialogDescription = React.forwardRef<
 
 DialogDescription.displayName = "DialogDescription";
 
-export interface DialogCloseProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface DialogCloseProps extends AriaButtonProps {
   className?: string;
 }
 
@@ -250,7 +248,7 @@ export const DialogClose = React.forwardRef<
   DialogCloseProps
 >(({ className, children, ...props }, ref) => {
   return (
-    <button
+    <AriaButton
       ref={ref}
       slot="close"
       className={cn(dialogCloseButtonVariants({ className }))}
@@ -273,7 +271,7 @@ export const DialogClose = React.forwardRef<
           />
         </svg>
       )}
-    </button>
+    </AriaButton>
   );
 });
 
