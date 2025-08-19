@@ -84,8 +84,9 @@ export const AnimationTest: Story = {
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
-              This dialog should animate smoothly on open and close. The animations are
-              based on React Aria&apos;s data-entering and data-exiting states.
+              This dialog should animate smoothly on open and close. The
+              animations are based on React Aria&apos;s data-entering and
+              data-exiting states.
             </DialogDescription>
             <div className="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200">
               <p className="text-sm text-blue-800">
@@ -100,7 +101,9 @@ export const AnimationTest: Story = {
             </div>
           </DialogBody>
           <DialogFooter>
-            <Button variant="secondary" slot="close">Cancel</Button>
+            <Button variant="secondary" slot="close">
+              Cancel
+            </Button>
             <Button variant="primary">Confirm</Button>
           </DialogFooter>
         </Dialog>
@@ -136,7 +139,9 @@ export const Default: Story = {
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
-            <Button variant="secondary" slot="close">Cancel</Button>
+            <Button variant="secondary" slot="close">
+              Cancel
+            </Button>
             <Button variant="primary">Confirm</Button>
           </DialogFooter>
         </Dialog>
@@ -169,7 +174,9 @@ export const AllSizes: Story = {
                 </DialogDescription>
               </DialogBody>
               <DialogFooter>
-                <Button variant="secondary" slot="close">Cancel</Button>
+                <Button variant="secondary" slot="close">
+                  Cancel
+                </Button>
                 <Button variant="primary">Accept</Button>
               </DialogFooter>
             </Dialog>
@@ -210,7 +217,9 @@ export const ConfirmationDialog: Story = {
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
-            <Button variant="secondary" slot="close">Cancel</Button>
+            <Button variant="secondary" slot="close">
+              Cancel
+            </Button>
             <Button variant="destructive">Delete</Button>
           </DialogFooter>
         </Dialog>
@@ -372,7 +381,9 @@ export const FormDialog: Story = {
             </form>
           </DialogBody>
           <DialogFooter>
-            <Button variant="secondary" slot="close">Cancel</Button>
+            <Button variant="secondary" slot="close">
+              Cancel
+            </Button>
             <Button variant="primary">Save Changes</Button>
           </DialogFooter>
         </Dialog>
@@ -403,7 +414,9 @@ export const NoHeaderDialog: Story = {
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
-            <Button variant="secondary" slot="close">Cancel</Button>
+            <Button variant="secondary" slot="close">
+              Cancel
+            </Button>
             <Button variant="primary">Confirm</Button>
           </DialogFooter>
         </Dialog>
@@ -474,7 +487,9 @@ export const LargeContentDialog: Story = {
             </div>
           </DialogBody>
           <DialogFooter>
-            <Button variant="secondary" slot="close">Decline</Button>
+            <Button variant="secondary" slot="close">
+              Decline
+            </Button>
             <Button variant="primary">Accept</Button>
           </DialogFooter>
         </Dialog>
@@ -503,7 +518,12 @@ export const AccessibilityDemo: Story = {
           <Dialog size="md">
             <DialogHeader>
               <DialogTitle>Accessibility Features</DialogTitle>
-              <Button variant="ghost" className="h-6 w-6 p-0" slot="close" aria-label="Close dialog">
+              <Button
+                variant="ghost"
+                className="h-6 w-6 p-0"
+                slot="close"
+                aria-label="Close dialog"
+              >
                 <X size={16} />
               </Button>
             </DialogHeader>
@@ -520,7 +540,9 @@ export const AccessibilityDemo: Story = {
               </ul>
             </DialogBody>
             <DialogFooter>
-              <Button variant="secondary" slot="close">Close</Button>
+              <Button variant="secondary" slot="close">
+                Close
+              </Button>
               <Button variant="primary">Learn More</Button>
             </DialogFooter>
           </Dialog>

@@ -32,6 +32,12 @@ import {
   Flag,
   Moon,
   Sun,
+  X,
+  AlertTriangle,
+  CheckCircle,
+  Info,
+  Trash2,
+  Settings,
 } from "lucide-react";
 import {
   Accordion,
@@ -39,6 +45,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/Accordion";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogOverlay,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/Dialog";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -783,6 +799,348 @@ export default function Home() {
                     </p>
                   </CardContent>
                 </Card>
+              </div>
+            </div>
+          </section>
+
+          {/* Dialog Showcase */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-6 [color:var(--text-primary)]">
+              Dialog Components
+            </h2>
+
+            {/* Dialog Variants */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Dialog Types
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                {/* Basic Dialog */}
+                <DialogTrigger>
+                  <Button variant="primary">Open Basic Dialog</Button>
+                  <DialogOverlay>
+                    <Dialog size="md">
+                      <DialogHeader>
+                        <DialogTitle>Welcome</DialogTitle>
+                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <X size={16} />
+                        </Button>
+                      </DialogHeader>
+                      <DialogBody>
+                        <DialogDescription>
+                          This is a basic dialog with a title, description, and action buttons. 
+                          It demonstrates the fundamental dialog structure.
+                        </DialogDescription>
+                      </DialogBody>
+                      <DialogFooter>
+                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="primary">Continue</Button>
+                      </DialogFooter>
+                    </Dialog>
+                  </DialogOverlay>
+                </DialogTrigger>
+
+                {/* Confirmation Dialog */}
+                <DialogTrigger>
+                  <Button variant="destructive">Delete Item</Button>
+                  <DialogOverlay>
+                    <Dialog size="sm">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2">
+                          <AlertTriangle size={20} className="text-red-500" />
+                          Confirm Deletion
+                        </DialogTitle>
+                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <X size={16} />
+                        </Button>
+                      </DialogHeader>
+                      <DialogBody>
+                        <DialogDescription>
+                          Are you sure you want to delete this item? This action cannot be undone.
+                        </DialogDescription>
+                      </DialogBody>
+                      <DialogFooter>
+                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="destructive">Delete</Button>
+                      </DialogFooter>
+                    </Dialog>
+                  </DialogOverlay>
+                </DialogTrigger>
+
+                {/* Success Dialog */}
+                <DialogTrigger>
+                  <Button variant="secondary">Show Success</Button>
+                  <DialogOverlay>
+                    <Dialog size="sm">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2">
+                          <CheckCircle size={20} className="text-green-500" />
+                          Success!
+                        </DialogTitle>
+                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <X size={16} />
+                        </Button>
+                      </DialogHeader>
+                      <DialogBody>
+                        <DialogDescription>
+                          Your changes have been saved successfully!
+                        </DialogDescription>
+                      </DialogBody>
+                      <DialogFooter>
+                        <Button variant="primary" slot="close">Got it</Button>
+                      </DialogFooter>
+                    </Dialog>
+                  </DialogOverlay>
+                </DialogTrigger>
+
+                {/* Info Dialog */}
+                <DialogTrigger>
+                  <Button variant="ghost" leftIcon={<Info size={16} />}>
+                    Show Info
+                  </Button>
+                  <DialogOverlay>
+                    <Dialog size="lg">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2">
+                          <Info size={20} className="text-blue-500" />
+                          Information
+                        </DialogTitle>
+                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <X size={16} />
+                        </Button>
+                      </DialogHeader>
+                      <DialogBody>
+                        <DialogDescription>
+                          Here&apos;s some important information about the feature you&apos;re using.
+                        </DialogDescription>
+                        <div className="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200 dark:bg-blue-950 dark:border-blue-800">
+                          <p className="text-sm text-blue-800 dark:text-blue-200">
+                            💡 <strong>Tip:</strong> You can use keyboard shortcuts to navigate quickly:
+                          </p>
+                          <ul className="text-sm text-blue-700 dark:text-blue-300 mt-2 space-y-1">
+                            <li>• Press <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">Esc</code> to close</li>
+                            <li>• Use <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">Tab</code> to navigate</li>
+                            <li>• Press <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">Enter</code> to confirm</li>
+                          </ul>
+                        </div>
+                      </DialogBody>
+                      <DialogFooter>
+                        <Button variant="primary" slot="close">Understood</Button>
+                      </DialogFooter>
+                    </Dialog>
+                  </DialogOverlay>
+                </DialogTrigger>
+              </div>
+            </div>
+
+            {/* Dialog Sizes */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Dialog Sizes
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                {["sm", "md", "lg", "xl", "2xl"].map((size) => (
+                  <DialogTrigger key={size}>
+                    <Button variant="secondary" size="sm">
+                      Size {size.toUpperCase()}
+                    </Button>
+                    <DialogOverlay>
+                      <Dialog size={size as any}>
+                        <DialogHeader>
+                          <DialogTitle>Size: {size.toUpperCase()}</DialogTitle>
+                          <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                            <X size={16} />
+                          </Button>
+                        </DialogHeader>
+                        <DialogBody>
+                          <DialogDescription>
+                            This dialog demonstrates the {size} size variant. The dialog adjusts its 
+                            width while maintaining proper proportions on different screen sizes.
+                          </DialogDescription>
+                        </DialogBody>
+                        <DialogFooter>
+                          <Button variant="secondary" slot="close">Close</Button>
+                        </DialogFooter>
+                      </Dialog>
+                    </DialogOverlay>
+                  </DialogTrigger>
+                ))}
+              </div>
+            </div>
+
+            {/* Practical Dialog Examples */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Practical Examples
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Settings Dialog */}
+                <DialogTrigger>
+                  <Card variant="interactive" className="cursor-pointer">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Settings size={20} className="[color:var(--text-secondary)]" />
+                        <div>
+                          <div className="font-medium [color:var(--text-primary)]">Settings</div>
+                          <div className="text-sm [color:var(--text-secondary)]">
+                            Configure preferences
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <DialogOverlay>
+                    <Dialog size="md">
+                      <DialogHeader>
+                        <DialogTitle>Settings</DialogTitle>
+                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <X size={16} />
+                        </Button>
+                      </DialogHeader>
+                      <DialogBody>
+                        <div className="space-y-4">
+                          <div>
+                            <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                              Theme
+                            </label>
+                            <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 [background-color:var(--bg-primary)] [color:var(--text-primary)]">
+                              <option>Light</option>
+                              <option>Dark</option>
+                              <option>System</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                              Language
+                            </label>
+                            <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 [background-color:var(--bg-primary)] [color:var(--text-primary)]">
+                              <option>English</option>
+                              <option>Français</option>
+                              <option>Español</option>
+                            </select>
+                          </div>
+                        </div>
+                      </DialogBody>
+                      <DialogFooter>
+                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="primary">Save Changes</Button>
+                      </DialogFooter>
+                    </Dialog>
+                  </DialogOverlay>
+                </DialogTrigger>
+
+                {/* Contact Form Dialog */}
+                <DialogTrigger>
+                  <Card variant="interactive" className="cursor-pointer">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Mail size={20} className="[color:var(--text-secondary)]" />
+                        <div>
+                          <div className="font-medium [color:var(--text-primary)]">Contact Us</div>
+                          <div className="text-sm [color:var(--text-secondary)]">
+                            Send us a message
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <DialogOverlay>
+                    <Dialog size="lg">
+                      <DialogHeader>
+                        <DialogTitle>Contact Us</DialogTitle>
+                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <X size={16} />
+                        </Button>
+                      </DialogHeader>
+                      <DialogBody>
+                        <form className="space-y-4">
+                          <Input
+                            label="Name"
+                            placeholder="Your full name"
+                            leftIcon={<User size={16} />}
+                            isRequired
+                          />
+                          <Input
+                            label="Email"
+                            type="email"
+                            placeholder="your@email.com"
+                            leftIcon={<Mail size={16} />}
+                            isRequired
+                          />
+                          <div>
+                            <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                              Message
+                            </label>
+                            <textarea
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 [background-color:var(--bg-primary)] [color:var(--text-primary)]"
+                              rows={4}
+                              placeholder="Your message here..."
+                            />
+                          </div>
+                        </form>
+                      </DialogBody>
+                      <DialogFooter>
+                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="primary">Send Message</Button>
+                      </DialogFooter>
+                    </Dialog>
+                  </DialogOverlay>
+                </DialogTrigger>
+
+                {/* Delete Account Dialog */}
+                <DialogTrigger>
+                  <Card variant="interactive" className="cursor-pointer border-red-200 dark:border-red-800">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Trash2 size={20} className="text-red-500" />
+                        <div>
+                          <div className="font-medium text-red-600 dark:text-red-400">Delete Account</div>
+                          <div className="text-sm [color:var(--text-secondary)]">
+                            Permanently remove account
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <DialogOverlay>
+                    <Dialog size="md">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2 text-red-600 dark:text-red-400">
+                          <AlertTriangle size={20} />
+                          Delete Account
+                        </DialogTitle>
+                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <X size={16} />
+                        </Button>
+                      </DialogHeader>
+                      <DialogBody>
+                        <div className="space-y-4">
+                          <div className="p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-lg">
+                            <p className="text-sm text-red-800 dark:text-red-200 font-medium mb-2">
+                              ⚠️ This action is irreversible
+                            </p>
+                            <p className="text-sm text-red-700 dark:text-red-300">
+                              All your data, including projects, settings, and account information will be permanently deleted.
+                            </p>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                              Type &quot;DELETE&quot; to confirm:
+                            </label>
+                            <Input
+                              placeholder="DELETE"
+                              className="font-mono"
+                            />
+                          </div>
+                        </div>
+                      </DialogBody>
+                      <DialogFooter>
+                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="destructive">Delete Account</Button>
+                      </DialogFooter>
+                    </Dialog>
+                  </DialogOverlay>
+                </DialogTrigger>
               </div>
             </div>
           </section>
