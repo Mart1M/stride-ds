@@ -70,6 +70,53 @@ const meta: Meta<typeof Dialog> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const AnimationTest: Story = {
+  render: (args) => (
+    <DialogTrigger>
+      <Button variant="primary">Test Animation</Button>
+      <DialogOverlay className="[--modal-animation-duration-in:500ms] [--modal-animation-duration-out:300ms]">
+        <Dialog {...args}>
+          <DialogHeader>
+            <DialogTitle>Animation Test Dialog</DialogTitle>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+              <X size={16} />
+            </Button>
+          </DialogHeader>
+          <DialogBody>
+            <DialogDescription>
+              This dialog should animate smoothly on open and close. The animations are
+              based on React Aria&apos;s data-entering and data-exiting states.
+            </DialogDescription>
+            <div className="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200">
+              <p className="text-sm text-blue-800">
+                ✨ <strong>Animation Features:</strong>
+              </p>
+              <ul className="text-sm text-blue-700 mt-2 space-y-1">
+                <li>• Overlay fades in/out smoothly</li>
+                <li>• Content scales and translates</li>
+                <li>• 300ms duration with smooth easing</li>
+                <li>• Uses React Aria data attributes</li>
+              </ul>
+            </div>
+          </DialogBody>
+          <DialogFooter>
+            <Button variant="secondary" slot="close">Cancel</Button>
+            <Button variant="primary">Confirm</Button>
+          </DialogFooter>
+        </Dialog>
+      </DialogOverlay>
+    </DialogTrigger>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Test dialog with enhanced animations based on React Aria documentation. Shows smooth overlay fade and content scale animations.",
+      },
+    },
+  },
+};
+
 export const Default: Story = {
   render: (args) => (
     <DialogTrigger>
