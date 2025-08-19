@@ -66,7 +66,7 @@
 
   --bg-primary: var(--brand-neutral-0);
   --bg-secondary: var(--brand-neutral-50);
-  --bg-tertiary: var(--brand-neutral-100);
+  --bg-tertiary: var(--brand-neutral-200);
   --bg-inverse: var(--brand-neutral-900);
   --bg-disabled: var(--brand-neutral-100);
   --bg-overlay: rgba(0, 0, 0, 0.6);
