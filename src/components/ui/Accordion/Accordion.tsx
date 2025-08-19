@@ -223,10 +223,10 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
       >
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child) && child.type === AccordionItem) {
-            return React.cloneElement(child as React.ReactElement<any>, {
+            const typedChild = child as React.ReactElement<AccordionItemProps>;
+            return React.cloneElement(typedChild, {
               variant,
-              size,
-              ...child.props,
+              ...(typedChild.props || {}),
             });
           }
           return child;

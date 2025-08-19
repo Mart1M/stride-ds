@@ -4,10 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-  AccordionComponent,
 } from "./Accordion";
 
-import { ChevronRight, Plus, Minus, Settings, User, Bell } from "lucide-react";
+import { ChevronRight, Plus, Settings, User, Bell } from "lucide-react";
 
 const meta: Meta<typeof Accordion> = {
   title: "Stride DS/Accordion",
@@ -422,7 +421,7 @@ export const ComplexContent: Story = {
                 }}
               >
                 <strong style={{ color: "var(--text-primary)" }}>Note:</strong>{" "}
-                Content adapts to the accordion's size variant.
+                Content adapts to the accordion&apos;s size variant.
               </div>
             </div>
           </AccordionContent>
