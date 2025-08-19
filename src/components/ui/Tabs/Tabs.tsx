@@ -36,14 +36,8 @@ const tabListVariants = cva(
   {
     variants: {
       variant: {
-        default: [
-          "border-b",
-          "[border-color:var(--border-primary)]",
-        ],
-        soft: [
-          "p-1 rounded-lg",
-          "[background-color:var(--bg-secondary)]",
-        ],
+        default: ["border-b", "[border-color:var(--border-primary)]"],
+        soft: ["p-1 rounded-lg", "[background-color:var(--bg-secondary)]"],
         outline: [
           "p-1 border rounded-lg",
           "[border-color:var(--border-primary)]",
@@ -59,7 +53,7 @@ const tabListVariants = cva(
       },
       size: {
         sm: "gap-1",
-        md: "gap-2", 
+        md: "gap-2",
         lg: "gap-3",
       },
     },
@@ -119,18 +113,9 @@ const tabVariants = cva(
         ],
       },
       size: {
-        sm: [
-          "[font-size:var(--font-size-xs)]",
-          "h-7 px-2 py-1",
-        ],
-        md: [
-          "[font-size:var(--font-size-sm)]",
-          "h-9 px-3 py-2",
-        ],
-        lg: [
-          "[font-size:var(--font-size-md)]",
-          "h-11 px-4 py-2.5",
-        ],
+        sm: ["[font-size:var(--font-size-xs)]", "h-7 px-2 py-1"],
+        md: ["[font-size:var(--font-size-sm)]", "h-9 px-3 py-2"],
+        lg: ["[font-size:var(--font-size-md)]", "h-11 px-4 py-2.5"],
       },
       orientation: {
         horizontal: "",
@@ -145,27 +130,30 @@ const tabVariants = cva(
   }
 );
 
-const tabPanelVariants = cva([
-  "mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2",
-  "[--tw-ring-color:var(--border-focus)]",
-  "[color:var(--text-primary)]",
-  "[font-family:var(--font-family-primary)]",
-], {
-  variants: {
-    orientation: {
-      horizontal: "mt-4",
-      vertical: "mt-0 flex-1",
+const tabPanelVariants = cva(
+  [
+    "mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2",
+    "[--tw-ring-color:var(--border-focus)]",
+    "[color:var(--text-primary)]",
+    "[font-family:var(--font-family-primary)]",
+  ],
+  {
+    variants: {
+      orientation: {
+        horizontal: "mt-4",
+        vertical: "mt-0 flex-1",
+      },
     },
-  },
-  defaultVariants: {
-    orientation: "horizontal",
-  },
-});
+    defaultVariants: {
+      orientation: "horizontal",
+    },
+  }
+);
 
 // === MAIN TABS COMPONENT ===
 export interface TabsProps
   extends AriaTabsProps,
-    Omit<VariantProps<typeof tabsVariants>, 'orientation'> {
+    Omit<VariantProps<typeof tabsVariants>, "orientation"> {
   className?: string;
   children: React.ReactNode;
 }
@@ -210,7 +198,10 @@ export const TabList = React.forwardRef<HTMLDivElement, TabListProps>(
     return (
       <AriaTabList
         ref={ref}
-        className={cn(tabListVariants({ variant, orientation, size }), className)}
+        className={cn(
+          tabListVariants({ variant, orientation, size }),
+          className
+        )}
         {...props}
       >
         {children}
@@ -264,10 +255,7 @@ export interface TabPanelProps
 }
 
 export const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(
-  (
-    { className, orientation = "horizontal", children, ...props },
-    ref
-  ) => {
+  ({ className, orientation = "horizontal", children, ...props }, ref) => {
     return (
       <AriaTabPanel
         ref={ref}
