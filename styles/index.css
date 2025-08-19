@@ -338,3 +338,95 @@ body {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }
+
+/* === MODAL/DIALOG ANIMATIONS === */
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modal-content-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+}
+
+/* === REACT ARIA MODAL/DIALOG ANIMATIONS === */
+/* Based on official React Aria documentation */
+
+/* ModalOverlay animations - background fade */
+.react-aria-ModalOverlay[data-entering] {
+  animation: modal-overlay-in 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.react-aria-ModalOverlay[data-exiting] {
+  animation: modal-overlay-out 200ms ease-in;
+}
+
+/* Modal content animations - scale + fade */
+.react-aria-Modal[data-entering] {
+  animation: modal-content-in 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.react-aria-Modal[data-exiting] {
+  animation: modal-content-out 200ms ease-in;
+}
+
+/* Dialog specific animations */
+.react-aria-Dialog {
+  /* Ensure dialog is ready for animations */
+  transform-origin: center;
+}
+
+/* Alternative using CSS custom properties for easier theming */
+:root {
+  --modal-animation-duration-in: 300ms;
+  --modal-animation-duration-out: 200ms;
+  --modal-animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enhanced animations with custom properties */
+[data-entering].react-aria-ModalOverlay {
+  animation: modal-overlay-in var(--modal-animation-duration-in) var(--modal-animation-easing);
+}
+
+[data-exiting].react-aria-ModalOverlay {
+  animation: modal-overlay-out var(--modal-animation-duration-out) ease-in;
+}
+
+[data-entering].react-aria-Modal {
+  animation: modal-content-in var(--modal-animation-duration-in) var(--modal-animation-easing);
+}
+
+[data-exiting].react-aria-Modal {
+  animation: modal-content-out var(--modal-animation-duration-out) ease-in;
+}

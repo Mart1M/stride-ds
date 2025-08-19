@@ -166,7 +166,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-6 [color:var(--text-primary)]">
               Accordion Components
             </h2>
-            
+
             {/* Basic Accordion */}
             <div className="mb-8">
               <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
@@ -176,19 +176,25 @@ export default function Home() {
                 <AccordionItem>
                   <AccordionTrigger>Is it accessible?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern and provides full keyboard navigation support.
+                    Yes. It adheres to the WAI-ARIA design pattern and provides
+                    full keyboard navigation support.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem>
                   <AccordionTrigger>Can it be styled?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It uses CSS variables and Tailwind CSS classes, making it fully customizable to match your brand.
+                    Yes. It uses CSS variables and Tailwind CSS classes, making
+                    it fully customizable to match your brand.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem>
-                  <AccordionTrigger>Does it support animations?</AccordionTrigger>
+                  <AccordionTrigger>
+                    Does it support animations?
+                  </AccordionTrigger>
                   <AccordionContent>
-                    Absolutely! The accordion includes smooth opening/closing animations and icon rotation effects using CSS transitions and keyframes.
+                    Absolutely! The accordion includes smooth opening/closing
+                    animations and icon rotation effects using CSS transitions
+                    and keyframes.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -208,7 +214,8 @@ export default function Home() {
                     <AccordionItem>
                       <AccordionTrigger>Default Styling</AccordionTrigger>
                       <AccordionContent>
-                        This is the default accordion styling with borders and subtle shadows.
+                        This is the default accordion styling with borders and
+                        subtle shadows.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem>
@@ -228,13 +235,15 @@ export default function Home() {
                     <AccordionItem>
                       <AccordionTrigger>Ghost Styling</AccordionTrigger>
                       <AccordionContent>
-                        This variant has a transparent background with minimal styling.
+                        This variant has a transparent background with minimal
+                        styling.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem>
                       <AccordionTrigger>Clean Look</AccordionTrigger>
                       <AccordionContent>
-                        Perfect for contexts where you want a cleaner, more minimal appearance.
+                        Perfect for contexts where you want a cleaner, more
+                        minimal appearance.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
@@ -248,13 +257,15 @@ export default function Home() {
                     <AccordionItem>
                       <AccordionTrigger>Filled Background</AccordionTrigger>
                       <AccordionContent>
-                        This variant uses a filled background color for better distinction.
+                        This variant uses a filled background color for better
+                        distinction.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem>
                       <AccordionTrigger>Enhanced Visibility</AccordionTrigger>
                       <AccordionContent>
-                        Great for sections where you need the accordion to stand out more.
+                        Great for sections where you need the accordion to stand
+                        out more.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
@@ -822,18 +833,25 @@ export default function Home() {
                     <Dialog size="md">
                       <DialogHeader>
                         <DialogTitle>Welcome</DialogTitle>
-                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                        <Button
+                          variant="ghost"
+                          className="h-6 w-6 p-0"
+                          slot="close"
+                        >
                           <X size={16} />
                         </Button>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
-                          This is a basic dialog with a title, description, and action buttons. 
-                          It demonstrates the fundamental dialog structure.
+                          This is a basic dialog with a title, description, and
+                          action buttons. It demonstrates the fundamental dialog
+                          structure.
                         </DialogDescription>
                       </DialogBody>
                       <DialogFooter>
-                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="secondary" slot="close">
+                          Cancel
+                        </Button>
                         <Button variant="primary">Continue</Button>
                       </DialogFooter>
                     </Dialog>
@@ -850,17 +868,24 @@ export default function Home() {
                           <AlertTriangle size={20} className="text-red-500" />
                           Confirm Deletion
                         </DialogTitle>
-                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                        <Button
+                          variant="ghost"
+                          className="h-6 w-6 p-0"
+                          slot="close"
+                        >
                           <X size={16} />
                         </Button>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
-                          Are you sure you want to delete this item? This action cannot be undone.
+                          Are you sure you want to delete this item? This action
+                          cannot be undone.
                         </DialogDescription>
                       </DialogBody>
                       <DialogFooter>
-                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="secondary" slot="close">
+                          Cancel
+                        </Button>
                         <Button variant="destructive">Delete</Button>
                       </DialogFooter>
                     </Dialog>
@@ -877,7 +902,11 @@ export default function Home() {
                           <CheckCircle size={20} className="text-green-500" />
                           Success!
                         </DialogTitle>
-                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                        <Button
+                          variant="ghost"
+                          className="h-6 w-6 p-0"
+                          slot="close"
+                        >
                           <X size={16} />
                         </Button>
                       </DialogHeader>
@@ -887,7 +916,9 @@ export default function Home() {
                         </DialogDescription>
                       </DialogBody>
                       <DialogFooter>
-                        <Button variant="primary" slot="close">Got it</Button>
+                        <Button variant="primary" slot="close">
+                          Got it
+                        </Button>
                       </DialogFooter>
                     </Dialog>
                   </DialogOverlay>
@@ -905,27 +936,53 @@ export default function Home() {
                           <Info size={20} className="text-blue-500" />
                           Information
                         </DialogTitle>
-                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                        <Button
+                          variant="ghost"
+                          className="h-6 w-6 p-0"
+                          slot="close"
+                        >
                           <X size={16} />
                         </Button>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
-                          Here&apos;s some important information about the feature you&apos;re using.
+                          Here&apos;s some important information about the
+                          feature you&apos;re using.
                         </DialogDescription>
                         <div className="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200 dark:bg-blue-950 dark:border-blue-800">
                           <p className="text-sm text-blue-800 dark:text-blue-200">
-                            💡 <strong>Tip:</strong> You can use keyboard shortcuts to navigate quickly:
+                            💡 <strong>Tip:</strong> You can use keyboard
+                            shortcuts to navigate quickly:
                           </p>
                           <ul className="text-sm text-blue-700 dark:text-blue-300 mt-2 space-y-1">
-                            <li>• Press <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">Esc</code> to close</li>
-                            <li>• Use <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">Tab</code> to navigate</li>
-                            <li>• Press <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">Enter</code> to confirm</li>
+                            <li>
+                              • Press{" "}
+                              <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">
+                                Esc
+                              </code>{" "}
+                              to close
+                            </li>
+                            <li>
+                              • Use{" "}
+                              <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">
+                                Tab
+                              </code>{" "}
+                              to navigate
+                            </li>
+                            <li>
+                              • Press{" "}
+                              <code className="px-1 bg-blue-100 dark:bg-blue-900 rounded">
+                                Enter
+                              </code>{" "}
+                              to confirm
+                            </li>
                           </ul>
                         </div>
                       </DialogBody>
                       <DialogFooter>
-                        <Button variant="primary" slot="close">Understood</Button>
+                        <Button variant="primary" slot="close">
+                          Understood
+                        </Button>
                       </DialogFooter>
                     </Dialog>
                   </DialogOverlay>
@@ -948,18 +1005,25 @@ export default function Home() {
                       <Dialog size={size as any}>
                         <DialogHeader>
                           <DialogTitle>Size: {size.toUpperCase()}</DialogTitle>
-                          <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                          <Button
+                            variant="ghost"
+                            className="h-6 w-6 p-0"
+                            slot="close"
+                          >
                             <X size={16} />
                           </Button>
                         </DialogHeader>
                         <DialogBody>
                           <DialogDescription>
-                            This dialog demonstrates the {size} size variant. The dialog adjusts its 
-                            width while maintaining proper proportions on different screen sizes.
+                            This dialog demonstrates the {size} size variant.
+                            The dialog adjusts its width while maintaining
+                            proper proportions on different screen sizes.
                           </DialogDescription>
                         </DialogBody>
                         <DialogFooter>
-                          <Button variant="secondary" slot="close">Close</Button>
+                          <Button variant="secondary" slot="close">
+                            Close
+                          </Button>
                         </DialogFooter>
                       </Dialog>
                     </DialogOverlay>
@@ -979,9 +1043,14 @@ export default function Home() {
                   <Card variant="interactive" className="cursor-pointer">
                     <CardContent className="p-4">
                       <div className="flex items-center gap-3">
-                        <Settings size={20} className="[color:var(--text-secondary)]" />
+                        <Settings
+                          size={20}
+                          className="[color:var(--text-secondary)]"
+                        />
                         <div>
-                          <div className="font-medium [color:var(--text-primary)]">Settings</div>
+                          <div className="font-medium [color:var(--text-primary)]">
+                            Settings
+                          </div>
                           <div className="text-sm [color:var(--text-secondary)]">
                             Configure preferences
                           </div>
@@ -993,7 +1062,11 @@ export default function Home() {
                     <Dialog size="md">
                       <DialogHeader>
                         <DialogTitle>Settings</DialogTitle>
-                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                        <Button
+                          variant="ghost"
+                          className="h-6 w-6 p-0"
+                          slot="close"
+                        >
                           <X size={16} />
                         </Button>
                       </DialogHeader>
@@ -1022,7 +1095,9 @@ export default function Home() {
                         </div>
                       </DialogBody>
                       <DialogFooter>
-                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="secondary" slot="close">
+                          Cancel
+                        </Button>
                         <Button variant="primary">Save Changes</Button>
                       </DialogFooter>
                     </Dialog>
@@ -1034,9 +1109,14 @@ export default function Home() {
                   <Card variant="interactive" className="cursor-pointer">
                     <CardContent className="p-4">
                       <div className="flex items-center gap-3">
-                        <Mail size={20} className="[color:var(--text-secondary)]" />
+                        <Mail
+                          size={20}
+                          className="[color:var(--text-secondary)]"
+                        />
                         <div>
-                          <div className="font-medium [color:var(--text-primary)]">Contact Us</div>
+                          <div className="font-medium [color:var(--text-primary)]">
+                            Contact Us
+                          </div>
                           <div className="text-sm [color:var(--text-secondary)]">
                             Send us a message
                           </div>
@@ -1048,7 +1128,11 @@ export default function Home() {
                     <Dialog size="lg">
                       <DialogHeader>
                         <DialogTitle>Contact Us</DialogTitle>
-                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                        <Button
+                          variant="ghost"
+                          className="h-6 w-6 p-0"
+                          slot="close"
+                        >
                           <X size={16} />
                         </Button>
                       </DialogHeader>
@@ -1080,7 +1164,9 @@ export default function Home() {
                         </form>
                       </DialogBody>
                       <DialogFooter>
-                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="secondary" slot="close">
+                          Cancel
+                        </Button>
                         <Button variant="primary">Send Message</Button>
                       </DialogFooter>
                     </Dialog>
@@ -1089,12 +1175,17 @@ export default function Home() {
 
                 {/* Delete Account Dialog */}
                 <DialogTrigger>
-                  <Card variant="interactive" className="cursor-pointer border-red-200 dark:border-red-800">
+                  <Card
+                    variant="interactive"
+                    className="cursor-pointer border-red-200 dark:border-red-800"
+                  >
                     <CardContent className="p-4">
                       <div className="flex items-center gap-3">
                         <Trash2 size={20} className="text-red-500" />
                         <div>
-                          <div className="font-medium text-red-600 dark:text-red-400">Delete Account</div>
+                          <div className="font-medium text-red-600 dark:text-red-400">
+                            Delete Account
+                          </div>
                           <div className="text-sm [color:var(--text-secondary)]">
                             Permanently remove account
                           </div>
@@ -1109,7 +1200,11 @@ export default function Home() {
                           <AlertTriangle size={20} />
                           Delete Account
                         </DialogTitle>
-                        <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                        <Button
+                          variant="ghost"
+                          className="h-6 w-6 p-0"
+                          slot="close"
+                        >
                           <X size={16} />
                         </Button>
                       </DialogHeader>
@@ -1120,22 +1215,22 @@ export default function Home() {
                               ⚠️ This action is irreversible
                             </p>
                             <p className="text-sm text-red-700 dark:text-red-300">
-                              All your data, including projects, settings, and account information will be permanently deleted.
+                              All your data, including projects, settings, and
+                              account information will be permanently deleted.
                             </p>
                           </div>
                           <div>
                             <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
                               Type &quot;DELETE&quot; to confirm:
                             </label>
-                            <Input
-                              placeholder="DELETE"
-                              className="font-mono"
-                            />
+                            <Input placeholder="DELETE" className="font-mono" />
                           </div>
                         </div>
                       </DialogBody>
                       <DialogFooter>
-                        <Button variant="secondary" slot="close">Cancel</Button>
+                        <Button variant="secondary" slot="close">
+                          Cancel
+                        </Button>
                         <Button variant="destructive">Delete Account</Button>
                       </DialogFooter>
                     </Dialog>
