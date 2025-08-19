@@ -59,17 +59,8 @@ import {
   DialogDescription,
   DialogClose,
 } from "@/components/ui/Dialog";
-import {
-  Tabs,
-  TabList,
-  Tab,
-  TabPanel,
-} from "@/components/ui/Tabs";
-import {
-  TooltipWrapper,
-  TooltipTrigger,
-  Tooltip,
-} from "@/components/ui/Tooltip";
+import { Tabs, TabList, Tab, TabPanel } from "@/components/ui/Tabs";
+import { TooltipWrapper } from "@/components/ui/Tooltip";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -1253,8 +1244,8 @@ export default function Home() {
                         Overview
                       </h4>
                       <p style={{ color: "var(--text-secondary)" }}>
-                        Welcome to the overview section. Here you can see a summary
-                        of your account and recent activity.
+                        Welcome to the overview section. Here you can see a
+                        summary of your account and recent activity.
                       </p>
                     </div>
                   </TabPanel>
@@ -1270,7 +1261,8 @@ export default function Home() {
                         Analytics
                       </h4>
                       <p style={{ color: "var(--text-secondary)" }}>
-                        View detailed analytics and performance metrics for your account.
+                        View detailed analytics and performance metrics for your
+                        account.
                       </p>
                     </div>
                   </TabPanel>
@@ -1448,7 +1440,8 @@ export default function Home() {
                         General Settings
                       </h4>
                       <p style={{ color: "var(--text-secondary)" }}>
-                        Configure your general account preferences and display options.
+                        Configure your general account preferences and display
+                        options.
                       </p>
                     </div>
                   </TabPanel>
@@ -1464,7 +1457,8 @@ export default function Home() {
                         Security Settings
                       </h4>
                       <p style={{ color: "var(--text-secondary)" }}>
-                        Manage your password, two-factor authentication, and privacy settings.
+                        Manage your password, two-factor authentication, and
+                        privacy settings.
                       </p>
                     </div>
                   </TabPanel>
@@ -1857,15 +1851,21 @@ export default function Home() {
                 <TooltipWrapper content="This is a simple tooltip">
                   <Button variant="secondary">Hover me</Button>
                 </TooltipWrapper>
-                
-                <TooltipWrapper content="Information about this action" delay={300}>
+
+                <TooltipWrapper
+                  content="Information about this action"
+                  delay={300}
+                >
                   <Button variant="primary">
                     <Info className="w-4 h-4" />
                     Info
                   </Button>
                 </TooltipWrapper>
-                
-                <TooltipWrapper content="Delete this item permanently" placement="top">
+
+                <TooltipWrapper
+                  content="Delete this item permanently"
+                  placement="top"
+                >
                   <Button variant="destructive">
                     <Trash2 className="w-4 h-4" />
                     Delete
@@ -1883,12 +1883,18 @@ export default function Home() {
                 <TooltipWrapper content="Small tooltip" size="sm">
                   <Button size="sm">Small</Button>
                 </TooltipWrapper>
-                
-                <TooltipWrapper content="Medium tooltip with more content" size="md">
+
+                <TooltipWrapper
+                  content="Medium tooltip with more content"
+                  size="md"
+                >
                   <Button size="md">Medium</Button>
                 </TooltipWrapper>
-                
-                <TooltipWrapper content="Large tooltip with detailed information and multiple lines of content" size="lg">
+
+                <TooltipWrapper
+                  content="Large tooltip with detailed information and multiple lines of content"
+                  size="lg"
+                >
                   <Button size="lg">Large</Button>
                 </TooltipWrapper>
               </div>
