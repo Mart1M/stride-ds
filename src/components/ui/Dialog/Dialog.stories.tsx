@@ -12,6 +12,8 @@ import {
 } from "./Dialog";
 import { Button } from "../Button";
 import { Input } from "../Input";
+import { Checkbox } from "../Checkbox";
+import { Select } from "../Select";
 import {
   AlertTriangle,
   Info,
@@ -345,13 +347,13 @@ export const FormDialog: Story = {
                 isRequired
               />
               <div>
-                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)] [font-family:var(--font-family-primary)]">
                   Bio
                 </label>
                 <textarea
                   rows={3}
                   placeholder="Tell us about yourself"
-                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 [background-color:var(--bg-primary)] [color:var(--text-primary)] [border-color:var(--border-primary)] [--tw-ring-color:var(--border-focus)]"
+                  className="w-full px-3 py-2 border font-sans transition-all resize-none focus:outline-none focus:ring-2 [border-radius:var(--radius-md)] [background-color:var(--bg-primary)] [color:var(--text-primary)] [border-color:var(--border-primary)] [--tw-ring-color:var(--border-focus)] placeholder:[color:var(--text-tertiary)] [transition-duration:var(--transition-normal)]"
                   defaultValue="I'm a developer passionate about creating great user experiences."
                 />
               </div>
@@ -394,50 +396,48 @@ export const SettingsDialog: Story = {
           <DialogBody>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)] [font-family:var(--font-family-primary)]">
                   Theme
                 </label>
-                <select className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 [background-color:var(--bg-primary)] [color:var(--text-primary)] [border-color:var(--border-primary)] [--tw-ring-color:var(--border-focus)]">
-                  <option>Light</option>
-                  <option>Dark</option>
-                  <option>System</option>
-                </select>
+                <Select
+                  placeholder="Select theme"
+                  defaultInputValue="Dark"
+                  options={[
+                    { value: "light", label: "Light" },
+                    { value: "dark", label: "Dark" },
+                    { value: "system", label: "System" },
+                  ]}
+                />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)] [font-family:var(--font-family-primary)]">
                   Language
                 </label>
-                <select className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 [background-color:var(--bg-primary)] [color:var(--text-primary)] [border-color:var(--border-primary)] [--tw-ring-color:var(--border-focus)]">
-                  <option>English</option>
-                  <option>Français</option>
-                  <option>Español</option>
-                  <option>Deutsch</option>
-                </select>
+                <Select
+                  placeholder="Select language"
+                  defaultInputValue="English"
+                  options={[
+                    { value: "en", label: "English" },
+                    { value: "fr", label: "Français" },
+                    { value: "es", label: "Español" },
+                    { value: "de", label: "Deutsch" },
+                  ]}
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
                   Notifications
                 </label>
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      defaultChecked
-                      className="rounded [color:var(--interactive-primary)]"
-                    />
-                    <span className="text-sm [color:var(--text-secondary)]">
-                      Email notifications
-                    </span>
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      className="rounded [color:var(--interactive-primary)]"
-                    />
-                    <span className="text-sm [color:var(--text-secondary)]">
-                      Push notifications
-                    </span>
-                  </label>
+                <div className="space-y-3">
+                  <Checkbox
+                    defaultSelected
+                    className="text-sm [color:var(--text-secondary)]"
+                  >
+                    Email notifications
+                  </Checkbox>
+                  <Checkbox className="text-sm [color:var(--text-secondary)]">
+                    Push notifications
+                  </Checkbox>
                 </div>
               </div>
             </div>

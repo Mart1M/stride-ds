@@ -834,9 +834,9 @@ export default function Home() {
                     <Dialog size="md">
                       <DialogHeader>
                         <DialogTitle>Welcome</DialogTitle>
-                                                 <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                        <DialogClose>
+                          <X size={16} />
+                        </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -865,9 +865,9 @@ export default function Home() {
                           <AlertTriangle size={20} className="text-red-500" />
                           Confirm Deletion
                         </DialogTitle>
-                                                 <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                        <DialogClose>
+                          <X size={16} />
+                        </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -895,9 +895,9 @@ export default function Home() {
                           <CheckCircle size={20} className="text-green-500" />
                           Success!
                         </DialogTitle>
-                                                 <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                        <DialogClose>
+                          <X size={16} />
+                        </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -925,9 +925,9 @@ export default function Home() {
                           <Info size={20} className="text-blue-500" />
                           Information
                         </DialogTitle>
-                                                 <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                        <DialogClose>
+                          <X size={16} />
+                        </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -990,9 +990,9 @@ export default function Home() {
                       <Dialog size={size as "sm" | "md" | "lg" | "xl" | "2xl"}>
                         <DialogHeader>
                           <DialogTitle>Size: {size.toUpperCase()}</DialogTitle>
-                                                   <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                          <DialogClose>
+                            <X size={16} />
+                          </DialogClose>
                         </DialogHeader>
                         <DialogBody>
                           <DialogDescription>
@@ -1043,9 +1043,9 @@ export default function Home() {
                     <Dialog size="md">
                       <DialogHeader>
                         <DialogTitle>Settings</DialogTitle>
-                                                 <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                        <DialogClose>
+                          <X size={16} />
+                        </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <div className="space-y-4">
@@ -1105,9 +1105,9 @@ export default function Home() {
                     <Dialog size="lg">
                       <DialogHeader>
                         <DialogTitle>Contact Us</DialogTitle>
-                                                 <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                        <DialogClose>
+                          <X size={16} />
+                        </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <form className="space-y-4">
@@ -1173,9 +1173,9 @@ export default function Home() {
                           <AlertTriangle size={20} />
                           Delete Account
                         </DialogTitle>
-                                                 <DialogClose>
-                           <X size={16} />
-                         </DialogClose>
+                        <DialogClose>
+                          <X size={16} />
+                        </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <div className="space-y-4">
