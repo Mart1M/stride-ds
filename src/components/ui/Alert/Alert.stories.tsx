@@ -334,27 +334,28 @@ export const DarkModeTest: Story = {
         Alert Components in Dark Mode
       </h3>
       <p className="text-gray-600 dark:text-gray-400 mb-6">
-        Toggle the theme in Storybook toolbar to test dark mode. All variants should adapt correctly.
+        Toggle the theme in Storybook toolbar to test dark mode. All variants
+        should adapt correctly.
       </p>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Alert variant="info" icon title="Information">
           This is an info alert that adapts to dark mode with proper contrast.
         </Alert>
-        
+
         <Alert variant="success" icon title="Success">
           Success alert with dark mode support and proper colors.
         </Alert>
-        
+
         <Alert variant="warning" icon title="Warning">
           Warning alert that maintains readability in dark theme.
         </Alert>
-        
+
         <Alert variant="error" icon title="Error" dismissible>
           Error alert with dismiss button that works in both themes.
         </Alert>
       </div>
-      
+
       <div className="mt-6 space-y-3">
         <Alert variant="info" size="sm">
           Small info alert - dark mode compatible

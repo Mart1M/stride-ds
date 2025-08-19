@@ -33,6 +33,12 @@ import {
   Moon,
   Sun,
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/Accordion";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -137,6 +143,157 @@ export default function Home() {
               >
                 Favorite
               </Button>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-6 [color:var(--text-primary)]">
+              Accordion Components
+            </h2>
+            
+            {/* Basic Accordion */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Basic Accordion
+              </h3>
+              <Accordion className="max-w-2xl">
+                <AccordionItem>
+                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                  <AccordionContent>
+                    Yes. It adheres to the WAI-ARIA design pattern and provides full keyboard navigation support.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem>
+                  <AccordionTrigger>Can it be styled?</AccordionTrigger>
+                  <AccordionContent>
+                    Yes. It uses CSS variables and Tailwind CSS classes, making it fully customizable to match your brand.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem>
+                  <AccordionTrigger>Does it support animations?</AccordionTrigger>
+                  <AccordionContent>
+                    Absolutely! The accordion includes smooth opening/closing animations and icon rotation effects using CSS transitions and keyframes.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+
+            {/* Accordion Variants */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Accordion Variants
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-md font-medium mb-3 [color:var(--text-tertiary)]">
+                    Default Variant
+                  </h4>
+                  <Accordion variant="default" className="max-w-2xl">
+                    <AccordionItem>
+                      <AccordionTrigger>Default Styling</AccordionTrigger>
+                      <AccordionContent>
+                        This is the default accordion styling with borders and subtle shadows.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem>
+                      <AccordionTrigger>Multiple Items</AccordionTrigger>
+                      <AccordionContent>
+                        You can have multiple items in the same accordion group.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                <div>
+                  <h4 className="text-md font-medium mb-3 [color:var(--text-tertiary)]">
+                    Ghost Variant
+                  </h4>
+                  <Accordion variant="ghost" className="max-w-2xl">
+                    <AccordionItem>
+                      <AccordionTrigger>Ghost Styling</AccordionTrigger>
+                      <AccordionContent>
+                        This variant has a transparent background with minimal styling.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem>
+                      <AccordionTrigger>Clean Look</AccordionTrigger>
+                      <AccordionContent>
+                        Perfect for contexts where you want a cleaner, more minimal appearance.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                <div>
+                  <h4 className="text-md font-medium mb-3 [color:var(--text-tertiary)]">
+                    Filled Variant
+                  </h4>
+                  <Accordion variant="filled" className="max-w-2xl">
+                    <AccordionItem>
+                      <AccordionTrigger>Filled Background</AccordionTrigger>
+                      <AccordionContent>
+                        This variant uses a filled background color for better distinction.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem>
+                      <AccordionTrigger>Enhanced Visibility</AccordionTrigger>
+                      <AccordionContent>
+                        Great for sections where you need the accordion to stand out more.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </div>
+            </div>
+
+            {/* Accordion Sizes */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Accordion Sizes
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-md font-medium mb-3 [color:var(--text-tertiary)]">
+                    Small Size
+                  </h4>
+                  <Accordion size="sm" className="max-w-xl">
+                    <AccordionItem>
+                      <AccordionTrigger>Compact Size</AccordionTrigger>
+                      <AccordionContent>
+                        This is a smaller, more compact accordion size.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                <div>
+                  <h4 className="text-md font-medium mb-3 [color:var(--text-tertiary)]">
+                    Medium Size (Default)
+                  </h4>
+                  <Accordion size="md" className="max-w-2xl">
+                    <AccordionItem>
+                      <AccordionTrigger>Standard Size</AccordionTrigger>
+                      <AccordionContent>
+                        This is the default medium size accordion.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                <div>
+                  <h4 className="text-md font-medium mb-3 [color:var(--text-tertiary)]">
+                    Large Size
+                  </h4>
+                  <Accordion size="lg" className="max-w-3xl">
+                    <AccordionItem>
+                      <AccordionTrigger>Large Size</AccordionTrigger>
+                      <AccordionContent>
+                        This is the larger size accordion with more spacing.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </div>
             </div>
           </section>
 

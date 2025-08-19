@@ -1,0 +1,500 @@
+---
+alwaysApply: true
+---
+# ⚛️ React Component Creation Rules - Stride Design System
+
+## 🏗️ Component Architecture
+
+### Component Structure
+```
+src/components/ui/ComponentName/
+├── ComponentName.tsx          # Main component
+├── ComponentName.stories.tsx  # Storybook stories
+└── index.ts                   # Export barrel
+documentation (optional)
+```
+
+### Naming Conventions
+- **PascalCase** for component names and files
+- **camelCase** for props and variables
+- **SCREAMING_SNAKE_CASE** for constants
+
+## 🎨 React Aria Integration
+
+### Base Component Template
+```tsx
+import React from 'react';
+import { Button as AriaButton, ButtonProps as AriaButtonProps } from 'react-aria-components';
+import { cn } from '@/lib/utils';
+
+interface ComponentNameProps extends AriaButtonProps {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}
+
+export const ComponentName = React.forwardRef<
+  HTMLButtonElement,
+  ComponentNameProps
+>(({ variant = 'primary', size = 'md', className, ...props }, ref) => {
+  // Get variant styles using CSS custom properties
+  const getVariantStyles = (variant: string) => {
+    switch (variant) {
+      case 'primary':
+        return {
+          backgroundColor: 'var(--interactive-primary)',
+          color: 'var(--interactive-primary-text)',
+          '&:hover': {
+            backgroundColor: 'var(--interactive-primary-hover)',
+          },
+          '&:active': {
+            backgroundColor: 'var(--interactive-primary-active)',
+          },
+          '&:disabled': {
+            backgroundColor: 'var(--interactive-primary-disabled)',
+          },
+        };
+      case 'secondary':
+        return {
+          backgroundColor: 'var(--interactive-secondary)',
+          color: 'var(--text-primary)',
+          '&:hover': {
+            backgroundColor: 'var(--interactive-secondary-hover)',
+          },
+          '&:active': {
+            backgroundColor: 'var(--interactive-secondary-active)',
+          },
+          '&:disabled': {
+            backgroundColor: 'var(--interactive-secondary-disabled)',
+          },
+        };
+      case 'ghost':
+        return {
+          backgroundColor: 'var(--interactive-ghost)',
+          color: 'var(--text-primary)',
+          '&:hover': {
+            backgroundColor: 'var(--interactive-ghost-hover)',
+          },
+          '&:active': {
+            backgroundColor: 'var(--interactive-ghost-active)',
+          },
+          '&:disabled': {
+            backgroundColor: 'var(--interactive-ghost-disabled)',
+          },
+        };
+      default:
+        return {};
+    }
+  };
+
+  return (
+    <AriaButton
+      ref={ref}
+      className={cn(
+        // Base styles using Tailwind for layout and utilities
+        'inline-flex items-center justify-center rounded-md font-medium transition-colors',
+        'focus:outline-none focus:ring-2',
+        // Size styles
+        {
+          'h-9 px-3 text-sm': size === 'sm',
+          'h-10 px-4 py-2': size === 'md',
+          'h-11 px-8 text-lg': size === 'lg',
+        },
+        className
+      )}
+      style={{
+        ...getVariantStyles(variant),
+        '--tw-ring-color': 'var(--border-focus)',
+        fontFamily: 'var(--font-family-primary)',
+      }}
+      {...props}
+    />
+  );
+});
+
+ComponentName.displayName = 'ComponentName';
+```
+
+### MANDATORY React Aria Usage
+- **ALWAYS** use React Aria Components as base
+- **NEVER** use native HTML elements directly for interactive components
+- **ALWAYS** extend appropriate React Aria props interfaces
+- **ALWAYS** forward refs for accessibility
+
+### Supported React Aria Components
+- Button, Link, ButtonGroup
+- TextField, TextArea, SearchField
+- Select, ComboBox, ListBox
+- DatePicker, DateRangePicker
+- Dialog, Modal, Popover
+- Menu, MenuTrigger
+- Tabs, TabList, Tab, TabPanel
+- Checkbox, CheckboxGroup
+- RadioGroup, Radio
+- Switch, ToggleButton
+- Slider, RangeSlider
+- ProgressBar, Meter
+- Breadcrumbs, Calendar
+- GridList, Table
+
+## 🎨 Design Tokens & Styling
+
+### CSS Custom Properties from brands.css
+**ALWAYS** use CSS custom properties from `src/app/brands.css` for consistent theming across all brands (Stride, Coral, Forest, Runswap, Acme).
+
+### Text Tokens
+```tsx
+// ✅ CORRECT - Use semantic text tokens
+style={{ color: 'var(--text-primary)' }}
+style={{ color: 'var(--text-secondary)' }}
+style={{ color: 'var(--text-tertiary)' }}
+style={{ color: 'var(--text-inverse)' }}
+style={{ color: 'var(--text-disabled)' }}
+style={{ color: 'var(--text-link)' }}
+style={{ color: 'var(--text-link-hover)' }}
+style={{ color: 'var(--text-brand)' }}    // Available in some brands
+```
+
+### Background Tokens
+```tsx
+// ✅ CORRECT - Use semantic background tokens
+style={{ backgroundColor: 'var(--bg-primary)' }}
+style={{ backgroundColor: 'var(--bg-secondary)' }}
+style={{ backgroundColor: 'var(--bg-tertiary)' }}
+style={{ backgroundColor: 'var(--bg-inverse)' }}
+style={{ backgroundColor: 'var(--bg-disabled)' }}
+style={{ backgroundColor: 'var(--bg-brand)' }}
+style={{ backgroundColor: 'var(--bg-brand-muted)' }}  // Available in some brands
+style={{ backgroundColor: 'var(--bg-overlay)' }}
+```
+
+### Border Tokens
+```tsx
+// ✅ CORRECT - Use semantic border tokens
+style={{ borderColor: 'var(--border-primary)' }}
+style={{ borderColor: 'var(--border-secondary)' }}
+style={{ borderColor: 'var(--border-strong)' }}
+style={{ borderColor: 'var(--border-inverse)' }}
+style={{ borderColor: 'var(--border-focus)' }}
+style={{ borderColor: 'var(--border-brand)' }}
+style={{ borderColor: 'var(--border-brand-muted)' }}  // Available in some brands
+```
+
+### Interactive State Tokens
+```tsx
+// ✅ PRIMARY INTERACTIVE STATES
+style={{ backgroundColor: 'var(--interactive-primary)' }}
+style={{ backgroundColor: 'var(--interactive-primary-hover)' }}
+style={{ backgroundColor: 'var(--interactive-primary-active)' }}
+style={{ backgroundColor: 'var(--interactive-primary-disabled)' }}
+style={{ color: 'var(--interactive-primary-text)' }}
+
+// ✅ SECONDARY INTERACTIVE STATES
+style={{ backgroundColor: 'var(--interactive-secondary)' }}
+style={{ backgroundColor: 'var(--interactive-secondary-hover)' }}
+style={{ backgroundColor: 'var(--interactive-secondary-active)' }}
+style={{ backgroundColor: 'var(--interactive-secondary-disabled)' }}
+
+// ✅ GHOST INTERACTIVE STATES
+style={{ backgroundColor: 'var(--interactive-ghost)' }}
+style={{ backgroundColor: 'var(--interactive-ghost-hover)' }}
+style={{ backgroundColor: 'var(--interactive-ghost-active)' }}
+style={{ backgroundColor: 'var(--interactive-ghost-disabled)' }}
+```
+
+### Status Color Tokens
+```tsx
+// ✅ SUCCESS STATES
+style={{ backgroundColor: 'var(--status-success)' }}
+style={{ backgroundColor: 'var(--status-success-hover)' }}
+style={{ backgroundColor: 'var(--status-success-bg)' }}
+style={{ color: 'var(--status-success-text)' }}
+
+// ✅ WARNING STATES
+style={{ backgroundColor: 'var(--status-warning)' }}
+style={{ backgroundColor: 'var(--status-warning-hover)' }}
+style={{ backgroundColor: 'var(--status-warning-bg)' }}
+style={{ color: 'var(--status-warning-text)' }}
+
+// ✅ DANGER STATES
+style={{ backgroundColor: 'var(--status-danger)' }}
+style={{ backgroundColor: 'var(--status-danger-hover)' }}
+style={{ backgroundColor: 'var(--status-danger-bg)' }}
+style={{ color: 'var(--status-danger-text)' }}
+```
+
+### Typography Tokens
+```tsx
+// ✅ CORRECT - Use brand-specific font families
+style={{ fontFamily: 'var(--font-family-primary)' }}
+style={{ fontFamily: 'var(--font-family-secondary)' }}
+```
+
+### Spacing Tokens (Forest/Runswap brands)
+```tsx
+// ✅ Use brand-specific spacing scale when available
+style={{ padding: 'var(--spacing-sm)' }}
+style={{ margin: 'var(--spacing-md)' }}
+style={{ gap: 'var(--spacing-lg)' }}
+// Available: --spacing-xs, --spacing-sm, --spacing-md, --spacing-lg, 
+//           --spacing-xl, --spacing-2xl, --spacing-3xl, --spacing-4xl, --spacing-5xl
+```
+
+### FORBIDDEN Patterns
+```tsx
+// ❌ NEVER use hardcoded colors
+className="bg-blue-500 text-white"
+style={{ backgroundColor: '#3b82f6' }}
+
+// ❌ NEVER use Tailwind arbitrary values for colors
+className="bg-[#f0f9ff] text-[#0ea5e9]"
+
+// ❌ NEVER bypass the token system
+className="bg-gray-100 border-gray-300"
+```
+
+### Tailwind Integration with CSS Custom Properties
+```tsx
+// ✅ CORRECT - Mix Tailwind utilities with CSS custom properties
+className="p-4 rounded-md transition-colors"
+style={{ 
+  backgroundColor: 'var(--interactive-primary)',
+  color: 'var(--interactive-primary-text)'
+}}
+
+// ✅ Use Tailwind for layout, spacing, and utilities
+className="flex items-center justify-center gap-2 px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2"
+style={{
+  backgroundColor: 'var(--interactive-primary)',
+  color: 'var(--interactive-primary-text)',
+  '--tw-ring-color': 'var(--border-focus)'
+}}
+```
+
+## 📚 TypeScript Best Practices
+
+### Props Interface Design
+```tsx
+// ✅ CORRECT - Extend React Aria interfaces
+interface ButtonProps extends AriaButtonProps {
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  loading?: boolean;
+  icon?: React.ReactNode;
+}
+
+// ✅ Use union types for variants
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
+
+// ✅ Optional props with defaults
+interface Props {
+  variant?: ButtonVariant;  // Optional with default
+  disabled?: boolean;       // React Aria handles this
+  className?: string;       // Always optional
+}
+```
+
+### Generic Components
+```tsx
+interface SelectProps<T> extends AriaSelectProps<T> {
+  options: Array<{ value: T; label: string }>;
+  placeholder?: string;
+}
+
+export function Select<T extends string | number>({ options, ...props }: SelectProps<T>) {
+  // Implementation
+}
+```
+
+## 🎯 Component Variants System
+
+### Variant Organization
+```tsx
+const buttonVariants = {
+  variant: {
+    primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+    secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+    outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+    ghost: 'hover:bg-accent hover:text-accent-foreground',
+    destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+  },
+  size: {
+    sm: 'h-9 px-3 text-sm',
+    md: 'h-10 px-4 py-2',
+    lg: 'h-11 px-8 text-lg',
+  },
+};
+```
+
+### Default Props Pattern
+```tsx
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = 'primary', size = 'md', className, ...props }, ref) => {
+    // Always provide sensible defaults
+  }
+);
+```
+
+## 📖 Storybook Integration
+
+### Story Structure
+```tsx
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentName } from './ComponentName';
+
+const meta: Meta<typeof ComponentName> = {
+  title: 'UI/ComponentName',
+  component: ComponentName,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'Brief description of the component purpose and usage.',
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'outline'],
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    children: 'Button',
+  },
+};
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="flex gap-4">
+      <ComponentName variant="primary">Primary</ComponentName>
+      <ComponentName variant="secondary">Secondary</ComponentName>
+      <ComponentName variant="outline">Outline</ComponentName>
+    </div>
+  ),
+};
+```
+
+### Required Stories
+- **Default**: Basic usage example
+- **AllVariants**: Show all variant options
+- **AllSizes**: Show all size options
+- **Interactive**: Demonstrate interactive states
+- **Accessibility**: Show keyboard navigation and screen reader support
+
+## ♿ Accessibility Requirements
+
+### MANDATORY A11y Features
+```tsx
+// ✅ Always include proper ARIA attributes (React Aria handles most)
+<Button aria-label="Close dialog">×</Button>
+
+// ✅ Support keyboard navigation (React Aria provides this)
+// ✅ Focus management (React Aria handles this)
+// ✅ Screen reader support (React Aria provides this)
+
+// ✅ Color contrast compliance
+// Use semantic tokens which ensure proper contrast ratios
+
+// ✅ Reduced motion support
+className="transition-colors motion-reduce:transition-none"
+```
+
+### Testing Accessibility
+- Test with keyboard navigation (Tab, Enter, Space, Arrow keys)
+- Test with screen readers (VoiceOver, NVDA)
+- Verify color contrast ratios
+- Test focus management
+
+## 🧪 Component Testing
+
+### Test Structure
+```tsx
+import { render, screen } from '@testing-library/react';
+import { ComponentName } from './ComponentName';
+
+describe('ComponentName', () => {
+  it('renders with default props', () => {
+    render(<ComponentName>Test</ComponentName>);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
+
+  it('applies variant classes correctly', () => {
+    render(<ComponentName variant="secondary">Test</ComponentName>);
+    expect(screen.getByRole('button')).toHaveClass('bg-secondary');
+  });
+
+  it('supports keyboard interaction', () => {
+    // Test keyboard navigation
+  });
+});
+```
+
+## 🚀 Performance Guidelines
+
+### Optimization Patterns
+```tsx
+// ✅ Use React.forwardRef for ref forwarding
+export const Component = React.forwardRef<HTMLElement, Props>((props, ref) => {
+  // Implementation
+});
+
+// ✅ Use React.memo for expensive components
+export const ExpensiveComponent = React.memo(({ data }) => {
+  // Heavy computation
+});
+
+// ✅ Lazy load heavy dependencies
+const HeavyComponent = React.lazy(() => import('./HeavyComponent'));
+```
+
+## ❌ Common Mistakes to Avoid
+
+### DON'T:
+- Use native HTML elements for interactive components
+- Create custom focus management (React Aria handles this)
+- Hardcode color values instead of using semantic tokens
+- Forget to forward refs
+- Skip TypeScript interfaces
+- Ignore accessibility requirements
+- Create components without Storybook stories
+
+### DO:
+- Always use React Aria Components as base
+- Use semantic design tokens consistently
+- Forward refs properly with TypeScript
+- Provide comprehensive Storybook documentation
+- Test accessibility thoroughly
+- Follow consistent naming conventions
+- Support all required variants and sizes
+
+## 📋 Pre-commit Checklist
+
+Before submitting a new component:
+
+- [ ] Component uses React Aria as base
+- [ ] All props properly typed with TypeScript
+- [ ] Semantic tokens used for styling
+- [ ] Ref forwarding implemented
+- [ ] Storybook stories created (Default, AllVariants, AllSizes)
+- [ ] Accessibility tested (keyboard, screen reader)
+- [ ] Component follows naming conventions
+- [ ] Export added to index.ts
+- [ ] Documentation updated if needed
+- [ ] Tests written for core functionality
+- [ ] Linting passes (`npm run lint`)
+- [ ] Build succeeds (`npm run build`)
+
+---
+
+**💡 Remember**: Consistency is key. Follow these patterns religiously to maintain a cohesive design system.

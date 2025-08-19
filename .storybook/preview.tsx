@@ -28,13 +28,13 @@ const ThemeBrandDecorator = (Story: any, context: any) => {
 
     // Add theme class to root for Tailwind CSS v4
     root.classList.add(theme);
-    
+
     // Set color scheme for system compatibility
     root.style.colorScheme = theme;
 
     // Apply brand theme
     applyBrandTheme(brand);
-    
+
     // Debug: log current theme
     console.log(`Storybook theme applied: ${theme}`);
   }, [theme, brand]);

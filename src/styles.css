@@ -10,6 +10,155 @@
   --color-scheme: light dark;
 }
 
+/* === ACCORDION ANIMATIONS === */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    height: var(--accordion-content-height);
+    padding-top: var(--accordion-padding-y);
+    padding-bottom: var(--accordion-padding-y);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--accordion-content-height);
+    padding-top: var(--accordion-padding-y);
+    padding-bottom: var(--accordion-padding-y);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-down-from-0 {
+  animation: slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-up-to-0 {
+  animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.animate-out {
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-out {
+  animation: fadeOut 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* === ACCORDION CONTENT STATES === */
+/* React Aria Components Disclosure integration */
+
+/* Override React Aria's default hidden behavior to allow animations */
+.group [role="group"][aria-hidden="true"] {
+  display: block !important;
+  height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group [role="group"]:not([aria-hidden="true"]) {
+  display: block !important;
+  height: auto !important;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Handle the hidden attribute specifically */
+.group [role="group"][hidden] {
+  display: block !important;
+  height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+  opacity: 0;
+}
+
+/* Accordion trigger button states for chevron animation */
+.group button[aria-expanded="true"] .lucide-chevron-down {
+  transform: rotate(180deg);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group button[aria-expanded="false"] .lucide-chevron-down {
+  transform: rotate(0deg);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ensure all chevron icons have the transition */
+.lucide-chevron-down {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
 :root {
   /* === STRIDE DESIGN SYSTEM FOUNDATION TOKENS === */
   /* Note: All semantic and brand-specific tokens are managed in brands.css */
