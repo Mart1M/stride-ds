@@ -33,11 +33,6 @@ const meta: Meta<typeof TooltipWrapper> = {
   },
   tags: ["autodocs"],
   argTypes: {
-    variant: {
-      control: { type: "select" },
-      options: ["default", "primary", "secondary", "success", "warning", "danger"],
-      description: "Visual style variant of the tooltip",
-    },
     size: {
       control: { type: "select" },
       options: ["sm", "md", "lg"],
@@ -71,40 +66,36 @@ export const Default: Story = {
   },
 };
 
-export const AllVariants: Story = {
-  name: "All Variants",
+export const BasicUsage: Story = {
+  name: "Basic Usage",
   render: () => (
     <div className="flex flex-wrap gap-6 items-center">
-      <TooltipWrapper content="Default tooltip" variant="default">
-        <Button variant="secondary">Default</Button>
+      <TooltipWrapper content="Simple tooltip">
+        <Button variant="secondary">Hover me</Button>
       </TooltipWrapper>
       
-      <TooltipWrapper content="Primary information" variant="primary">
-        <Button variant="primary">Primary</Button>
+      <TooltipWrapper content="Information tooltip">
+        <Button variant="primary">Primary action</Button>
       </TooltipWrapper>
       
-      <TooltipWrapper content="Secondary information" variant="secondary">
-        <Button variant="secondary">Secondary</Button>
-      </TooltipWrapper>
-      
-      <TooltipWrapper content="Success message" variant="success">
+      <TooltipWrapper content="Success action completed">
         <Button variant="secondary">
           <CheckCircle className="w-4 h-4" />
           Success
         </Button>
       </TooltipWrapper>
       
-      <TooltipWrapper content="Warning message" variant="warning">
+      <TooltipWrapper content="Warning: This action is irreversible">
         <Button variant="secondary">
           <AlertTriangle className="w-4 h-4" />
           Warning
         </Button>
       </TooltipWrapper>
       
-      <TooltipWrapper content="Danger alert" variant="danger">
+      <TooltipWrapper content="Delete permanently">
         <Button variant="destructive">
           <XCircle className="w-4 h-4" />
-          Danger
+          Delete
         </Button>
       </TooltipWrapper>
     </div>
@@ -112,7 +103,7 @@ export const AllVariants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Different visual variants for various semantic meanings.',
+        story: 'Basic tooltip usage with different button types.',
       },
     },
   },
@@ -294,7 +285,6 @@ export const ComplexContent: Story = {
             <div className="text-xs mt-1">This action cannot be undone</div>
           </div>
         }
-        variant="warning"
         size="lg"
       >
         <Button variant="destructive">Delete</Button>
@@ -378,7 +368,7 @@ export const ManualComponents: Story = {
       <TooltipTrigger>
         <>
           <Button variant="secondary">Custom Trigger</Button>
-          <Tooltip variant="primary" placement="top">
+          <Tooltip placement="top">
             Custom tooltip with manual components
           </Tooltip>
         </>
@@ -387,8 +377,8 @@ export const ManualComponents: Story = {
       <TooltipTrigger>
         <>
           <Badge variant="outline">Hover Badge</Badge>
-          <Tooltip variant="success" size="sm" placement="bottom">
-            Small success tooltip
+          <Tooltip size="sm" placement="bottom">
+            Small tooltip
           </Tooltip>
         </>
       </TooltipTrigger>

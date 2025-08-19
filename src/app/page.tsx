@@ -65,6 +65,11 @@ import {
   Tab,
   TabPanel,
 } from "@/components/ui/Tabs";
+import {
+  TooltipWrapper,
+  TooltipTrigger,
+  Tooltip,
+} from "@/components/ui/Tooltip";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -1833,6 +1838,59 @@ export default function Home() {
                     siblingCount={2}
                   />
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Tooltip Showcase */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-6 [color:var(--text-primary)]">
+              Tooltip Components
+            </h2>
+
+            {/* Basic Tooltips */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Basic Tooltips
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                <TooltipWrapper content="This is a simple tooltip">
+                  <Button variant="secondary">Hover me</Button>
+                </TooltipWrapper>
+                
+                <TooltipWrapper content="Information about this action" delay={300}>
+                  <Button variant="primary">
+                    <Info className="w-4 h-4" />
+                    Info
+                  </Button>
+                </TooltipWrapper>
+                
+                <TooltipWrapper content="Delete this item permanently" placement="top">
+                  <Button variant="destructive">
+                    <Trash2 className="w-4 h-4" />
+                    Delete
+                  </Button>
+                </TooltipWrapper>
+              </div>
+            </div>
+
+            {/* Different Sizes */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Different Sizes
+              </h3>
+              <div className="flex gap-4">
+                <TooltipWrapper content="Small tooltip" size="sm">
+                  <Button size="sm">Small</Button>
+                </TooltipWrapper>
+                
+                <TooltipWrapper content="Medium tooltip with more content" size="md">
+                  <Button size="md">Medium</Button>
+                </TooltipWrapper>
+                
+                <TooltipWrapper content="Large tooltip with detailed information and multiple lines of content" size="lg">
+                  <Button size="lg">Large</Button>
+                </TooltipWrapper>
               </div>
             </div>
           </section>
