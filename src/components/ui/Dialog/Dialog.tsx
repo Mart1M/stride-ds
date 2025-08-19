@@ -76,9 +76,10 @@ const dialogCloseButtonVariants = cva([
   "focus:outline-none focus:ring-2 focus:ring-offset-2",
   "[--tw-ring-color:var(--border-focus)]",
   "disabled:pointer-events-none",
-  "h-6 w-6 flex items-center justify-center",
+  "h-6 w-6 p-0 flex items-center justify-center",
   "[color:var(--text-secondary)]",
   "hover:[color:var(--text-primary)]",
+  "transition-colors duration-200",
 ]);
 
 // Main Dialog Components
@@ -91,7 +92,7 @@ export const DialogTrigger = React.forwardRef<
   DialogTriggerProps
 >(({ children, ...props }, ref) => {
   return (
-    <AriaDialogTrigger ref={ref} {...props}>
+    <AriaDialogTrigger {...props}>
       {children}
     </AriaDialogTrigger>
   );
@@ -251,7 +252,9 @@ export const DialogClose = React.forwardRef<
   return (
     <button
       ref={ref}
+      slot="close"
       className={cn(dialogCloseButtonVariants({ className }))}
+      aria-label="Close dialog"
       {...props}
     >
       {children || (

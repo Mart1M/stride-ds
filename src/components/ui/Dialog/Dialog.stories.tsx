@@ -8,19 +8,20 @@ import {
   DialogFooter,
   DialogTitle,
   DialogDescription,
+  DialogClose,
 } from "./Dialog";
 import { Button } from "../Button";
 import { Input } from "../Input";
-import { 
-  AlertTriangle, 
-  Info, 
-  CheckCircle, 
-  X, 
-  User, 
-  Mail, 
-  Settings, 
+import {
+  AlertTriangle,
+  Info,
+  CheckCircle,
+  X,
+  User,
+  Mail,
+  Settings,
   Trash2,
-  FileText 
+  FileText,
 } from "lucide-react";
 
 const meta: Meta<typeof Dialog> = {
@@ -59,7 +60,7 @@ const meta: Meta<typeof Dialog> = {
       control: { type: "select" },
       options: [
         "sm",
-        "md", 
+        "md",
         "lg",
         "xl",
         "2xl",
@@ -93,9 +94,9 @@ export const Default: Story = {
         <Dialog {...args}>
           <DialogHeader>
             <DialogTitle>Dialog Title</DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
@@ -116,7 +117,8 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: "The default dialog with basic structure including header, body, and footer sections.",
+        story:
+          "The default dialog with basic structure including header, body, and footer sections.",
       },
     },
   },
@@ -134,9 +136,9 @@ export const AllSizes: Story = {
             <Dialog size={size as "sm" | "md" | "lg" | "xl" | "2xl"}>
               <DialogHeader>
                 <DialogTitle>Size: {size.toUpperCase()}</DialogTitle>
-                <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+                <DialogClose>
                   <X size={16} />
-                </Button>
+                </DialogClose>
               </DialogHeader>
               <DialogBody>
                 <DialogDescription>
@@ -178,12 +180,15 @@ export const ConfirmationDialog: Story = {
         <Dialog size="sm">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <AlertTriangle size={20} className="[color:var(--status-danger)]" />
+              <AlertTriangle
+                size={20}
+                className="[color:var(--status-danger)]"
+              />
               Confirm Deletion
             </DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
@@ -219,12 +224,15 @@ export const SuccessDialog: Story = {
         <Dialog size="sm">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <CheckCircle size={20} className="[color:var(--status-success)]" />
+              <CheckCircle
+                size={20}
+                className="[color:var(--status-success)]"
+              />
               Success!
             </DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
@@ -264,9 +272,9 @@ export const InformationDialog: Story = {
               <Info size={20} className="[color:var(--interactive-primary)]" />
               Information
             </DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
@@ -315,9 +323,9 @@ export const FormDialog: Story = {
         <Dialog size="lg">
           <DialogHeader>
             <DialogTitle>Edit Profile</DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <form className="space-y-4">
@@ -379,9 +387,9 @@ export const SettingsDialog: Story = {
         <Dialog size="md">
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <div className="space-y-4">
@@ -412,19 +420,23 @@ export const SettingsDialog: Story = {
                 </label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-2">
-                    <input 
-                      type="checkbox" 
-                      defaultChecked 
+                    <input
+                      type="checkbox"
+                      defaultChecked
                       className="rounded [color:var(--interactive-primary)]"
                     />
-                    <span className="text-sm [color:var(--text-secondary)]">Email notifications</span>
+                    <span className="text-sm [color:var(--text-secondary)]">
+                      Email notifications
+                    </span>
                   </label>
                   <label className="flex items-center gap-2">
-                    <input 
-                      type="checkbox" 
+                    <input
+                      type="checkbox"
                       className="rounded [color:var(--interactive-primary)]"
                     />
-                    <span className="text-sm [color:var(--text-secondary)]">Push notifications</span>
+                    <span className="text-sm [color:var(--text-secondary)]">
+                      Push notifications
+                    </span>
                   </label>
                 </div>
               </div>
@@ -463,9 +475,9 @@ export const DangerDialog: Story = {
               <AlertTriangle size={20} />
               Delete Account
             </DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <div className="space-y-4">
@@ -551,9 +563,9 @@ export const ScrollableContent: Story = {
         <Dialog size="2xl">
           <DialogHeader>
             <DialogTitle>Terms and Conditions</DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody className="max-h-96 overflow-y-auto">
             <div className="prose prose-sm [color:var(--text-primary)]">
@@ -561,7 +573,9 @@ export const ScrollableContent: Story = {
                 Welcome to our Terms and Conditions. Please read these terms
                 carefully before using our service.
               </p>
-              <h3 className="[color:var(--text-primary)]">1. Acceptance of Terms</h3>
+              <h3 className="[color:var(--text-primary)]">
+                1. Acceptance of Terms
+              </h3>
               <p>
                 By accessing and using this service, you accept and agree to be
                 bound by the terms and provision of this agreement.
@@ -629,9 +643,9 @@ export const AnimationDemo: Story = {
         <Dialog {...args}>
           <DialogHeader>
             <DialogTitle>Animation Demo</DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+            <DialogClose>
               <X size={16} />
-            </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
@@ -680,9 +694,31 @@ export const AccessibilityDemo: Story = {
           <strong>Keyboard Navigation:</strong>
         </p>
         <ul className="text-sm [color:var(--text-tertiary)] space-y-1">
-          <li>• Press <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Tab</kbd> to navigate</li>
-          <li>• Press <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Enter</kbd> or <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Space</kbd> to open</li>
-          <li>• Press <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Escape</kbd> to close</li>
+          <li>
+            • Press{" "}
+            <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">
+              Tab
+            </kbd>{" "}
+            to navigate
+          </li>
+          <li>
+            • Press{" "}
+            <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">
+              Enter
+            </kbd>{" "}
+            or{" "}
+            <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">
+              Space
+            </kbd>{" "}
+            to open
+          </li>
+          <li>
+            • Press{" "}
+            <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">
+              Escape
+            </kbd>{" "}
+            to close
+          </li>
         </ul>
       </div>
       <DialogTrigger>
@@ -691,14 +727,9 @@ export const AccessibilityDemo: Story = {
           <Dialog size="md">
             <DialogHeader>
               <DialogTitle>Accessibility Features</DialogTitle>
-              <Button
-                variant="ghost"
-                className="h-6 w-6 p-0"
-                slot="close"
-                aria-label="Close dialog"
-              >
+              <DialogClose aria-label="Close accessibility demo dialog">
                 <X size={16} />
-              </Button>
+              </DialogClose>
             </DialogHeader>
             <DialogBody>
               <DialogDescription>

@@ -54,6 +54,7 @@ import {
   DialogFooter,
   DialogTitle,
   DialogDescription,
+  DialogClose,
 } from "@/components/ui/Dialog";
 
 export default function Home() {
@@ -833,13 +834,9 @@ export default function Home() {
                     <Dialog size="md">
                       <DialogHeader>
                         <DialogTitle>Welcome</DialogTitle>
-                        <Button
-                          variant="ghost"
-                          className="h-6 w-6 p-0"
-                          slot="close"
-                        >
-                          <X size={16} />
-                        </Button>
+                                                 <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -868,13 +865,9 @@ export default function Home() {
                           <AlertTriangle size={20} className="text-red-500" />
                           Confirm Deletion
                         </DialogTitle>
-                        <Button
-                          variant="ghost"
-                          className="h-6 w-6 p-0"
-                          slot="close"
-                        >
-                          <X size={16} />
-                        </Button>
+                                                 <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -902,13 +895,9 @@ export default function Home() {
                           <CheckCircle size={20} className="text-green-500" />
                           Success!
                         </DialogTitle>
-                        <Button
-                          variant="ghost"
-                          className="h-6 w-6 p-0"
-                          slot="close"
-                        >
-                          <X size={16} />
-                        </Button>
+                                                 <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -936,13 +925,9 @@ export default function Home() {
                           <Info size={20} className="text-blue-500" />
                           Information
                         </DialogTitle>
-                        <Button
-                          variant="ghost"
-                          className="h-6 w-6 p-0"
-                          slot="close"
-                        >
-                          <X size={16} />
-                        </Button>
+                                                 <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <DialogDescription>
@@ -1005,13 +990,9 @@ export default function Home() {
                       <Dialog size={size as any}>
                         <DialogHeader>
                           <DialogTitle>Size: {size.toUpperCase()}</DialogTitle>
-                          <Button
-                            variant="ghost"
-                            className="h-6 w-6 p-0"
-                            slot="close"
-                          >
-                            <X size={16} />
-                          </Button>
+                                                   <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                         </DialogHeader>
                         <DialogBody>
                           <DialogDescription>
@@ -1062,13 +1043,9 @@ export default function Home() {
                     <Dialog size="md">
                       <DialogHeader>
                         <DialogTitle>Settings</DialogTitle>
-                        <Button
-                          variant="ghost"
-                          className="h-6 w-6 p-0"
-                          slot="close"
-                        >
-                          <X size={16} />
-                        </Button>
+                                                 <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <div className="space-y-4">
@@ -1128,13 +1105,9 @@ export default function Home() {
                     <Dialog size="lg">
                       <DialogHeader>
                         <DialogTitle>Contact Us</DialogTitle>
-                        <Button
-                          variant="ghost"
-                          className="h-6 w-6 p-0"
-                          slot="close"
-                        >
-                          <X size={16} />
-                        </Button>
+                                                 <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <form className="space-y-4">
@@ -1200,13 +1173,9 @@ export default function Home() {
                           <AlertTriangle size={20} />
                           Delete Account
                         </DialogTitle>
-                        <Button
-                          variant="ghost"
-                          className="h-6 w-6 p-0"
-                          slot="close"
-                        >
-                          <X size={16} />
-                        </Button>
+                                                 <DialogClose>
+                           <X size={16} />
+                         </DialogClose>
                       </DialogHeader>
                       <DialogBody>
                         <div className="space-y-4">
