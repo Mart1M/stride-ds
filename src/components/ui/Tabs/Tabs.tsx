@@ -71,7 +71,7 @@ const tabVariants = cva(
     "font-medium transition-all cursor-pointer",
     "focus:outline-none focus:ring-2 focus:ring-offset-2",
     "[--tw-ring-color:var(--border-focus)]",
-    "disabled:cursor-not-allowed disabled:opacity-50",
+    "data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50",
     "[transition-duration:var(--transition-normal)]",
     "[font-family:var(--font-family-primary)]",
   ],
@@ -84,7 +84,7 @@ const tabVariants = cva(
           "hover:[color:var(--text-primary)]",
           "data-[selected=true]:border-b-2 data-[selected=true]:[border-color:var(--interactive-primary)]",
           "data-[selected=true]:[color:var(--interactive-primary)]",
-          "disabled:[color:var(--text-disabled)]",
+          "data-[disabled=true]:[color:var(--text-disabled)]",
         ],
         soft: [
           "rounded-md px-3 py-1.5",
@@ -93,7 +93,7 @@ const tabVariants = cva(
           "hover:[color:var(--text-primary)]",
           "data-[selected=true]:[background-color:var(--bg-primary)]",
           "data-[selected=true]:[color:var(--text-primary)]",
-          "disabled:[color:var(--text-disabled)]",
+          "data-[disabled=true]:[color:var(--text-disabled)]",
         ],
         outline: [
           "rounded-md px-3 py-1.5 border",
@@ -105,7 +105,7 @@ const tabVariants = cva(
           "data-[selected=true]:[border-color:var(--border-primary)]",
           "data-[selected=true]:[background-color:var(--bg-primary)]",
           "data-[selected=true]:[color:var(--text-primary)]",
-          "disabled:[color:var(--text-disabled)]",
+          "data-[disabled=true]:[color:var(--text-disabled)]",
         ],
         ghost: [
           "rounded-md px-3 py-1.5",
@@ -115,7 +115,7 @@ const tabVariants = cva(
           "data-[selected=true]:[background-color:var(--bg-primary)]",
           "data-[selected=true]:[color:var(--text-primary)]",
           "data-[selected=true]:font-semibold",
-          "disabled:[color:var(--text-disabled)]",
+          "data-[disabled=true]:[color:var(--text-disabled)]",
         ],
       },
       size: {
