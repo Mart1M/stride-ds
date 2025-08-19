@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { 
+import {
   Dialog,
   DialogTrigger,
   DialogOverlay,
@@ -8,7 +8,6 @@ import {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-  DialogClose,
 } from "./Dialog";
 import { Button } from "../Button";
 import { AlertTriangle, Info, CheckCircle, X } from "lucide-react";
@@ -20,7 +19,8 @@ const meta: Meta<typeof Dialog> = {
     layout: "centered",
     docs: {
       description: {
-        component: "A versatile modal dialog component built on React Aria with support for various sizes, accessible keyboard navigation, and customizable content areas.",
+        component:
+          "A versatile modal dialog component built on React Aria with support for various sizes, accessible keyboard navigation, and customizable content areas.",
       },
     },
     a11y: {
@@ -46,7 +46,19 @@ const meta: Meta<typeof Dialog> = {
   argTypes: {
     size: {
       control: { type: "select" },
-      options: ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "full"],
+      options: [
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "2xl",
+        "3xl",
+        "4xl",
+        "5xl",
+        "6xl",
+        "7xl",
+        "full",
+      ],
       description: "Size of the dialog window",
     },
   },
@@ -66,20 +78,18 @@ export const Default: Story = {
         <Dialog {...args}>
           <DialogHeader>
             <DialogTitle>Dialog Title</DialogTitle>
-            <DialogClose>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
               <X size={16} />
-            </DialogClose>
+            </Button>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
-              This is a basic dialog example. You can place any content here, including forms, 
-              alerts, or other interactive elements.
+              This is a basic dialog example. You can place any content here,
+              including forms, alerts, or other interactive elements.
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
-            <DialogClose>
-              <Button variant="secondary">Cancel</Button>
-            </DialogClose>
+            <Button variant="secondary" slot="close">Cancel</Button>
             <Button variant="primary">Confirm</Button>
           </DialogFooter>
         </Dialog>
@@ -100,20 +110,19 @@ export const AllSizes: Story = {
             <Dialog size={size as "sm" | "md" | "lg" | "xl" | "2xl"}>
               <DialogHeader>
                 <DialogTitle>Size: {size.toUpperCase()}</DialogTitle>
-                <DialogClose>
+                <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
                   <X size={16} />
-                </DialogClose>
+                </Button>
               </DialogHeader>
               <DialogBody>
                 <DialogDescription>
-                  This dialog uses the &ldquo;{size}&rdquo; size variant. The content area adjusts 
-                  automatically to fit different screen sizes while maintaining proper proportions.
+                  This dialog uses the &ldquo;{size}&rdquo; size variant. The
+                  content area adjusts automatically to fit different screen
+                  sizes while maintaining proper proportions.
                 </DialogDescription>
               </DialogBody>
               <DialogFooter>
-                <DialogClose>
-                  <Button variant="secondary">Cancel</Button>
-                </DialogClose>
+                <Button variant="secondary" slot="close">Cancel</Button>
                 <Button variant="primary">Accept</Button>
               </DialogFooter>
             </Dialog>
@@ -125,7 +134,8 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Different size variants of the dialog component, from small (sm) to extra-large (2xl).",
+        story:
+          "Different size variants of the dialog component, from small (sm) to extra-large (2xl).",
       },
     },
   },
@@ -142,20 +152,18 @@ export const ConfirmationDialog: Story = {
               <AlertTriangle size={20} className="text-red-500" />
               Confirm Deletion
             </DialogTitle>
-            <DialogClose>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
               <X size={16} />
-            </DialogClose>
+            </Button>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
-              Are you sure you want to delete this item? This action cannot be undone and 
-              will permanently remove the item from your account.
+              Are you sure you want to delete this item? This action cannot be
+              undone and will permanently remove the item from your account.
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
-            <DialogClose>
-              <Button variant="secondary">Cancel</Button>
-            </DialogClose>
+            <Button variant="secondary" slot="close">Cancel</Button>
             <Button variant="destructive">Delete</Button>
           </DialogFooter>
         </Dialog>
@@ -165,7 +173,8 @@ export const ConfirmationDialog: Story = {
   parameters: {
     docs: {
       description: {
-        story: "A confirmation dialog for destructive actions with appropriate visual cues and button styling.",
+        story:
+          "A confirmation dialog for destructive actions with appropriate visual cues and button styling.",
       },
     },
   },
@@ -184,19 +193,21 @@ export const InformationDialog: Story = {
               <Info size={20} className="text-blue-500" />
               Information
             </DialogTitle>
-            <DialogClose>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
               <X size={16} />
-            </DialogClose>
+            </Button>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
-              This is an informational dialog that provides important details to the user. 
-              It can contain rich content, links, and other interactive elements.
+              This is an informational dialog that provides important details to
+              the user. It can contain rich content, links, and other
+              interactive elements.
             </DialogDescription>
             <div className="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200">
               <p className="text-sm text-blue-800">
-                💡 <strong>Tip:</strong> You can use dialogs to provide contextual help 
-                and guidance to users without navigating away from their current task.
+                💡 <strong>Tip:</strong> You can use dialogs to provide
+                contextual help and guidance to users without navigating away
+                from their current task.
               </p>
             </div>
           </DialogBody>
@@ -210,7 +221,8 @@ export const InformationDialog: Story = {
   parameters: {
     docs: {
       description: {
-        story: "An informational dialog with rich content and a single action button.",
+        story:
+          "An informational dialog with rich content and a single action button.",
       },
     },
   },
@@ -227,14 +239,14 @@ export const SuccessDialog: Story = {
               <CheckCircle size={20} className="text-green-500" />
               Success!
             </DialogTitle>
-            <DialogClose>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
               <X size={16} />
-            </DialogClose>
+            </Button>
           </DialogHeader>
           <DialogBody>
             <DialogDescription>
-              Your action has been completed successfully. All changes have been saved 
-              and will take effect immediately.
+              Your action has been completed successfully. All changes have been
+              saved and will take effect immediately.
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
@@ -247,7 +259,8 @@ export const SuccessDialog: Story = {
   parameters: {
     docs: {
       description: {
-        story: "A success dialog for providing positive feedback after successful operations.",
+        story:
+          "A success dialog for providing positive feedback after successful operations.",
       },
     },
   },
@@ -261,14 +274,17 @@ export const FormDialog: Story = {
         <Dialog size="lg">
           <DialogHeader>
             <DialogTitle>Edit Profile</DialogTitle>
-            <DialogClose>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
               <X size={16} />
-            </DialogClose>
+            </Button>
           </DialogHeader>
           <DialogBody>
             <form className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1" htmlFor="name">
+                <label
+                  className="block text-sm font-medium mb-1"
+                  htmlFor="name"
+                >
                   Name
                 </label>
                 <input
@@ -280,7 +296,10 @@ export const FormDialog: Story = {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1" htmlFor="email">
+                <label
+                  className="block text-sm font-medium mb-1"
+                  htmlFor="email"
+                >
                   Email
                 </label>
                 <input
@@ -306,9 +325,7 @@ export const FormDialog: Story = {
             </form>
           </DialogBody>
           <DialogFooter>
-            <DialogClose>
-              <Button variant="secondary">Cancel</Button>
-            </DialogClose>
+            <Button variant="secondary" slot="close">Cancel</Button>
             <Button variant="primary">Save Changes</Button>
           </DialogFooter>
         </Dialog>
@@ -318,7 +335,8 @@ export const FormDialog: Story = {
   parameters: {
     docs: {
       description: {
-        story: "A form dialog for editing user information with multiple input fields.",
+        story:
+          "A form dialog for editing user information with multiple input fields.",
       },
     },
   },
@@ -332,14 +350,13 @@ export const NoHeaderDialog: Story = {
         <Dialog size="sm">
           <DialogBody>
             <DialogDescription className="text-center py-4">
-              This is a simple dialog without a header. It&rsquo;s useful for quick confirmations 
-              or brief messages that don&rsquo;t need a title.
+              This is a simple dialog without a header. It&rsquo;s useful for
+              quick confirmations or brief messages that don&rsquo;t need a
+              title.
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
-            <DialogClose>
-              <Button variant="secondary">Cancel</Button>
-            </DialogClose>
+            <Button variant="secondary" slot="close">Cancel</Button>
             <Button variant="primary">Confirm</Button>
           </DialogFooter>
         </Dialog>
@@ -363,52 +380,54 @@ export const LargeContentDialog: Story = {
         <Dialog size="2xl">
           <DialogHeader>
             <DialogTitle>Terms and Conditions</DialogTitle>
-            <DialogClose>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
               <X size={16} />
-            </DialogClose>
+            </Button>
           </DialogHeader>
           <DialogBody className="max-h-96 overflow-y-auto">
             <div className="prose prose-sm">
               <p>
-                Welcome to our Terms and Conditions. Please read these terms carefully before 
-                using our service.
+                Welcome to our Terms and Conditions. Please read these terms
+                carefully before using our service.
               </p>
               <h3>1. Acceptance of Terms</h3>
               <p>
-                By accessing and using this service, you accept and agree to be bound by 
-                the terms and provision of this agreement.
+                By accessing and using this service, you accept and agree to be
+                bound by the terms and provision of this agreement.
               </p>
               <h3>2. Use License</h3>
               <p>
-                Permission is granted to temporarily download one copy of the materials 
-                on our website for personal, non-commercial transitory viewing only.
+                Permission is granted to temporarily download one copy of the
+                materials on our website for personal, non-commercial transitory
+                viewing only.
               </p>
               <h3>3. Disclaimer</h3>
               <p>
-                The materials on our website are provided on an &lsquo;as is&rsquo; basis. We make 
-                no warranties, expressed or implied, and hereby disclaim and negate all 
-                other warranties including without limitation, implied warranties or 
-                conditions of merchantability, fitness for a particular purpose, or 
-                non-infringement of intellectual property or other violation of rights.
+                The materials on our website are provided on an &lsquo;as
+                is&rsquo; basis. We make no warranties, expressed or implied,
+                and hereby disclaim and negate all other warranties including
+                without limitation, implied warranties or conditions of
+                merchantability, fitness for a particular purpose, or
+                non-infringement of intellectual property or other violation of
+                rights.
               </p>
               <h3>4. Limitations</h3>
               <p>
-                In no event shall our company or its suppliers be liable for any damages 
-                (including, without limitation, damages for loss of data or profit, or 
-                due to business interruption) arising out of the use or inability to use 
-                the materials on our website.
+                In no event shall our company or its suppliers be liable for any
+                damages (including, without limitation, damages for loss of data
+                or profit, or due to business interruption) arising out of the
+                use or inability to use the materials on our website.
               </p>
               <h3>5. Privacy Policy</h3>
               <p>
-                Your privacy is important to us. Our Privacy Policy explains how we 
-                collect, use, and protect your information when you use our service.
+                Your privacy is important to us. Our Privacy Policy explains how
+                we collect, use, and protect your information when you use our
+                service.
               </p>
             </div>
           </DialogBody>
           <DialogFooter>
-            <DialogClose>
-              <Button variant="secondary">Decline</Button>
-            </DialogClose>
+            <Button variant="secondary" slot="close">Decline</Button>
             <Button variant="primary">Accept</Button>
           </DialogFooter>
         </Dialog>
@@ -418,7 +437,8 @@ export const LargeContentDialog: Story = {
   parameters: {
     docs: {
       description: {
-        story: "A large dialog with scrollable content for displaying lengthy information like terms and conditions.",
+        story:
+          "A large dialog with scrollable content for displaying lengthy information like terms and conditions.",
       },
     },
   },
@@ -436,9 +456,9 @@ export const AccessibilityDemo: Story = {
           <Dialog size="md">
             <DialogHeader>
               <DialogTitle>Accessibility Features</DialogTitle>
-              <DialogClose aria-label="Close dialog">
+              <Button variant="ghost" className="h-6 w-6 p-0" slot="close" aria-label="Close dialog">
                 <X size={16} />
-              </DialogClose>
+              </Button>
             </DialogHeader>
             <DialogBody>
               <DialogDescription>
@@ -453,9 +473,7 @@ export const AccessibilityDemo: Story = {
               </ul>
             </DialogBody>
             <DialogFooter>
-              <DialogClose>
-                <Button variant="secondary">Close</Button>
-              </DialogClose>
+              <Button variant="secondary" slot="close">Close</Button>
               <Button variant="primary">Learn More</Button>
             </DialogFooter>
           </Dialog>
@@ -466,7 +484,8 @@ export const AccessibilityDemo: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Demonstration of accessibility features including keyboard navigation and screen reader support.",
+        story:
+          "Demonstration of accessibility features including keyboard navigation and screen reader support.",
       },
     },
   },
