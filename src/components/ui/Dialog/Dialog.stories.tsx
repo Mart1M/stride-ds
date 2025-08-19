@@ -10,7 +10,18 @@ import {
   DialogDescription,
 } from "./Dialog";
 import { Button } from "../Button";
-import { AlertTriangle, Info, CheckCircle, X } from "lucide-react";
+import { Input } from "../Input";
+import { 
+  AlertTriangle, 
+  Info, 
+  CheckCircle, 
+  X, 
+  User, 
+  Mail, 
+  Settings, 
+  Trash2,
+  FileText 
+} from "lucide-react";
 
 const meta: Meta<typeof Dialog> = {
   title: "Stride DS/Dialog",
@@ -20,7 +31,7 @@ const meta: Meta<typeof Dialog> = {
     docs: {
       description: {
         component:
-          "A versatile modal dialog component built on React Aria with support for various sizes, accessible keyboard navigation, and customizable content areas.",
+          "A versatile modal dialog component built on React Aria with support for various sizes, accessible keyboard navigation, and customizable content areas. Built with semantic design tokens and smooth animations.",
       },
     },
     a11y: {
@@ -48,7 +59,7 @@ const meta: Meta<typeof Dialog> = {
       control: { type: "select" },
       options: [
         "sm",
-        "md",
+        "md", 
         "lg",
         "xl",
         "2xl",
@@ -70,55 +81,9 @@ const meta: Meta<typeof Dialog> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const AnimationTest: Story = {
-  render: (args) => (
-    <DialogTrigger>
-      <Button variant="primary">Test Animation</Button>
-      <DialogOverlay className="[--modal-animation-duration-in:500ms] [--modal-animation-duration-out:300ms]">
-        <Dialog {...args}>
-          <DialogHeader>
-            <DialogTitle>Animation Test Dialog</DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
-              <X size={16} />
-            </Button>
-          </DialogHeader>
-          <DialogBody>
-            <DialogDescription>
-              This dialog should animate smoothly on open and close. The
-              animations are based on React Aria&apos;s data-entering and
-              data-exiting states.
-            </DialogDescription>
-            <div className="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200">
-              <p className="text-sm text-blue-800">
-                ✨ <strong>Animation Features:</strong>
-              </p>
-              <ul className="text-sm text-blue-700 mt-2 space-y-1">
-                <li>• Overlay fades in/out smoothly</li>
-                <li>• Content scales and translates</li>
-                <li>• 300ms duration with smooth easing</li>
-                <li>• Uses React Aria data attributes</li>
-              </ul>
-            </div>
-          </DialogBody>
-          <DialogFooter>
-            <Button variant="secondary" slot="close">
-              Cancel
-            </Button>
-            <Button variant="primary">Confirm</Button>
-          </DialogFooter>
-        </Dialog>
-      </DialogOverlay>
-    </DialogTrigger>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Test dialog with enhanced animations based on React Aria documentation. Shows smooth overlay fade and content scale animations.",
-      },
-    },
-  },
-};
+// =======================
+// PRIMARY EXAMPLES
+// =======================
 
 export const Default: Story = {
   render: (args) => (
@@ -148,6 +113,13 @@ export const Default: Story = {
       </DialogOverlay>
     </DialogTrigger>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: "The default dialog with basic structure including header, body, and footer sections.",
+      },
+    },
+  },
 };
 
 export const AllSizes: Story = {
@@ -175,9 +147,8 @@ export const AllSizes: Story = {
               </DialogBody>
               <DialogFooter>
                 <Button variant="secondary" slot="close">
-                  Cancel
+                  Close
                 </Button>
-                <Button variant="primary">Accept</Button>
               </DialogFooter>
             </Dialog>
           </DialogOverlay>
@@ -195,6 +166,10 @@ export const AllSizes: Story = {
   },
 };
 
+// =======================
+// SEMANTIC DIALOG TYPES
+// =======================
+
 export const ConfirmationDialog: Story = {
   render: () => (
     <DialogTrigger>
@@ -203,7 +178,7 @@ export const ConfirmationDialog: Story = {
         <Dialog size="sm">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <AlertTriangle size={20} className="text-red-500" />
+              <AlertTriangle size={20} className="[color:var(--status-danger)]" />
               Confirm Deletion
             </DialogTitle>
             <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
@@ -230,55 +205,7 @@ export const ConfirmationDialog: Story = {
     docs: {
       description: {
         story:
-          "A confirmation dialog for destructive actions with appropriate visual cues and button styling.",
-      },
-    },
-  },
-};
-
-export const InformationDialog: Story = {
-  render: () => (
-    <DialogTrigger>
-      <Button variant="primary" leftIcon={<Info size={16} />}>
-        Show Info
-      </Button>
-      <DialogOverlay>
-        <Dialog size="md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Info size={20} className="text-blue-500" />
-              Information
-            </DialogTitle>
-            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
-              <X size={16} />
-            </Button>
-          </DialogHeader>
-          <DialogBody>
-            <DialogDescription>
-              This is an informational dialog that provides important details to
-              the user. It can contain rich content, links, and other
-              interactive elements.
-            </DialogDescription>
-            <div className="mt-4 p-4 rounded-lg bg-blue-50 border border-blue-200">
-              <p className="text-sm text-blue-800">
-                💡 <strong>Tip:</strong> You can use dialogs to provide
-                contextual help and guidance to users without navigating away
-                from their current task.
-              </p>
-            </div>
-          </DialogBody>
-          <DialogFooter>
-            <Button variant="primary">Got it</Button>
-          </DialogFooter>
-        </Dialog>
-      </DialogOverlay>
-    </DialogTrigger>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "An informational dialog with rich content and a single action button.",
+          "A confirmation dialog for destructive actions with appropriate visual cues and semantic colors.",
       },
     },
   },
@@ -292,7 +219,7 @@ export const SuccessDialog: Story = {
         <Dialog size="sm">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <CheckCircle size={20} className="text-green-500" />
+              <CheckCircle size={20} className="[color:var(--status-success)]" />
               Success!
             </DialogTitle>
             <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
@@ -306,7 +233,9 @@ export const SuccessDialog: Story = {
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
-            <Button variant="primary">Continue</Button>
+            <Button variant="primary" slot="close">
+              Continue
+            </Button>
           </DialogFooter>
         </Dialog>
       </DialogOverlay>
@@ -322,10 +251,66 @@ export const SuccessDialog: Story = {
   },
 };
 
+export const InformationDialog: Story = {
+  render: () => (
+    <DialogTrigger>
+      <Button variant="secondary" leftIcon={<Info size={16} />}>
+        Show Information
+      </Button>
+      <DialogOverlay>
+        <Dialog size="md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Info size={20} className="[color:var(--interactive-primary)]" />
+              Information
+            </DialogTitle>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+              <X size={16} />
+            </Button>
+          </DialogHeader>
+          <DialogBody>
+            <DialogDescription>
+              This is an informational dialog that provides important details to
+              the user. It can contain rich content, links, and other
+              interactive elements.
+            </DialogDescription>
+            <div className="mt-4 p-4 rounded-lg [background-color:var(--status-success-bg)] [border:1px_solid_var(--status-success)] dark:[background-color:var(--bg-tertiary)] dark:[border-color:var(--border-secondary)]">
+              <p className="text-sm [color:var(--status-success-text)] dark:[color:var(--text-primary)]">
+                💡 <strong>Tip:</strong> You can use dialogs to provide
+                contextual help and guidance to users without navigating away
+                from their current task.
+              </p>
+            </div>
+          </DialogBody>
+          <DialogFooter>
+            <Button variant="primary" slot="close">
+              Understood
+            </Button>
+          </DialogFooter>
+        </Dialog>
+      </DialogOverlay>
+    </DialogTrigger>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "An informational dialog with rich content using semantic design tokens for consistent theming.",
+      },
+    },
+  },
+};
+
+// =======================
+// PRACTICAL EXAMPLES
+// =======================
+
 export const FormDialog: Story = {
   render: () => (
     <DialogTrigger>
-      <Button variant="primary">Edit Profile</Button>
+      <Button variant="primary" leftIcon={<User size={16} />}>
+        Edit Profile
+      </Button>
       <DialogOverlay>
         <Dialog size="lg">
           <DialogHeader>
@@ -336,45 +321,29 @@ export const FormDialog: Story = {
           </DialogHeader>
           <DialogBody>
             <form className="space-y-4">
+              <Input
+                label="Name"
+                placeholder="Enter your name"
+                leftIcon={<User size={16} />}
+                defaultValue="John Doe"
+                isRequired
+              />
+              <Input
+                label="Email"
+                type="email"
+                placeholder="Enter your email"
+                leftIcon={<Mail size={16} />}
+                defaultValue="john@example.com"
+                isRequired
+              />
               <div>
-                <label
-                  className="block text-sm font-medium mb-1"
-                  htmlFor="name"
-                >
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  placeholder="Enter your name"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  defaultValue="John Doe"
-                />
-              </div>
-              <div>
-                <label
-                  className="block text-sm font-medium mb-1"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  defaultValue="john@example.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1" htmlFor="bio">
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
                   Bio
                 </label>
                 <textarea
-                  id="bio"
                   rows={3}
                   placeholder="Tell us about yourself"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 [background-color:var(--bg-primary)] [color:var(--text-primary)] [border-color:var(--border-primary)] [--tw-ring-color:var(--border-focus)]"
                   defaultValue="I'm a developer passionate about creating great user experiences."
                 />
               </div>
@@ -394,23 +363,163 @@ export const FormDialog: Story = {
     docs: {
       description: {
         story:
-          "A form dialog for editing user information with multiple input fields.",
+          "A form dialog for editing user information with proper Input components and semantic tokens.",
       },
     },
   },
 };
 
-export const NoHeaderDialog: Story = {
+export const SettingsDialog: Story = {
   render: () => (
     <DialogTrigger>
-      <Button variant="ghost">Open Simple Dialog</Button>
+      <Button variant="secondary" leftIcon={<Settings size={16} />}>
+        Open Settings
+      </Button>
+      <DialogOverlay>
+        <Dialog size="md">
+          <DialogHeader>
+            <DialogTitle>Settings</DialogTitle>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+              <X size={16} />
+            </Button>
+          </DialogHeader>
+          <DialogBody>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                  Theme
+                </label>
+                <select className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 [background-color:var(--bg-primary)] [color:var(--text-primary)] [border-color:var(--border-primary)] [--tw-ring-color:var(--border-focus)]">
+                  <option>Light</option>
+                  <option>Dark</option>
+                  <option>System</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                  Language
+                </label>
+                <select className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 [background-color:var(--bg-primary)] [color:var(--text-primary)] [border-color:var(--border-primary)] [--tw-ring-color:var(--border-focus)]">
+                  <option>English</option>
+                  <option>Français</option>
+                  <option>Español</option>
+                  <option>Deutsch</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                  Notifications
+                </label>
+                <div className="space-y-2">
+                  <label className="flex items-center gap-2">
+                    <input 
+                      type="checkbox" 
+                      defaultChecked 
+                      className="rounded [color:var(--interactive-primary)]"
+                    />
+                    <span className="text-sm [color:var(--text-secondary)]">Email notifications</span>
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input 
+                      type="checkbox" 
+                      className="rounded [color:var(--interactive-primary)]"
+                    />
+                    <span className="text-sm [color:var(--text-secondary)]">Push notifications</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </DialogBody>
+          <DialogFooter>
+            <Button variant="secondary" slot="close">
+              Cancel
+            </Button>
+            <Button variant="primary">Save Settings</Button>
+          </DialogFooter>
+        </Dialog>
+      </DialogOverlay>
+    </DialogTrigger>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "A settings dialog with various form controls using semantic design tokens for consistent theming.",
+      },
+    },
+  },
+};
+
+export const DangerDialog: Story = {
+  render: () => (
+    <DialogTrigger>
+      <Button variant="destructive" leftIcon={<Trash2 size={16} />}>
+        Delete Account
+      </Button>
+      <DialogOverlay>
+        <Dialog size="md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 [color:var(--status-danger)]">
+              <AlertTriangle size={20} />
+              Delete Account
+            </DialogTitle>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+              <X size={16} />
+            </Button>
+          </DialogHeader>
+          <DialogBody>
+            <div className="space-y-4">
+              <div className="p-4 rounded-lg [background-color:var(--status-danger-bg)] [border:1px_solid_var(--status-danger)]">
+                <p className="text-sm [color:var(--status-danger-text)] font-medium mb-2">
+                  ⚠️ This action is irreversible
+                </p>
+                <p className="text-sm [color:var(--status-danger-text)]">
+                  All your data, including projects, settings, and account
+                  information will be permanently deleted.
+                </p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1 [color:var(--text-primary)]">
+                  Type &quot;DELETE&quot; to confirm:
+                </label>
+                <Input placeholder="DELETE" className="font-mono" />
+              </div>
+            </div>
+          </DialogBody>
+          <DialogFooter>
+            <Button variant="secondary" slot="close">
+              Cancel
+            </Button>
+            <Button variant="destructive">Delete Account</Button>
+          </DialogFooter>
+        </Dialog>
+      </DialogOverlay>
+    </DialogTrigger>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "A dangerous action dialog with proper warning styling using semantic danger tokens.",
+      },
+    },
+  },
+};
+
+// =======================
+// SPECIAL LAYOUTS
+// =======================
+
+export const MinimalDialog: Story = {
+  render: () => (
+    <DialogTrigger>
+      <Button variant="ghost">Quick Confirmation</Button>
       <DialogOverlay>
         <Dialog size="sm">
           <DialogBody>
             <DialogDescription className="text-center py-4">
-              This is a simple dialog without a header. It&rsquo;s useful for
-              quick confirmations or brief messages that don&rsquo;t need a
-              title.
+              Are you sure you want to proceed? This is a minimal dialog without
+              a header or explicit close button.
             </DialogDescription>
           </DialogBody>
           <DialogFooter>
@@ -432,10 +541,12 @@ export const NoHeaderDialog: Story = {
   },
 };
 
-export const LargeContentDialog: Story = {
+export const ScrollableContent: Story = {
   render: () => (
     <DialogTrigger>
-      <Button variant="primary">View Terms</Button>
+      <Button variant="primary" leftIcon={<FileText size={16} />}>
+        View Terms
+      </Button>
       <DialogOverlay>
         <Dialog size="2xl">
           <DialogHeader>
@@ -445,23 +556,23 @@ export const LargeContentDialog: Story = {
             </Button>
           </DialogHeader>
           <DialogBody className="max-h-96 overflow-y-auto">
-            <div className="prose prose-sm">
+            <div className="prose prose-sm [color:var(--text-primary)]">
               <p>
                 Welcome to our Terms and Conditions. Please read these terms
                 carefully before using our service.
               </p>
-              <h3>1. Acceptance of Terms</h3>
+              <h3 className="[color:var(--text-primary)]">1. Acceptance of Terms</h3>
               <p>
                 By accessing and using this service, you accept and agree to be
                 bound by the terms and provision of this agreement.
               </p>
-              <h3>2. Use License</h3>
+              <h3 className="[color:var(--text-primary)]">2. Use License</h3>
               <p>
                 Permission is granted to temporarily download one copy of the
                 materials on our website for personal, non-commercial transitory
                 viewing only.
               </p>
-              <h3>3. Disclaimer</h3>
+              <h3 className="[color:var(--text-primary)]">3. Disclaimer</h3>
               <p>
                 The materials on our website are provided on an &lsquo;as
                 is&rsquo; basis. We make no warranties, expressed or implied,
@@ -471,14 +582,14 @@ export const LargeContentDialog: Story = {
                 non-infringement of intellectual property or other violation of
                 rights.
               </p>
-              <h3>4. Limitations</h3>
+              <h3 className="[color:var(--text-primary)]">4. Limitations</h3>
               <p>
                 In no event shall our company or its suppliers be liable for any
                 damages (including, without limitation, damages for loss of data
                 or profit, or due to business interruption) arising out of the
                 use or inability to use the materials on our website.
               </p>
-              <h3>5. Privacy Policy</h3>
+              <h3 className="[color:var(--text-primary)]">5. Privacy Policy</h3>
               <p>
                 Your privacy is important to us. Our Privacy Policy explains how
                 we collect, use, and protect your information when you use our
@@ -506,12 +617,74 @@ export const LargeContentDialog: Story = {
   },
 };
 
+// =======================
+// ANIMATION & ACCESSIBILITY
+// =======================
+
+export const AnimationDemo: Story = {
+  render: (args) => (
+    <DialogTrigger>
+      <Button variant="primary">Test Animations</Button>
+      <DialogOverlay className="[--modal-animation-duration-in:500ms] [--modal-animation-duration-out:300ms]">
+        <Dialog {...args}>
+          <DialogHeader>
+            <DialogTitle>Animation Demo</DialogTitle>
+            <Button variant="ghost" className="h-6 w-6 p-0" slot="close">
+              <X size={16} />
+            </Button>
+          </DialogHeader>
+          <DialogBody>
+            <DialogDescription>
+              This dialog demonstrates enhanced animations with custom timing.
+              The animations are based on React Aria&apos;s data-entering and
+              data-exiting states.
+            </DialogDescription>
+            <div className="mt-4 p-4 rounded-lg [background-color:var(--interactive-secondary)] [border:1px_solid_var(--border-primary)]">
+              <p className="text-sm [color:var(--text-primary)]">
+                ✨ <strong>Animation Features:</strong>
+              </p>
+              <ul className="text-sm [color:var(--text-secondary)] mt-2 space-y-1">
+                <li>• Overlay fades in/out smoothly</li>
+                <li>• Content scales and translates</li>
+                <li>• Custom 500ms duration for visibility</li>
+                <li>• Uses React Aria data attributes</li>
+                <li>• Smooth cubic-bezier easing</li>
+              </ul>
+            </div>
+          </DialogBody>
+          <DialogFooter>
+            <Button variant="secondary" slot="close">
+              Close
+            </Button>
+            <Button variant="primary">Try Again</Button>
+          </DialogFooter>
+        </Dialog>
+      </DialogOverlay>
+    </DialogTrigger>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Dialog with enhanced animations demonstrating custom timing and React Aria integration.",
+      },
+    },
+  },
+};
+
 export const AccessibilityDemo: Story = {
   render: () => (
     <div className="space-y-4">
-      <p className="text-sm text-gray-600">
-        Press Tab to navigate, Enter/Space to open, Escape to close
-      </p>
+      <div className="p-4 rounded-lg [background-color:var(--bg-secondary)] [border:1px_solid_var(--border-primary)]">
+        <p className="text-sm [color:var(--text-secondary)] mb-2">
+          <strong>Keyboard Navigation:</strong>
+        </p>
+        <ul className="text-sm [color:var(--text-tertiary)] space-y-1">
+          <li>• Press <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Tab</kbd> to navigate</li>
+          <li>• Press <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Enter</kbd> or <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Space</kbd> to open</li>
+          <li>• Press <kbd className="px-1 py-0.5 rounded [background-color:var(--bg-tertiary)] [color:var(--text-primary)]">Escape</kbd> to close</li>
+        </ul>
+      </div>
       <DialogTrigger>
         <Button variant="primary">Accessible Dialog</Button>
         <DialogOverlay>
@@ -529,14 +702,16 @@ export const AccessibilityDemo: Story = {
             </DialogHeader>
             <DialogBody>
               <DialogDescription>
-                This dialog demonstrates accessibility features:
+                This dialog demonstrates comprehensive accessibility features:
               </DialogDescription>
-              <ul className="mt-2 space-y-1 text-sm">
+              <ul className="mt-2 space-y-1 text-sm [color:var(--text-secondary)]">
                 <li>• Focus is trapped within the dialog</li>
                 <li>• Escape key closes the dialog</li>
                 <li>• Proper ARIA attributes are applied</li>
-                <li>• Screen reader friendly</li>
-                <li>• Keyboard navigation support</li>
+                <li>• Screen reader friendly with semantic roles</li>
+                <li>• Keyboard navigation support throughout</li>
+                <li>• Color contrast compliance</li>
+                <li>• Focus indicators on all interactive elements</li>
               </ul>
             </DialogBody>
             <DialogFooter>
@@ -554,7 +729,7 @@ export const AccessibilityDemo: Story = {
     docs: {
       description: {
         story:
-          "Demonstration of accessibility features including keyboard navigation and screen reader support.",
+          "Comprehensive demonstration of accessibility features including keyboard navigation, ARIA support, and screen reader compatibility.",
       },
     },
   },
