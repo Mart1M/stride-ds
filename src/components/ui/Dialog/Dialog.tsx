@@ -70,7 +70,6 @@ const dialogTitleVariants = cva([
 const dialogDescriptionVariants = cva([
   "text-sm",
   "[color:var(--text-secondary)]",
-  "[font-family:var(--font-family-secondary)]",
 ]);
 
 const dialogCloseButtonVariants = cva([
