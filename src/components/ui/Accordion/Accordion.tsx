@@ -120,11 +120,7 @@ const getAccordionTriggerStyles = () => {
 
 // === ACCORDION CONTENT ===
 const accordionContentVariants = cva(
-  [
-    "overflow-hidden",
-    "text-[var(--text-secondary)]",
-    "w-full",
-  ],
+  ["overflow-hidden", "text-[var(--text-secondary)]", "w-full"],
   {
     variants: {
       size: {
