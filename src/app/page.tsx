@@ -38,6 +38,9 @@ import {
   Info,
   Trash2,
   Settings,
+  Bell,
+  Shield,
+  CreditCard,
 } from "lucide-react";
 import {
   Accordion,
@@ -56,6 +59,12 @@ import {
   DialogDescription,
   DialogClose,
 } from "@/components/ui/Dialog";
+import {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanel,
+} from "@/components/ui/Tabs";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -1205,6 +1214,378 @@ export default function Home() {
                     </Dialog>
                   </DialogOverlay>
                 </DialogTrigger>
+              </div>
+            </div>
+          </section>
+
+          {/* Tabs Showcase */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-6 [color:var(--text-primary)]">
+              Tabs Components
+            </h2>
+
+            {/* Basic Tabs */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Basic Tabs
+              </h3>
+              <div className="max-w-2xl">
+                <Tabs defaultSelectedKey="overview">
+                  <TabList>
+                    <Tab id="overview">Overview</Tab>
+                    <Tab id="analytics">Analytics</Tab>
+                    <Tab id="settings">Settings</Tab>
+                  </TabList>
+                  <TabPanel id="overview">
+                    <div
+                      className="p-4 rounded-md"
+                      style={{ backgroundColor: "var(--bg-secondary)" }}
+                    >
+                      <h4
+                        className="font-semibold mb-2"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        Overview
+                      </h4>
+                      <p style={{ color: "var(--text-secondary)" }}>
+                        Welcome to the overview section. Here you can see a summary
+                        of your account and recent activity.
+                      </p>
+                    </div>
+                  </TabPanel>
+                  <TabPanel id="analytics">
+                    <div
+                      className="p-4 rounded-md"
+                      style={{ backgroundColor: "var(--bg-secondary)" }}
+                    >
+                      <h4
+                        className="font-semibold mb-2"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        Analytics
+                      </h4>
+                      <p style={{ color: "var(--text-secondary)" }}>
+                        View detailed analytics and performance metrics for your account.
+                      </p>
+                    </div>
+                  </TabPanel>
+                  <TabPanel id="settings">
+                    <div
+                      className="p-4 rounded-md"
+                      style={{ backgroundColor: "var(--bg-secondary)" }}
+                    >
+                      <h4
+                        className="font-semibold mb-2"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        Settings
+                      </h4>
+                      <p style={{ color: "var(--text-secondary)" }}>
+                        Manage your account settings and preferences here.
+                      </p>
+                    </div>
+                  </TabPanel>
+                </Tabs>
+              </div>
+            </div>
+
+            {/* Tab Variants */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Tab Variants
+              </h3>
+              <div className="grid gap-6">
+                {/* Soft Variant */}
+                <div>
+                  <h4
+                    className="text-sm font-medium mb-3"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    Soft Variant
+                  </h4>
+                  <div className="max-w-xl">
+                    <Tabs defaultSelectedKey="profile">
+                      <TabList variant="soft">
+                        <Tab id="profile" variant="soft">
+                          <User size={16} className="mr-2" />
+                          Profile
+                        </Tab>
+                        <Tab id="account" variant="soft">
+                          <Settings size={16} className="mr-2" />
+                          Account
+                        </Tab>
+                        <Tab id="notifications" variant="soft">
+                          <Bell size={16} className="mr-2" />
+                          Notifications
+                        </Tab>
+                      </TabList>
+                      <TabPanel id="profile">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          <p style={{ color: "var(--text-secondary)" }}>
+                            Soft variant with rounded background selection.
+                          </p>
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="account">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          <p style={{ color: "var(--text-secondary)" }}>
+                            Account settings and preferences.
+                          </p>
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="notifications">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          <p style={{ color: "var(--text-secondary)" }}>
+                            Notification settings and alerts.
+                          </p>
+                        </div>
+                      </TabPanel>
+                    </Tabs>
+                  </div>
+                </div>
+
+                {/* Outline Variant */}
+                <div>
+                  <h4
+                    className="text-sm font-medium mb-3"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    Outline Variant
+                  </h4>
+                  <div className="max-w-xl">
+                    <Tabs defaultSelectedKey="dashboard">
+                      <TabList variant="outline">
+                        <Tab id="dashboard" variant="outline">
+                          Dashboard
+                        </Tab>
+                        <Tab id="reports" variant="outline">
+                          Reports
+                        </Tab>
+                        <Tab id="admin" variant="outline">
+                          Admin
+                        </Tab>
+                      </TabList>
+                      <TabPanel id="dashboard">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          <p style={{ color: "var(--text-secondary)" }}>
+                            Outline variant with bordered selection.
+                          </p>
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="reports">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          <p style={{ color: "var(--text-secondary)" }}>
+                            Generate and view reports.
+                          </p>
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="admin">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          <p style={{ color: "var(--text-secondary)" }}>
+                            Administrative controls and settings.
+                          </p>
+                        </div>
+                      </TabPanel>
+                    </Tabs>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Vertical Tabs */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Vertical Orientation
+              </h3>
+              <div className="max-w-2xl h-80">
+                <Tabs orientation="vertical" defaultSelectedKey="general">
+                  <TabList variant="soft" orientation="vertical">
+                    <Tab id="general" variant="soft" orientation="vertical">
+                      <Settings size={16} className="mr-2" />
+                      General
+                    </Tab>
+                    <Tab id="security" variant="soft" orientation="vertical">
+                      <Shield size={16} className="mr-2" />
+                      Security
+                    </Tab>
+                    <Tab id="billing" variant="soft" orientation="vertical">
+                      <CreditCard size={16} className="mr-2" />
+                      Billing
+                    </Tab>
+                  </TabList>
+                  <TabPanel id="general" orientation="vertical">
+                    <div
+                      className="p-4 rounded-md h-full"
+                      style={{ backgroundColor: "var(--bg-secondary)" }}
+                    >
+                      <h4
+                        className="font-semibold mb-2"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        General Settings
+                      </h4>
+                      <p style={{ color: "var(--text-secondary)" }}>
+                        Configure your general account preferences and display options.
+                      </p>
+                    </div>
+                  </TabPanel>
+                  <TabPanel id="security" orientation="vertical">
+                    <div
+                      className="p-4 rounded-md h-full"
+                      style={{ backgroundColor: "var(--bg-secondary)" }}
+                    >
+                      <h4
+                        className="font-semibold mb-2"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        Security Settings
+                      </h4>
+                      <p style={{ color: "var(--text-secondary)" }}>
+                        Manage your password, two-factor authentication, and privacy settings.
+                      </p>
+                    </div>
+                  </TabPanel>
+                  <TabPanel id="billing" orientation="vertical">
+                    <div
+                      className="p-4 rounded-md h-full"
+                      style={{ backgroundColor: "var(--bg-secondary)" }}
+                    >
+                      <h4
+                        className="font-semibold mb-2"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        Billing Information
+                      </h4>
+                      <p style={{ color: "var(--text-secondary)" }}>
+                        View your subscription details and payment history.
+                      </p>
+                    </div>
+                  </TabPanel>
+                </Tabs>
+              </div>
+            </div>
+
+            {/* Tab Sizes */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-4 [color:var(--text-secondary)]">
+                Tab Sizes
+              </h3>
+              <div className="space-y-6">
+                {/* Small */}
+                <div>
+                  <h4
+                    className="text-sm font-medium mb-3"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    Small Size
+                  </h4>
+                  <div className="max-w-md">
+                    <Tabs defaultSelectedKey="tab1">
+                      <TabList variant="soft" size="sm">
+                        <Tab id="tab1" variant="soft" size="sm">
+                          Tab 1
+                        </Tab>
+                        <Tab id="tab2" variant="soft" size="sm">
+                          Tab 2
+                        </Tab>
+                        <Tab id="tab3" variant="soft" size="sm">
+                          Tab 3
+                        </Tab>
+                      </TabList>
+                      <TabPanel id="tab1">
+                        <div
+                          className="p-3 rounded-md text-sm"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          Small tabs are perfect for compact interfaces.
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="tab2">
+                        <div
+                          className="p-3 rounded-md text-sm"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          Content for tab 2.
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="tab3">
+                        <div
+                          className="p-3 rounded-md text-sm"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          Content for tab 3.
+                        </div>
+                      </TabPanel>
+                    </Tabs>
+                  </div>
+                </div>
+
+                {/* Large */}
+                <div>
+                  <h4
+                    className="text-sm font-medium mb-3"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    Large Size
+                  </h4>
+                  <div className="max-w-xl">
+                    <Tabs defaultSelectedKey="home">
+                      <TabList variant="soft" size="lg">
+                        <Tab id="home" variant="soft" size="lg">
+                          Home
+                        </Tab>
+                        <Tab id="about" variant="soft" size="lg">
+                          About
+                        </Tab>
+                        <Tab id="contact" variant="soft" size="lg">
+                          Contact
+                        </Tab>
+                      </TabList>
+                      <TabPanel id="home">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          Large tabs are ideal for prominent navigation areas.
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="about">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          About us information and company details.
+                        </div>
+                      </TabPanel>
+                      <TabPanel id="contact">
+                        <div
+                          className="p-4 rounded-md"
+                          style={{ backgroundColor: "var(--bg-secondary)" }}
+                        >
+                          Contact information and support details.
+                        </div>
+                      </TabPanel>
+                    </Tabs>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

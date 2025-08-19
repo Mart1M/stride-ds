@@ -17,6 +17,7 @@ export * from './components/ui/Search';
 export * from './components/ui/Select';
 export * from './components/ui/Slider';
 export * from './components/ui/Switch';
+export * from './components/ui/Tabs';
 export * from './components/ui/Tag';
 
 // === PROVIDERS & UTILITIES ===
