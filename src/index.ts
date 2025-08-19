@@ -9,6 +9,7 @@ export * from './components/ui/Button';
 export * from './components/ui/Card';
 export * from './components/ui/Checkbox';
 export * from './components/ui/Choicebox';
+export * from './components/ui/Dialog';
 export * from './components/ui/Input';
 export * from './components/ui/Pagination';
 export * from './components/ui/Radio';
