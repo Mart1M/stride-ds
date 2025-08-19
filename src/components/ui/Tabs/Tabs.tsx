@@ -71,7 +71,7 @@ const tabVariants = cva(
     "font-medium transition-all cursor-pointer",
     "focus:outline-none focus:ring-2 focus:ring-offset-2",
     "[--tw-ring-color:var(--border-focus)]",
-    "disabled:cursor-not-allowed disabled:opacity-50 text-disabled",
+    "disabled:cursor-not-allowed disabled:opacity-50 disabled:[color:var(--text-disabled)]",
     "[transition-duration:var(--transition-normal)]",
     "[font-family:var(--font-family-primary)]",
   ],
@@ -134,8 +134,7 @@ const tabVariants = cva(
 
 const tabPanelVariants = cva(
   [
-    "mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2",
-    "[--tw-ring-color:var(--border-focus)]",
+    "mt-4",
     "[color:var(--text-primary)]",
     "[font-family:var(--font-family-primary)]",
   ],
