@@ -20,6 +20,7 @@ export * from './components/ui/Switch';
 export * from './components/ui/Tabs';
 export * from './components/ui/Tag';
 export * from './components/ui/Tooltip';
+export * from './components/ui/Toast';
 
 // === PROVIDERS & UTILITIES ===
 export * from './components/BrandInitializer';

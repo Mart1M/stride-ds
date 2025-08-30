@@ -5,6 +5,402 @@
 @source "./**/*.{js,jsx,ts,tsx,mdx}";
 @source "../.storybook/**/*.{js,jsx,ts,tsx,mdx}";
 
+/* Tailwind v4: Configure dark mode */
+@theme {
+  --color-scheme: light dark;
+}
+
+/* === TOAST ANIMATIONS === */
+@keyframes toastSlideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastSlideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastSlideInBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastSlideInTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+@keyframes toastBounceIn {
+  0% {
+    transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  70% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+/* === TOAST SLIDE CLASSES === */
+.toast-slide-in-right {
+  animation: toastSlideInRight 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-right {
+  animation: toastSlideOutRight 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.toast-slide-in-left {
+  animation: toastSlideInLeft 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-left {
+  animation: toastSlideOutLeft 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.toast-slide-in-top {
+  animation: toastSlideInTop 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-top {
+  animation: toastSlideOutTop 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.toast-slide-in-bottom {
+  animation: toastSlideInBottom 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-bottom {
+  animation: toastSlideOutBottom 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* === ACCORDION ANIMATIONS === */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    height: var(--accordion-content-height);
+    padding-top: var(--accordion-padding-y);
+    padding-bottom: var(--accordion-padding-y);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--accordion-content-height);
+    padding-top: var(--accordion-padding-y);
+    padding-bottom: var(--accordion-padding-y);
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-down-from-0 {
+  animation: slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-up-to-0 {
+  animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.animate-out {
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-out {
+  animation: fadeOut 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* === MODAL/DIALOG ANIMATIONS === */
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modal-content-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+}
+
+/* === REACT ARIA MODAL/DIALOG ANIMATIONS === */
+/* Based on official React Aria documentation */
+
+/* ModalOverlay animations - background fade */
+.react-aria-ModalOverlay[data-entering] {
+  animation: modal-overlay-in 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.react-aria-ModalOverlay[data-exiting] {
+  animation: modal-overlay-out 200ms ease-in;
+}
+
+/* Modal content animations - scale + fade */
+.react-aria-Modal[data-entering] {
+  animation: modal-content-in 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.react-aria-Modal[data-exiting] {
+  animation: modal-content-out 200ms ease-in;
+}
+
+/* Dialog specific animations */
+.react-aria-Dialog {
+  /* Ensure dialog is ready for animations */
+  transform-origin: center;
+}
+
+/* Alternative using CSS custom properties for easier theming */
+:root {
+  --modal-animation-duration-in: 300ms;
+  --modal-animation-duration-out: 200ms;
+  --modal-animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enhanced animations with custom properties */
+[data-entering].react-aria-ModalOverlay {
+  animation: modal-overlay-in var(--modal-animation-duration-in) var(--modal-animation-easing);
+}
+
+[data-exiting].react-aria-ModalOverlay {
+  animation: modal-overlay-out var(--modal-animation-duration-out) ease-in;
+}
+
+[data-entering].react-aria-Modal {
+  animation: modal-content-in var(--modal-animation-duration-in) var(--modal-animation-easing);
+}
+
+[data-exiting].react-aria-Modal {
+  animation: modal-content-out var(--modal-animation-duration-out) ease-in;
+}
+
+/* === ACCORDION CONTENT STATES === */
+/* React Aria Components Disclosure integration */
+
+/* Override React Aria's default hidden behavior to allow animations */
+.group [role="group"][aria-hidden="true"] {
+  display: block !important;
+  height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group [role="group"]:not([aria-hidden="true"]) {
+  display: block !important;
+  height: auto !important;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Handle the hidden attribute specifically */
+.group [role="group"][hidden] {
+  display: block !important;
+  height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+  opacity: 0;
+}
+
+/* Accordion trigger button states for chevron animation */
+.group button[aria-expanded="true"] .lucide-chevron-down {
+  transform: rotate(180deg);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group button[aria-expanded="false"] .lucide-chevron-down {
+  transform: rotate(0deg);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ensure all chevron icons have the transition */
+.lucide-chevron-down {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
 :root {
   /* === STRIDE DESIGN SYSTEM FOUNDATION TOKENS === */
   /* Note: All semantic and brand-specific tokens are managed in brands.css */
@@ -188,245 +584,4 @@ body {
 .focus-ring-success {
   @apply focus:outline-none focus:ring-2 focus:ring-offset-1;
   --tw-ring-color: var(--status-success);
-}
-
-/* === ACCORDION ANIMATIONS === */
-@keyframes accordion-down {
-  from {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    height: var(--accordion-content-height);
-    padding-top: var(--accordion-padding-y);
-    padding-bottom: var(--accordion-padding-y);
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--accordion-content-height);
-    padding-top: var(--accordion-padding-y);
-    padding-bottom: var(--accordion-padding-y);
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-}
-
-@keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-}
-
-.animate-accordion-down {
-  animation: accordion-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-accordion-up {
-  animation: accordion-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.slide-down-from-0 {
-  animation: slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.slide-up-to-0 {
-  animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-in {
-  animation-fill-mode: both;
-}
-
-.animate-out {
-  animation-fill-mode: both;
-}
-
-.fade-in {
-  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-out {
-  animation: fadeOut 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-/* === ACCORDION CONTENT STATES === */
-/* React Aria Components Disclosure integration */
-
-/* Override React Aria's default hidden behavior to allow animations */
-.group [role="group"][aria-hidden="true"] {
-  display: block !important;
-  height: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  overflow: hidden !important;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.group [role="group"]:not([aria-hidden="true"]) {
-  display: block !important;
-  height: auto !important;
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Handle the hidden attribute specifically */
-.group [role="group"][hidden] {
-  display: block !important;
-  height: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  overflow: hidden !important;
-  opacity: 0;
-}
-
-/* Accordion trigger button states for chevron animation */
-.group button[aria-expanded="true"] .lucide-chevron-down {
-  transform: rotate(180deg);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.group button[aria-expanded="false"] .lucide-chevron-down {
-  transform: rotate(0deg);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Ensure all chevron icons have the transition */
-.lucide-chevron-down {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-origin: center;
-}
-
-/* === MODAL/DIALOG ANIMATIONS === */
-@keyframes modal-overlay-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes modal-overlay-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes modal-content-in {
-  from {
-    opacity: 0;
-    transform: translateY(-16px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes modal-content-out {
-  from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-16px) scale(0.96);
-  }
-}
-
-/* === REACT ARIA MODAL/DIALOG ANIMATIONS === */
-/* Based on official React Aria documentation */
-
-/* ModalOverlay animations - background fade */
-.react-aria-ModalOverlay[data-entering] {
-  animation: modal-overlay-in 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.react-aria-ModalOverlay[data-exiting] {
-  animation: modal-overlay-out 200ms ease-in;
-}
-
-/* Modal content animations - scale + fade */
-.react-aria-Modal[data-entering] {
-  animation: modal-content-in 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.react-aria-Modal[data-exiting] {
-  animation: modal-content-out 200ms ease-in;
-}
-
-/* Dialog specific animations */
-.react-aria-Dialog {
-  /* Ensure dialog is ready for animations */
-  transform-origin: center;
-}
-
-/* Alternative using CSS custom properties for easier theming */
-:root {
-  --modal-animation-duration-in: 300ms;
-  --modal-animation-duration-out: 200ms;
-  --modal-animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Enhanced animations with custom properties */
-[data-entering].react-aria-ModalOverlay {
-  animation: modal-overlay-in var(--modal-animation-duration-in) var(--modal-animation-easing);
-}
-
-[data-exiting].react-aria-ModalOverlay {
-  animation: modal-overlay-out var(--modal-animation-duration-out) ease-in;
-}
-
-[data-entering].react-aria-Modal {
-  animation: modal-content-in var(--modal-animation-duration-in) var(--modal-animation-easing);
-}
-
-[data-exiting].react-aria-Modal {
-  animation: modal-content-out var(--modal-animation-duration-out) ease-in;
 }

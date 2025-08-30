@@ -10,6 +10,156 @@
   --color-scheme: light dark;
 }
 
+/* === TOAST ANIMATIONS === */
+@keyframes toastSlideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastSlideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastSlideInBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastSlideInTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOutTop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+@keyframes toastBounceIn {
+  0% {
+    transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  70% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+/* === TOAST SLIDE CLASSES === */
+.toast-slide-in-right {
+  animation: toastSlideInRight 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-right {
+  animation: toastSlideOutRight 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.toast-slide-in-left {
+  animation: toastSlideInLeft 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-left {
+  animation: toastSlideOutLeft 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.toast-slide-in-top {
+  animation: toastSlideInTop 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-top {
+  animation: toastSlideOutTop 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.toast-slide-in-bottom {
+  animation: toastSlideInBottom 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-slide-out-bottom {
+  animation: toastSlideOutBottom 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
 /* === ACCORDION ANIMATIONS === */
 @keyframes accordion-down {
   from {

@@ -3,7 +3,7 @@ import { TooltipWrapper } from "./Tooltip";
 import { Button } from "../Button";
 
 const meta: Meta<typeof TooltipWrapper> = {
-  title: "UI/Tooltip",
+  title: "Stride DS/Tooltip",
   component: TooltipWrapper,
   parameters: {
     layout: "centered",
